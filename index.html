@@ -1,156 +1,764 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flysquawk Integrated Sdn Bhd - Preserving Power. Protecting Capital.</title>
-  <link href="assets/styles.css" rel="stylesheet" />
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="assets/styles.css" rel="stylesheet">
 </head>
 <body>
   <!-- Navigation -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="#" id="logo">FLYSQUAWK</a>
-      <nav class="main-nav" aria-label="Primary">
-        <ul class="nav-list" id="navList">
-          <li><a href="#" data-page="home" class="nav-link active">Home</a></li>
-          <li><a href="#" data-page="about" class="nav-link">About</a></li>
-          <li><a href="#" data-page="services" class="nav-link">Services</a></li>
-          <li><a href="#" data-page="projects" class="nav-link">Projects</a></li>
-          <li><a href="#" data-page="contact" class="nav-link">Contact</a></li>
-        </ul>
-        <button id="mobileToggle" class="mobile-toggle" aria-label="Toggle menu">☰</button>
-      </nav>
+  <nav>
+    <div class="nav-container">
+      <div class="logo-section">
+        <a href="#" class="logo" onclick="event.preventDefault(); showPage('home');">
+          <span class="logo-text">FLYSQUAWK</span>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" data-page="home" class="active">Home</a></li>
+        <li><a href="#" data-page="about">About</a></li>
+        <li><a href="#" data-page="services">Services</a></li>
+        <li><a href="#" data-page="projects">Projects</a></li>
+        <li><a href="#" data-page="contact">Contact</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
-  <main>
-    <!-- Home / Hero -->
-    <section id="home" class="hero">
-      <svg class="hero-bg" viewBox="0 0 200 200" aria-hidden="true">
-        <!-- simplified turbine SVG for decoration -->
-        <circle cx="100" cy="100" r="80" fill="none" stroke="white" stroke-width="2"/>
-        <circle cx="100" cy="100" r="15" fill="white"/>
+  <!-- HOME PAGE -->
+  <div id="page-home" class="page">
+    <!-- Hero Section -->
+    <section class="hero">
+      <svg class="hero-turbine" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="80" fill="none" stroke="white" stroke-width="2" />
+        <circle cx="100" cy="100" r="60" fill="none" stroke="white" stroke-width="1.5" />
+        <circle cx="100" cy="100" r="40" fill="none" stroke="white" stroke-width="1" />
+        <path d="M100,20 L110,90 L100,100 L90,90 Z" fill="white" opacity="0.6" />
+        <path d="M180,100 L110,110 L100,100 L110,90 Z" fill="white" opacity="0.6" />
+        <path d="M100,180 L90,110 L100,100 L110,110 Z" fill="white" opacity="0.6" />
+        <path d="M20,100 L90,90 L100,100 L90,110 Z" fill="white" opacity="0.6" />
+        <path d="M145,55 L110,95 L100,100 L105,90 Z" fill="white" opacity="0.4" />
+        <path d="M145,145 L105,110 L100,100 L110,105 Z" fill="white" opacity="0.4" />
+        <path d="M55,145 L90,105 L100,100 L95,110 Z" fill="white" opacity="0.4" />
+        <path d="M55,55 L95,90 L100,100 L90,95 Z" fill="white" opacity="0.4" />
+        <circle cx="100" cy="100" r="15" fill="white" />
       </svg>
-      <div class="container hero-content">
-        <h1 class="hero-title">Preserving Power. Protecting Capital.</h1>
-        <p class="hero-tagline">The MRO that keeps your classic turbines alive.</p>
-        <p class="hero-subtext">Flysquawk Integrated Sdn Bhd is Malaysia's trusted Maintenance, Repair, and Overhaul (MRO) partner — dedicated to revitalising ageing industrial and aviation rotating equipment such as turbines, compressors, and pumps.</p>
-        <div class="hero-ctas">
-          <a class="btn" href="#services">Discover Our Services</a>
-          <a class="btn btn-outline" href="#projects">See Our Projects</a>
-          <a class="btn" href="#contact">Talk to Our Engineers</a>
+      <div class="hero-content">
+        <h1 id="hero-headline">Preserving Power. Protecting Capital.</h1>
+        <p class="tagline" id="tagline">The MRO that keeps your classic turbines alive.</p>
+        <p id="hero-subtext">Flysquawk Integrated Sdn Bhd is Malaysia's trusted Maintenance, Repair, and Overhaul (MRO) partner — dedicated to revitalising ageing industrial and aviation rotating equipment such as turbines, compressors, and pumps.</p>
+        <div class="hero-cta-container">
+          <a href="#services" class="cta-button cta-compact" id="cta-button-1">🔹 Discover Our Services</a>
+          <a href="#projects" class="cta-button cta-compact" id="cta-button-2">🔹 See Our Projects</a>
+          <a href="#contact" class="cta-button cta-compact" id="cta-button-3">🔹 Talk to Our Engineers</a>
         </div>
       </div>
     </section>
 
-    <!-- Highlights -->
-    <section id="highlights" class="section highlights">
-      <div class="container">
-        <h2 class="section-title">Core Capabilities</h2>
-        <div class="grid grid-4">
-          <article class="card">
-            <div class="card-icon">⚙️</div>
-            <h3>Steam Turbine Overhaul</h3>
-            <p>Complete restoration of industrial steam turbines with precision engineering and performance recovery.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon">🔄</div>
-            <h3>Centrifugal Compressor</h3>
-            <p>Expert maintenance and repair of high-performance compressor systems for optimal efficiency.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon">💧</div>
-            <h3>Centrifugal Pump Repair</h3>
-            <p>Specialized pump restoration services ensuring reliability and extended operational life.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon">🔬</div>
-            <h3>Reverse Engineering</h3>
-            <p>Advanced replication and improvement of legacy components using modern manufacturing techniques.</p>
-          </article>
+    <!-- Highlights Section -->
+    <section class="highlights">
+      <div class="brand-philosophy">
+        <h3 class="philosophy-title">Our Brand Philosophy</h3>
+        <p class="philosophy-quote">"Old is Gold — if cared for by the right hands."</p>
+        <div class="philosophy-grid">
+          <p class="philosophy-text">While others rush to replace, we restore.</p>
+          <p class="philosophy-text">We bring old turbines and compressors back to life with precision, patience, and passion — preserving the machines that once powered Malaysia's growth.</p>
+        </div>
+        <p class="philosophy-mission">Our mission is to help industries preserve their engineering legacy, protect capital, and achieve sustainable performance — without the financial burden of constant replacement.</p>
+      </div>
+      
+      <h2 class="section-title fade-in">Core Capabilities</h2>
+      <div class="highlights-grid">
+        <div class="highlight-card fade-in">
+          <div class="highlight-icon">⚙️</div>
+          <h3>Steam Turbine Overhaul</h3>
+          <p>Complete restoration of industrial steam turbines with precision engineering and performance recovery.</p>
+        </div>
+        <div class="highlight-card fade-in">
+          <div class="highlight-icon">🔄</div>
+          <h3>Centrifugal Compressor</h3>
+          <p>Expert maintenance and repair of high-performance compressor systems for optimal efficiency.</p>
+        </div>
+        <div class="highlight-card fade-in">
+          <div class="highlight-icon">💧</div>
+          <h3>Centrifugal Pump Repair</h3>
+          <p>Specialized pump restoration services ensuring reliability and extended operational life.</p>
+        </div>
+        <div class="highlight-card fade-in">
+          <div class="highlight-icon">🔬</div>
+          <h3>Reverse Engineering</h3>
+          <p>Advanced replication and improvement of legacy components using modern manufacturing techniques.</p>
+        </div>
+        <div class="highlight-card fade-in">
+          <div class="highlight-icon">🛠️</div>
+          <h3>Field Services</h3>
+          <p>On-site diagnostics, maintenance, and emergency repair services across Malaysia.</p>
         </div>
       </div>
     </section>
 
-    <!-- Industries (slider simplified) -->
-    <section id="industries" class="section industries">
-      <div class="container">
-        <h2 class="section-title">Industries We Serve</h2>
-        <div class="slider" id="industriesSlider">
-          <div class="slides">
-            <div class="slide">🌴<h4>Palm Oil</h4><p>Steam turbines, pumps and compressors for mill operations.</p></div>
-            <div class="slide">⛽<h4>Oil & Gas</h4><p>Industrial gas turbines, compressor systems, rotating equipment.</p></div>
-            <div class="slide">✈️<h4>Aviation</h4><p>Aircraft engines, aero-derivative turbines and asset management.</p></div>
-            <div class="slide">🚢<h4>Marine</h4><p>Marine propulsion systems and offshore rotating equipment.</p></div>
-            <div class="slide">⚡<h4>Power Generation</h4><p>Steam and gas turbines for thermal and renewable energy plants.</p></div>
+    <!-- Industries Section -->
+    <section class="industries-section">
+      <h2 class="section-title fade-in">Industries We Serve</h2>
+      <div class="industries-container">
+        <div class="industries-slider">
+          <div class="industries-slider-container">
+            <div class="industry-slide-card">
+              <div class="industry-icon">🌴</div>
+              <h3>Palm Oil</h3>
+              <p>Steam turbines, centrifugal pumps, and compressors for mill operations, refineries, and biomass power plants across Malaysia's palm oil industry.</p>
+            </div>
+            <div class="industry-slide-card">
+              <div class="industry-icon">⛽</div>
+              <h3>Oil & Gas</h3>
+              <p>Industrial gas turbines, compressor systems, and rotating equipment for upstream, midstream, and downstream operations.</p>
+            </div>
+            <div class="industry-slide-card">
+              <div class="industry-icon">✈️</div>
+              <h3>Aviation</h3>
+              <p>Aircraft engines, aero-derivative turbines, and aviation asset management solutions with FAA certification and global standards.</p>
+            </div>
+            <div class="industry-slide-card">
+              <div class="industry-icon">🚢</div>
+              <h3>Marine</h3>
+              <p>Marine propulsion systems, ship turbines, and offshore platform rotating equipment for maritime and offshore industries.</p>
+            </div>
+            <div class="industry-slide-card">
+              <div class="industry-icon">⚡</div>
+              <h3>Power Generation</h3>
+              <p>Steam and gas turbines for thermal power plants, combined cycle facilities, and renewable energy installations.</p>
+            </div>
           </div>
-          <button class="slider-prev" id="industriesPrev" aria-label="Previous">‹</button>
-          <button class="slider-next" id="industriesNext" aria-label="Next">›</button>
+          <button class="industries-slider-prev">‹</button>
+          <button class="industries-slider-next">›</button>
         </div>
       </div>
     </section>
+  </div>
+  <!-- END HOME PAGE -->
 
-    <!-- About -->
-    <section id="about" class="section about">
-      <div class="container">
-        <h2 class="section-title">About Us</h2>
-        <div class="card about-card">
-          <h3>Company Overview</h3>
+  <!-- ABOUT PAGE -->
+  <div id="page-about" class="page page-hidden">
+    <section class="about">
+      <h2 class="section-title fade-in">About Us</h2>
+      
+      <!-- Company Overview -->
+      <div class="about-section-wrapper">
+        <div class="about-card fade-in">
+          <h3 class="about-section-title">01. Company Overview</h3>
+          <h4 class="about-subtitle">Rejuvenate Your Industrial and Aviation Power</h4>
           <p>Flysquawk Integrated Sdn Bhd is a Malaysian-based Maintenance, Repair, and Overhaul (MRO) partner and asset management solutions provider, specialising in aviation engines, industrial aero-derivative turbines, steam turbines, centrifugal compressors, centrifugal pumps, and non-destructive testing (NDT).</p>
-          <p><strong>Notable:</strong> Appointed MRO Partner for PT Nusantara Turbin dan Propulsi (NTP) for rotating equipment services in Malaysia's palm oil industry.</p>
+          <p>In 2025, Flysquawk was officially recognised as the <strong>MRO Partner for PT Nusantara Turbin dan Propulsi (NTP)</strong> — Indonesia's leading turbine and propulsion specialist — specifically for rotating equipment services in Malaysia's palm oil industry.</p>
+          <p>This appointment covers steam turbines, centrifugal compressors, centrifugal pumps, and reverse engineering of rotating components, supporting mill operators, refineries, and green energy plants throughout Malaysia.</p>
+          <p>Through this partnership, Flysquawk connects NTP's 36 years of engineering expertise with Malaysia's industrial and agricultural energy sectors — delivering global-standard maintenance quality, local agility, and sustainable lifecycle solutions that enhance production reliability and energy efficiency.</p>
+        </div>
+      </div>
+
+      <!-- Vision & Mission -->
+      <div class="about-section-wrapper">
+        <div class="vision-mission-grid">
+          <div class="vision-card fade-in">
+            <h3>02. Vision</h3>
+            <p>To be the leading enabler of sustainable industrial and rotating equipment MRO solutions in Malaysia and ASEAN — empowering a decarbonised future through energy-efficient innovations and partnerships.</p>
+          </div>
+          <div class="mission-card fade-in">
+            <h3>Mission</h3>
+            <ul>
+              <li>Deliver MRO solutions that extend equipment lifespan and maximise operational uptime in Malaysia's palm oil and energy industries</li>
+              <li>Represent and promote PT NTP's advanced turbine and rotating equipment capabilities across Malaysia and ASEAN</li>
+              <li>Strengthen industrial reliability through precision reverse engineering and lifecycle management</li>
+              <li>Support clean energy transitions through efficient steam and mechanical power recovery systems</li>
+              <li>Build long-term partnerships with plantation groups, energy operators, and government-linked companies (GLCs)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Corporate Milestones -->
+      <div class="about-section-wrapper">
+        <div class="milestones-section fade-in">
+          <h3 class="about-section-title-center">03. Corporate Milestones</h3>
+          <div class="milestones-grid">
+            <div class="milestone-item milestone-purple">
+              <div class="milestone-header">
+                <span class="milestone-year">2017–2021</span>
+              </div>
+              <p>Flysquawk founded with the vision to pioneer Malaysia's first seaplane operation, later expanding into aviation and industrial asset management.</p>
+            </div>
+            <div class="milestone-item milestone-blue">
+              <div class="milestone-header">
+                <span class="milestone-year">2022–2023</span>
+              </div>
+              <p>Opened NewCo (new company) named Flysquawk Integrated to replace domain Flysquawk Sdn Bhd. Managed Boeing 747 (9M-MPD) acquisition and disposal project under Malaysia Insolvency Department, showcasing complex cross-agency coordination.</p>
+            </div>
+            <div class="milestone-item milestone-gold">
+              <div class="milestone-header">
+                <span class="milestone-year">2024</span>
+              </div>
+              <p>Initiated collaboration with PT Nusantara Turbin dan Propulsi (NTP) for overseas Grob M250-B17F engine rectification.</p>
+            </div>
+            <div class="milestone-item milestone-current">
+              <div class="milestone-header">
+                <span class="milestone-year">2025</span>
+                <span class="milestone-badge">CURRENT</span>
+              </div>
+              <p><strong>Appointed as MRO Partner for Rotating Equipment in Malaysia's Palm Oil Industry</strong>, covering steam turbines, centrifugal compressors, centrifugal pumps, and reverse engineering services.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brand Philosophy -->
+      <div class="about-section-wrapper">
+        <div class="philosophy-section fade-in">
+          <h3 class="about-section-title-center">Our Brand Philosophy</h3>
+          <p class="philosophy-quote">"Old is Gold — if cared for by the right hands."</p>
+          <div class="philosophy-grid-about">
+            <p>While others rush to replace, we restore.</p>
+            <p>We bring old turbines and compressors back to life with precision, patience, and passion — preserving the machines that once powered Malaysia's growth.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partnership Section -->
+      <div class="about-section-wrapper">
+        <div class="partnership-section fade-in">
+          <h3 class="about-section-title-center">Partnership with PT Nusantara Turbin dan Propulsi (NTP)</h3>
+          <div class="partnership-grid">
+            <div class="partnership-col">
+              <h4>NTP Highlights</h4>
+              <ul>
+                <li>36+ years of aviation and industrial experience</li>
+                <li>Certifications: FAA (USA), DGCA (Indonesia), ISO 9001:2015, ISO/IEC 17025:2017</li>
+                <li>OEM Authorised for GE, Honeywell, Solar Turbine</li>
+                <li>45,000 m² facility in Bandung, Indonesia</li>
+              </ul>
+            </div>
+            <div class="partnership-col">
+              <h4>Joint Capabilities</h4>
+              <ul>
+                <li>Gas & steam turbine overhaul (Solar, GE LM series)</li>
+                <li>Reverse engineering up to 4 MW</li>
+                <li>Centrifugal pump and compressor MRO</li>
+                <li>Industrial coatings (Sermetel, Sermalon)</li>
+                <li>Field services, vibration diagnostics, on-site machining</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Facilities Section -->
+      <div class="about-section-wrapper">
+        <div class="facilities-section fade-in">
+          <h3 class="about-section-title-center">Our Facilities</h3>
+          <div class="facilities-grid">
+            <div class="facility-card">
+              <h4 class="facility-title"><span>🇲🇾</span> Malaysia</h4>
+              <p><strong>Office:</strong> Cyberjaya, Selangor</p>
+              <p><strong>Scope:</strong> Client liaison, inspection coordination, project management</p>
+            </div>
+            <div class="facility-card">
+              <h4 class="facility-title"><span>🇮🇩</span> Indonesia (via NTP)</h4>
+              <ul>
+                <li>45,000 m² MRO facility</li>
+                <li>Test cells for Solar Turbine engines</li>
+                <li>Advanced machining, balancing, calibration, and coating workshops</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="about-section-wrapper">
+        <div class="certifications-section fade-in">
+          <h3 class="about-section-title-center">Certifications & Compliance</h3>
+          <div class="certifications-grid">
+            <div class="certification-col">
+              <h4>NTP Certifications</h4>
+              <div class="certification-badges">
+                <span class="cert-badge">FAA</span>
+                <span class="cert-badge">DGCA</span>
+                <span class="cert-badge">ISO 9001:2015</span>
+                <span class="cert-badge">ISO/IEC 17025:2017</span>
+              </div>
+            </div>
+            <div class="certification-col">
+              <h4>Flysquawk Registrations</h4>
+              <div class="certification-badges-alt">
+                <span class="cert-badge-alt">MOF B-02</span>
+                <span class="cert-badge-alt">CIDB SL162280</span>
+                <span class="cert-badge-alt">SSM 1484370-V</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+  </div>
+  <!-- END ABOUT PAGE -->
 
-    <!-- Services (shortened) -->
-    <section id="services" class="section services">
-      <div class="container">
-        <h2 class="section-title">Services</h2>
-        <div class="grid grid-3">
-          <div class="card"><h4>Blade Reconditioning</h4><p>Precision restoration of turbine blades with advanced coating and balancing techniques.</p></div>
-          <div class="card"><h4>Dynamic Balancing</h4><p>High-precision rotor balancing for optimal performance and vibration reduction.</p></div>
-          <div class="card"><h4>Shaft Replacement</h4><p>Complete shaft manufacturing and replacement with enhanced material specifications.</p></div>
+  <!-- SERVICES PAGE -->
+  <div id="page-services" class="page page-hidden">
+    <section class="services services-page">
+      <!-- Header Section -->
+      <header class="services-header">
+        <h2 class="services-main-title">Our Core Capabilities</h2>
+        <div class="title-divider"></div>
+        <p class="services-philosophy">"Old is Gold — if cared for by the right hands."</p>
+        <p class="services-description">While others rush to replace, we restore. We bring old turbines and compressors back to life with precision, patience, and passion — preserving the machines that once powered Malaysia's growth.</p>
+      </header>
+
+      <div class="capabilities-container">
+        <!-- Capability 1: Steam Turbine Manufacturing & Reverse Engineering -->
+        <div class="capability-section fade-in">
+          <div class="capability-header">
+            <h3 class="capability-title">
+              <svg class="capability-icon" width="40" height="40" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#F7931E" stroke-width="4" />
+                <path d="M50,10 L60,45 L50,50 L40,45 Z" fill="#F7931E" />
+                <path d="M90,50 L55,60 L50,50 L55,40 Z" fill="#F7931E" />
+                <path d="M50,90 L40,55 L50,50 L60,55 Z" fill="#F7931E" />
+                <path d="M10,50 L45,40 L50,50 L45,60 Z" fill="#F7931E" />
+                <circle cx="50" cy="50" r="8" fill="#0A2342" />
+              </svg>
+              Steam Turbine Manufacturing & Reverse Engineering
+            </h3>
+            <p class="capability-subtitle">Precision restoration for steam turbines up to 4MW.</p>
+          </div>
+          <div class="capability-slider">
+            <div class="slider-container">
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">⚙️</div>
+                    Blade Reconditioning<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Blade Reconditioning</h4>
+                <p>Precision restoration of turbine blades with advanced coating and balancing techniques.</p>
+              </div>
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">⚖️</div>
+                    Dynamic Balancing<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Dynamic Balancing</h4>
+                <p>High-precision rotor balancing for optimal performance and vibration reduction.</p>
+              </div>
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">🔧</div>
+                    Shaft Replacement<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Shaft Replacement</h4>
+                <p>Complete shaft manufacturing and replacement with enhanced material specifications.</p>
+              </div>
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">🏗️</div>
+                    Casing Repair<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Casing Repair</h4>
+                <p>Structural restoration and reinforcement of turbine casings and housings.</p>
+              </div>
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">🔒</div>
+                    Labyrinth Seal Repair<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Labyrinth Seal Repair</h4>
+                <p>Advanced sealing system restoration for improved efficiency and performance.</p>
+              </div>
+            </div>
+            <button class="slider-prev">‹</button>
+            <button class="slider-next">›</button>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="capability-divider"></div>
+
+        <!-- Capability 2: Centrifugal Pump Capabilities -->
+        <div class="capability-section fade-in">
+          <div class="capability-header">
+            <h3 class="capability-title">
+              <svg class="capability-icon" width="40" height="40" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#F7931E" stroke-width="4" />
+                <path d="M30,50 Q50,30 70,50 Q50,70 30,50" fill="#F7931E" />
+                <circle cx="50" cy="50" r="12" fill="#0A2342" />
+                <rect x="45" y="10" width="10" height="15" fill="#C49A6C" />
+              </svg>
+              Centrifugal Pump Capabilities
+            </h3>
+            <p class="capability-subtitle">Restoring pump performance with long-term reliability.</p>
+          </div>
+          <div class="capability-slider">
+            <div class="slider-container">
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">🔧</div>
+                    Maintenance & Overhaul<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Maintenance & Overhaul</h4>
+                <p>Comprehensive pump maintenance and complete overhaul services for optimal performance.</p>
+              </div>
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">🌀</div>
+                    Impeller Reverse Engineering<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Impeller Reverse Engineering</h4>
+                <p>Advanced impeller replication and performance enhancement through reverse engineering.</p>
+              </div>
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">⚙️</div>
+                    Shaft & Sleeve Bearing Repair<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Shaft & Sleeve Bearing Repair</h4>
+                <p>Precision shaft and bearing restoration for extended operational life.</p>
+              </div>
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">🏆</div>
+                    Chevron LTSA 7-Year Project<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Chevron LTSA 7-Year Project Highlight</h4>
+                <p>Long-term service agreement success story with major oil & gas operator.</p>
+              </div>
+            </div>
+            <button class="slider-prev">‹</button>
+            <button class="slider-next">›</button>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="capability-divider"></div>
+
+        <!-- Capability 3: Centrifugal Compressor Capabilities -->
+        <div class="capability-section fade-in">
+          <div class="capability-header">
+            <h3 class="capability-title">
+              <svg class="capability-icon" width="40" height="40" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="35" fill="none" stroke="#F7931E" stroke-width="4" />
+                <path d="M25,50 L35,40 L35,45 L65,45 L65,40 L75,50 L65,60 L65,55 L35,55 L35,60 Z" fill="#F7931E" />
+                <circle cx="50" cy="50" r="8" fill="#0A2342" />
+              </svg>
+              Centrifugal Compressor Capabilities
+            </h3>
+            <p class="capability-subtitle">15 years of reverse engineering excellence for global OEM models.</p>
+          </div>
+          <div class="capability-slider">
+            <div class="slider-container">
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">🏭</div>
+                    ABB / Alstom<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>ABB / Alstom</h4>
+                <p>Specialized maintenance and reverse engineering for ABB and Alstom compressor systems.</p>
+              </div>
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">⚡</div>
+                    GE Frame Series<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>GE Frame Series (3, 5, 6, 7, 9)</h4>
+                <p>Complete overhaul capabilities for GE Frame series compressors across all major models.</p>
+              </div>
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">🔧</div>
+                    Siemens V Series<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Siemens V Series</h4>
+                <p>Expert restoration services for Siemens V Series compressor technology.</p>
+              </div>
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">🏗️</div>
+                    Mitsubishi Heavy Industries<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Mitsubishi Heavy Industries</h4>
+                <p>Precision maintenance for MHI compressor systems with OEM-standard quality.</p>
+              </div>
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">☀️</div>
+                    Solar Turbine / Elliott<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Solar Turbine / Elliott</h4>
+                <p>Authorized service capabilities for Solar Turbine and Elliott compressor equipment.</p>
+              </div>
+            </div>
+            <button class="slider-prev">‹</button>
+            <button class="slider-next">›</button>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="capability-divider"></div>
+
+        <!-- Capability 4: Field Services & On-Site Support -->
+        <div class="capability-section fade-in">
+          <div class="capability-header">
+            <h3 class="capability-title">
+              <svg class="capability-icon" width="40" height="40" viewBox="0 0 100 100">
+                <rect x="20" y="30" width="60" height="40" rx="5" fill="none" stroke="#F7931E" stroke-width="4" />
+                <path d="M30,40 L40,50 L60,30" fill="none" stroke="#0A2342" stroke-width="3" />
+                <circle cx="25" cy="25" r="3" fill="#C49A6C" />
+                <circle cx="75" cy="25" r="3" fill="#C49A6C" />
+                <rect x="45" y="15" width="10" height="10" fill="#F7931E" />
+              </svg>
+              Field Services & On-Site Support
+            </h3>
+            <p class="capability-subtitle">Rapid, precise, and certified industrial field maintenance.</p>
+          </div>
+          <div class="capability-slider">
+            <div class="slider-container">
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">⚖️</div>
+                    Rotor Balancing & Alignment<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Rotor Balancing & Alignment</h4>
+                <p>Precision on-site rotor balancing and shaft alignment services for optimal performance.</p>
+              </div>
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">🔧</div>
+                    Bearing Replacement<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Bearing Replacement</h4>
+                <p>Expert on-site bearing replacement and installation with minimal downtime.</p>
+              </div>
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">❄️</div>
+                    Cooling System Inspection<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Cooling System Inspection</h4>
+                <p>Comprehensive cooling system diagnostics and maintenance for thermal management.</p>
+              </div>
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">🏭</div>
+                    In-situ Machining<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>In-situ Machining</h4>
+                <p>Advanced on-site machining capabilities for immediate repairs and modifications.</p>
+              </div>
+              <div class="slide-card">
+                <div class="slide-image">
+                  <div class="slide-image-content">
+                    <div class="slide-emoji">🚀</div>
+                    Start-up & Commissioning<br>Image Placeholder
+                  </div>
+                </div>
+                <h4>Start-up & Commissioning</h4>
+                <p>Professional equipment start-up and commissioning services ensuring safe operation.</p>
+              </div>
+            </div>
+            <button class="slider-prev">‹</button>
+            <button class="slider-next">›</button>
+          </div>
         </div>
       </div>
     </section>
+  </div>
+  <!-- END SERVICES PAGE -->
 
-    <!-- Projects (placeholder) -->
-    <section id="projects" class="section projects">
-      <div class="container">
-        <h2 class="section-title">Selected Projects</h2>
-        <div class="card">Project highlights and results go here.</div>
-      </div>
-    </section>
+  <!-- PROJECTS PAGE -->
+  <div id="page-projects" class="page page-hidden">
+    <section class="projects">
+      <h2 class="section-title fade-in">Our Projects & Track Record</h2>
+      
+      <div class="projects-container">
+        <!-- Featured Project -->
+        <article class="project-featured fade-in">
+          <div class="project-content">
+            <span class="project-tag">FEATURED PROJECT</span>
+            <h3>Palm Oil Mill Steam Turbine Restoration</h3>
+            <p>Complete overhaul and reverse engineering of legacy steam turbine for Malaysia's leading palm oil mill operator.</p>
+            <div class="project-details">
+              <div class="project-detail">
+                <h4>Equipment</h4>
+                <p>4MW Industrial Steam Turbine, 40+ years in service</p>
+              </div>
+              <div class="project-detail">
+                <h4>Challenge</h4>
+                <p>OEM parts discontinued, frequent unplanned shutdowns affecting mill operations</p>
+              </div>
+              <div class="project-detail">
+                <h4>Solution</h4>
+                <p>Full component reverse engineering, blade reconditioning, shaft replacement, and dynamic balancing</p>
+              </div>
+            </div>
+            <div class="result-highlight">
+              <h4>95% Efficiency Recovery</h4>
+              <p>Extended operational life by 15 years • Zero unplanned shutdowns in first 12 months</p>
+            </div>
+          </div>
+        </article>
 
-    <!-- Contact -->
-    <section id="contact" class="section contact">
-      <div class="container contact-grid">
-        <div class="card contact-info">
-          <h3>Contact</h3>
-          <p>Office: Cyberjaya, Selangor</p>
-          <p>Email: hello@flysquawk.com (replace with real address)</p>
+        <!-- Other Projects Grid -->
+        <div class="projects-grid fade-in">
+          <article class="project-card">
+            <div class="project-card-header">
+              <span class="project-type">Centrifugal Compressor</span>
+            </div>
+            <h4>Oil & Gas Platform Compressor Overhaul</h4>
+            <p>Emergency restoration of critical gas compressor for offshore platform operation.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-card-header">
+              <span class="project-type">Field Services</span>
+            </div>
+            <h4>On-Site Rotor Balancing & Alignment</h4>
+            <p>Rapid response field service preventing costly production shutdown at refinery facility.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-card-header">
+              <span class="project-type">Aviation</span>
+            </div>
+            <h4>Grob M250-B17F Engine Rectification</h4>
+            <p>International collaboration with NTP for aviation engine overhaul and certification.</p>
+          </article>
         </div>
-        <form class="card contact-form" id="contactForm">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" required />
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required />
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
-          <button class="btn" type="submit">Send Message</button>
-        </form>
       </div>
     </section>
-  </main>
+  </div>
+  <!-- END PROJECTS PAGE -->
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-logos">FLYSQUAWK • Partner: NTP</div>
-      <p class="copyright">&copy; <span id="year"></span> Flysquawk Integrated Sdn Bhd. All rights reserved.</p>
+  <!-- CONTACT PAGE -->
+  <div id="page-contact" class="page page-hidden">
+    <section class="contact">
+      <h2 class="section-title fade-in">Get In Touch</h2>
+      
+      <div class="contact-container">
+        <!-- Contact Information -->
+        <div class="contact-info fade-in">
+          <h3>Contact Information</h3>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h4>Malaysia Office</h4>
+              <p>Cyberjaya, Selangor, Malaysia</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-details">
+              <h4>Phone</h4>
+              <p class="phone-number">+60 19 986 9487</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-details">
+              <h4>Email</h4>
+              <p class="email-address">enquiry@flysquawk.com.my</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🏭</div>
+            <div class="contact-details">
+              <h4>MRO Facility (via NTP)</h4>
+              <p>45,000 m² Advanced MRO Facility<br>Bandung, Indonesia</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form fade-in">
+          <form id="enquiry-form">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="company">Company / Organization</label>
+              <input type="text" id="company" name="company" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message / Enquiry</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Send Enquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- END CONTACT PAGE -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logos">
+        <div class="footer-partnership">
+          <span class="footer-logo">FLYSQUAWK</span>
+          <span>•</span>
+          <span>Partner: NTP</span>
+        </div>
+      </div>
+      <div class="certifications">
+        <span class="cert-badge">MOF B-02</span>
+        <span class="cert-badge">CIDB SL162280</span>
+        <span class="cert-badge">SSM 1484370-V</span>
+      </div>
+      <p class="copyright">&copy; 2025 Flysquawk Integrated Sdn Bhd. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="assets/script.js"></script>
+  <!-- Floating Contact Button -->
+  <a href="#contact" class="floating-contact" onclick="event.preventDefault(); showPage('contact');">
+    <span>💬</span>
+    <span>Contact Us</span>
+  </a>
+
+  <script src="assets/script.js" defer></script>
 </body>
 </html>

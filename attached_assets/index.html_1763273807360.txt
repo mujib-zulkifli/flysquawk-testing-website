@@ -1,0 +1,2367 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flysquawk Integrated Sdn Bhd - Preserving Power. Protecting Capital.</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet">
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333333;
+            background: #F4F4F4;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(43, 0, 87, 0.08);
+            z-index: 1000;
+            padding: 1rem 5%;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', 'Eurostile', 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #2B0057 0%, #5A00A0 50%, #A8E0FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2B0057;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #5A00A0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #5A00A0, #A8E0FF);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #5A00A0;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100%;
+            min-height: 600px;
+            background: linear-gradient(180deg, #2B0057 0%, #5A00A0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero-turbine {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            opacity: 0.15;
+            animation: rotate 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, #5A00A0, #A8E0FF);
+            color: #2B0057;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(90, 0, 160, 0.3);
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: #2B0057;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(168, 224, 255, 0.5);
+        }
+
+        /* Highlights Grid */
+        .highlights {
+            padding: 5rem 5%;
+            background: #F4F4F4;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            color: #2B0057;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .highlight-card {
+            background: white;
+            border: 2px solid #5A00A0;
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .highlight-card:hover {
+            border-color: #A8E0FF;
+            box-shadow: 0 10px 40px rgba(168, 224, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .highlight-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            color: #2B0057;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .highlight-card p {
+            color: #666666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            background: linear-gradient(180deg, #F4F4F4 0%, white 100%);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: #2B0057;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #333333;
+            font-size: 1.05rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(43, 0, 87, 0.1);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #2B0057, #5A00A0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: #666666;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 5%;
+            background: #F4F4F4;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #2B0057 0%, #5A00A0 100%);
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(168, 224, 255, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(168, 224, 255, 0.4);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card p {
+            line-height: 1.7;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 5rem 5%;
+            background: #F4F4F4;
+        }
+
+        .project-featured {
+            max-width: 1200px;
+            margin: 3rem auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(43, 0, 87, 0.1);
+        }
+
+        .project-content {
+            padding: 3rem;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #2B0057, #5A00A0);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            color: #0A2342;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-detail {
+            padding: 1.5rem;
+            background: #F4F4F4;
+            border-radius: 8px;
+        }
+
+        .project-detail h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: #0A2342;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-detail p {
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .result-highlight {
+            background: linear-gradient(135deg, #C49A6C, #F7931E);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .result-highlight h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            background: #F4F4F4;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            color: #0A2342;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            color: #F7931E;
+        }
+
+        .contact-item h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: #0A2342;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            color: #666666;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #0A2342;
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #C49A6C;
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #F7931E;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #0A2342, #F7931E);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(10, 35, 66, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #0A2342;
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .footer-logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+
+        .footer-partnership {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .certifications {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .cert-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Floating Contact Button */
+        .floating-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #0A2342, #F7931E);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(10, 35, 66, 0.4);
+            text-decoration: none;
+            font-weight: 700;
+            z-index: 999;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .floating-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(247, 147, 30, 0.6);
+        }
+
+        /* Industry Cards Hover Effects */
+        .industry-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(10, 35, 66, 0.2);
+            border: 2px solid #F7931E;
+        }
+
+        /* Services Page Specific Styles */
+        .services-page {
+            background: linear-gradient(180deg, #0A2342 0%, #1a3a5c 100%);
+        }
+
+        .capability-section {
+            margin-bottom: 4rem;
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+            border-left: 6px solid #F7931E;
+        }
+
+        .capability-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .slider-container {
+            display: flex;
+            transition: transform 0.4s ease;
+        }
+
+        .slide-card {
+            min-width: 300px;
+            margin-right: 2rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);
+        }
+
+        .slide-image {
+            background: linear-gradient(135deg, #0A2342, #1a3a5c);
+            border-radius: 8px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            border: 3px solid #C49A6C;
+        }
+
+        .slide-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: #0A2342;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .slide-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .slider-prev, .slider-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(10, 35, 66, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .slider-prev {
+            left: 15px;
+        }
+
+        .slider-next {
+            right: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .logo-img {
+                height: 40px;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            .footer-logo-img {
+                height: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .highlights-grid,
+            .services-grid,
+            .project-details,
+            .contact-container,
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .slide-card {
+                min-width: 280px;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Navigation -->
+  <nav>
+   <div class="nav-container">
+    <div class="logo-section"><a href="#" class="logo" onclick="event.preventDefault(); showPage('home');"> <span class="logo-text">FLYSQUAWK</span> </a>
+    </div>
+    <ul class="nav-links">
+     <li><a href="#" data-page="home" class="active">Home</a></li>
+     <li><a href="#" data-page="about">About</a></li>
+     <li><a href="#" data-page="services">Services</a></li>
+     <li><a href="#" data-page="projects">Projects</a></li>
+     <li><a href="#" data-page="contact">Contact</a></li>
+    </ul>
+   </div>
+  </nav><!-- HOME PAGE -->
+  <div id="page-home" class="page"><!-- Hero Section -->
+   <section class="hero">
+    <svg class="hero-turbine" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="80" fill="none" stroke="white" stroke-width="2" /> <circle cx="100" cy="100" r="60" fill="none" stroke="white" stroke-width="1.5" /> <circle cx="100" cy="100" r="40" fill="none" stroke="white" stroke-width="1" /> <path d="M100,20 L110,90 L100,100 L90,90 Z" fill="white" opacity="0.6" /> <path d="M180,100 L110,110 L100,100 L110,90 Z" fill="white" opacity="0.6" /> <path d="M100,180 L90,110 L100,100 L110,110 Z" fill="white" opacity="0.6" /> <path d="M20,100 L90,90 L100,100 L90,110 Z" fill="white" opacity="0.6" /> <path d="M145,55 L110,95 L100,100 L105,90 Z" fill="white" opacity="0.4" /> <path d="M145,145 L105,110 L100,100 L110,105 Z" fill="white" opacity="0.4" /> <path d="M55,145 L90,105 L100,100 L95,110 Z" fill="white" opacity="0.4" /> <path d="M55,55 L95,90 L100,100 L90,95 Z" fill="white" opacity="0.4" /> <circle cx="100" cy="100" r="15" fill="white" />
+    </svg>
+    <div class="hero-content">
+     <h1 id="hero-headline">Preserving Power. Protecting Capital.</h1>
+     <p class="tagline" id="tagline">The MRO that keeps your classic turbines alive.</p>
+     <p id="hero-subtext">Flysquawk Integrated Sdn Bhd is Malaysia's trusted Maintenance, Repair, and Overhaul (MRO) partner — dedicated to revitalising ageing industrial and aviation rotating equipment such as turbines, compressors, and pumps.</p>
+     <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;"><a href="#services" class="cta-button" id="cta-button-1" style="padding: 1rem 2rem; font-size: 1rem;">🔹 Discover Our Services</a> <a href="#projects" class="cta-button" id="cta-button-2" style="padding: 1rem 2rem; font-size: 1rem;">🔹 See Our Projects</a> <a href="#contact" class="cta-button" id="cta-button-3" style="padding: 1rem 2rem; font-size: 1rem;">🔹 Talk to Our Engineers</a>
+     </div>
+    </div>
+   </section><!-- Highlights Section -->
+   <section class="highlights">
+    <div style="max-width: 1000px; margin: 0 auto 4rem; text-align: center; padding: 0 2rem;">
+     <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: #2E005C; margin-bottom: 1.5rem; font-weight: 700;">Our Brand Philosophy</h3>
+     <p style="font-size: 1.4rem; font-style: italic; color: #7FD3F4; margin-bottom: 2rem; font-weight: 600;">"Old is Gold — if cared for by the right hands."</p>
+     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; text-align: left; margin-bottom: 2rem;">
+      <p style="font-size: 1.1rem; color: #333; line-height: 1.7;">While others rush to replace, we restore.</p>
+      <p style="font-size: 1.1rem; color: #333; line-height: 1.7;">We bring old turbines and compressors back to life with precision, patience, and passion — preserving the machines that once powered Malaysia's growth.</p>
+     </div>
+     <p style="font-size: 1.1rem; color: #333; line-height: 1.7; text-align: center;">Our mission is to help industries preserve their engineering legacy, protect capital, and achieve sustainable performance — without the financial burden of constant replacement.</p>
+    </div>
+    <h2 class="section-title fade-in">Core Capabilities</h2>
+    <div class="highlights-grid">
+     <div class="highlight-card fade-in">
+      <div class="highlight-icon">
+       ⚙️
+      </div>
+      <h3>Steam Turbine Overhaul</h3>
+      <p>Complete restoration of industrial steam turbines with precision engineering and performance recovery.</p>
+     </div>
+     <div class="highlight-card fade-in">
+      <div class="highlight-icon">
+       🔄
+      </div>
+      <h3>Centrifugal Compressor</h3>
+      <p>Expert maintenance and repair of high-performance compressor systems for optimal efficiency.</p>
+     </div>
+     <div class="highlight-card fade-in">
+      <div class="highlight-icon">
+       💧
+      </div>
+      <h3>Centrifugal Pump Repair</h3>
+      <p>Specialized pump restoration services ensuring reliability and extended operational life.</p>
+     </div>
+     <div class="highlight-card fade-in">
+      <div class="highlight-icon">
+       🔬
+      </div>
+      <h3>Reverse Engineering</h3>
+      <p>Advanced replication and improvement of legacy components using modern manufacturing techniques.</p>
+     </div>
+     <div class="highlight-card fade-in">
+      <div class="highlight-icon">
+       🛠️
+      </div>
+      <h3>Field Services</h3>
+      <p>On-site diagnostics, maintenance, and emergency repair services across Malaysia.</p>
+     </div>
+    </div>
+   </section><!-- Industries Section -->
+   <section class="industries" style="padding: 5rem 5%; background: linear-gradient(180deg, #EAEAEA 0%, white 100%);">
+    <h2 class="section-title fade-in">Industries We Serve</h2>
+    <div style="max-width: 1400px; margin: 0 auto;">
+     <div class="industries-slider" style="position: relative; overflow: hidden; border-radius: 12px; margin-top: 3rem;">
+      <div class="industries-slider-container" style="display: flex; transition: transform 0.4s ease;">
+       <div class="industry-slide-card" style="min-width: 350px; margin-right: 2rem; background: white; border-radius: 16px; padding: 2.5rem 2rem; text-align: center; box-shadow: 0 10px 40px rgba(61, 44, 141, 0.1); transition: all 0.3s ease; cursor: pointer;">
+        <div style="font-size: 4rem; margin-bottom: 1.5rem;">
+         🌴
+        </div>
+        <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem; color: #3D2C8D; margin-bottom: 1rem; font-weight: 700;">Palm Oil</h3>
+        <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">Steam turbines, centrifugal pumps, and compressors for mill operations, refineries, and biomass power plants across Malaysia's palm oil industry.</p>
+       </div>
+       <div class="industry-slide-card" style="min-width: 350px; margin-right: 2rem; background: white; border-radius: 16px; padding: 2.5rem 2rem; text-align: center; box-shadow: 0 10px 40px rgba(61, 44, 141, 0.1); transition: all 0.3s ease; cursor: pointer;">
+        <div style="font-size: 4rem; margin-bottom: 1.5rem;">
+         ⛽
+        </div>
+        <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem; color: #3D2C8D; margin-bottom: 1rem; font-weight: 700;">Oil &amp; Gas</h3>
+        <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">Industrial gas turbines, compressor systems, and rotating equipment for upstream, midstream, and downstream operations.</p>
+       </div>
+       <div class="industry-slide-card" style="min-width: 350px; margin-right: 2rem; background: white; border-radius: 16px; padding: 2.5rem 2rem; text-align: center; box-shadow: 0 10px 40px rgba(61, 44, 141, 0.1); transition: all 0.3s ease; cursor: pointer;">
+        <div style="font-size: 4rem; margin-bottom: 1.5rem;">
+         ✈️
+        </div>
+        <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem; color: #3D2C8D; margin-bottom: 1rem; font-weight: 700;">Aviation</h3>
+        <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">Aircraft engines, aero-derivative turbines, and aviation asset management solutions with FAA certification and global standards.</p>
+       </div>
+       <div class="industry-slide-card" style="min-width: 350px; margin-right: 2rem; background: white; border-radius: 16px; padding: 2.5rem 2rem; text-align: center; box-shadow: 0 10px 40px rgba(61, 44, 141, 0.1); transition: all 0.3s ease; cursor: pointer;">
+        <div style="font-size: 4rem; margin-bottom: 1.5rem;">
+         🚢
+        </div>
+        <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem; color: #3D2C8D; margin-bottom: 1rem; font-weight: 700;">Marine</h3>
+        <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">Marine propulsion systems, ship turbines, and offshore platform rotating equipment for maritime and offshore industries.</p>
+       </div>
+       <div class="industry-slide-card" style="min-width: 350px; margin-right: 2rem; background: white; border-radius: 16px; padding: 2.5rem 2rem; text-align: center; box-shadow: 0 10px 40px rgba(61, 44, 141, 0.1); transition: all 0.3s ease; cursor: pointer;">
+        <div style="font-size: 4rem; margin-bottom: 1.5rem;">
+         ⚡
+        </div>
+        <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem; color: #3D2C8D; margin-bottom: 1rem; font-weight: 700;">Power Generation</h3>
+        <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">Steam and gas turbines for thermal power plants, combined cycle facilities, and renewable energy installations.</p>
+       </div>
+      </div><button class="industries-slider-prev" style="position: absolute; top: 50%; left: 15px; transform: translateY(-50%); background: rgba(61, 44, 141, 0.9); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 1.5rem; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">‹</button> <button class="industries-slider-next" style="position: absolute; top: 50%; right: 15px; transform: translateY(-50%); background: rgba(61, 44, 141, 0.9); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 1.5rem; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">›</button>
+     </div>
+    </div>
+   </section>
+  </div><!-- END HOME PAGE --> <!-- ABOUT PAGE -->
+  <div id="page-about" class="page" style="display: none;">
+   <section class="about" style="margin-top: 80px;">
+    <h2 class="section-title fade-in">About Us</h2><!-- Company Overview -->
+    <div style="max-width: 1200px; margin: 0 auto 4rem; padding: 0 2rem;">
+     <div class="fade-in" style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 10px 40px rgba(46, 0, 92, 0.1); margin-bottom: 3rem;">
+      <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: #2E005C; margin-bottom: 1.5rem; font-weight: 700;">01. Company Overview</h3>
+      <h4 style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem; color: #7FD3F4; margin-bottom: 1.5rem; font-weight: 600; font-style: italic;">Rejuvenate Your Industrial and Aviation Power</h4>
+      <p style="line-height: 1.8; margin-bottom: 1.5rem; color: #333; font-size: 1.05rem;">Flysquawk Integrated Sdn Bhd is a Malaysian-based Maintenance, Repair, and Overhaul (MRO) partner and asset management solutions provider, specialising in aviation engines, industrial aero-derivative turbines, steam turbines, centrifugal compressors, centrifugal pumps, and non-destructive testing (NDT).</p>
+      <p style="line-height: 1.8; margin-bottom: 1.5rem; color: #333; font-size: 1.05rem;">In 2025, Flysquawk was officially recognised as the <strong>MRO Partner for PT Nusantara Turbin dan Propulsi (NTP)</strong> — Indonesia's leading turbine and propulsion specialist — specifically for rotating equipment services in Malaysia's palm oil industry.</p>
+      <p style="line-height: 1.8; margin-bottom: 1.5rem; color: #333; font-size: 1.05rem;">This appointment covers steam turbines, centrifugal compressors, centrifugal pumps, and reverse engineering of rotating components, supporting mill operators, refineries, and green energy plants throughout Malaysia.</p>
+      <p style="line-height: 1.8; color: #333; font-size: 1.05rem;">Through this partnership, Flysquawk connects NTP's 36 years of engineering expertise with Malaysia's industrial and agricultural energy sectors — delivering global-standard maintenance quality, local agility, and sustainable lifecycle solutions that enhance production reliability and energy efficiency.</p>
+     </div>
+    </div><!-- Vision & Mission -->
+    <div style="max-width: 1200px; margin: 0 auto 4rem; padding: 0 2rem;">
+     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+      <div class="fade-in" style="background: linear-gradient(135deg, #2E005C, #4B1D8C); padding: 3rem; border-radius: 16px; color: white;">
+       <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700;">02. Vision</h3>
+       <p style="line-height: 1.8; font-size: 1.05rem; opacity: 0.95;">To be the leading enabler of sustainable industrial and rotating equipment MRO solutions in Malaysia and ASEAN — empowering a decarbonised future through energy-efficient innovations and partnerships.</p>
+      </div>
+      <div class="fade-in" style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 10px 40px rgba(46, 0, 92, 0.1);">
+       <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: #2E005C; margin-bottom: 1.5rem; font-weight: 700;">Mission</h3>
+       <ul style="line-height: 1.8; color: #333; font-size: 1.05rem; padding-left: 1.5rem;">
+        <li style="margin-bottom: 0.8rem;">Deliver MRO solutions that extend equipment lifespan and maximise operational uptime in Malaysia's palm oil and energy industries</li>
+        <li style="margin-bottom: 0.8rem;">Represent and promote PT NTP's advanced turbine and rotating equipment capabilities across Malaysia and ASEAN</li>
+        <li style="margin-bottom: 0.8rem;">Strengthen industrial reliability through precision reverse engineering and lifecycle management</li>
+        <li style="margin-bottom: 0.8rem;">Support clean energy transitions through efficient steam and mechanical power recovery systems</li>
+        <li>Build long-term partnerships with plantation groups, energy operators, and government-linked companies (GLCs)</li>
+       </ul>
+      </div>
+     </div>
+    </div><!-- Corporate Milestones -->
+    <div style="max-width: 1200px; margin: 0 auto 4rem; padding: 0 2rem;">
+     <div class="fade-in" style="background: linear-gradient(180deg, #EAEAEA 0%, white 100%); padding: 3rem; border-radius: 16px;">
+      <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: #2E005C; margin-bottom: 2rem; font-weight: 700; text-align: center;">03. Corporate Milestones</h3>
+      <div style="display: grid; gap: 2rem;"><!-- 2017-2021 -->
+       <div style="background: white; padding: 2.5rem; border-radius: 12px; border-left: 4px solid #2E005C;">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;"><span style="background: linear-gradient(135deg, #2E005C, #4B1D8C); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">2017–2021</span>
+        </div>
+        <p style="line-height: 1.7; color: #333; font-size: 1.05rem;">Flysquawk founded with the vision to pioneer Malaysia's first seaplane operation, later expanding into aviation and industrial asset management.</p>
+       </div><!-- 2022-2023 -->
+       <div style="background: white; padding: 2.5rem; border-radius: 12px; border-left: 4px solid #7FD3F4;">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;"><span style="background: linear-gradient(135deg, #7FD3F4, #2E005C); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">2022–2023</span>
+        </div>
+        <p style="line-height: 1.7; color: #333; font-size: 1.05rem;">Opened NewCo (new company) named Flysquawk Integrated to replace domain Flysquawk Sdn Bhd. Managed Boeing 747 (9M-MPD) acquisition and disposal project under Malaysia Insolvency Department, showcasing complex cross-agency coordination.</p>
+       </div><!-- 2024 -->
+       <div style="background: white; padding: 2.5rem; border-radius: 12px; border-left: 4px solid #C49A6C;">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;"><span style="background: linear-gradient(135deg, #C49A6C, #F7931E); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">2024</span>
+        </div>
+        <p style="line-height: 1.7; color: #333; font-size: 1.05rem;">Initiated collaboration with PT Nusantara Turbin dan Propulsi (NTP) for overseas Grob M250-B17F engine rectification.</p>
+       </div><!-- 2025 -->
+       <div style="background: linear-gradient(135deg, #2E005C, #4B1D8C); padding: 2.5rem; border-radius: 12px; color: white; border-left: 4px solid #F7931E;">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;"><span style="background: linear-gradient(135deg, #F7931E, #C49A6C); color: #2E005C; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">2025</span> <span style="background: rgba(255, 255, 255, 0.2); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">CURRENT</span>
+        </div>
+        <p style="line-height: 1.7; font-size: 1.05rem; opacity: 0.95;"><strong>Appointed as MRO Partner for Rotating Equipment in Malaysia's Palm Oil Industry</strong>, covering steam turbines, centrifugal compressors, centrifugal pumps, and reverse engineering services.</p>
+       </div>
+      </div>
+     </div>
+    </div><!-- Brand Philosophy -->
+    <div style="max-width: 1200px; margin: 0 auto 4rem; padding: 0 2rem;">
+     <div class="fade-in" style="background: linear-gradient(180deg, #EAEAEA 0%, white 100%); padding: 3rem; border-radius: 16px; text-align: center;">
+      <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: #2E005C; margin-bottom: 1.5rem; font-weight: 700;">Our Brand Philosophy</h3>
+      <p style="font-size: 1.4rem; font-style: italic; color: #7FD3F4; margin-bottom: 2rem; font-weight: 600;">"Old is Gold — if cared for by the right hands."</p>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; text-align: left;">
+       <p style="line-height: 1.8; color: #333; font-size: 1.05rem;">While others rush to replace, we restore.</p>
+       <p style="line-height: 1.8; color: #333; font-size: 1.05rem;">We bring old turbines and compressors back to life with precision, patience, and passion — preserving the machines that once powered Malaysia's growth.</p>
+      </div>
+     </div>
+    </div><!-- Partnership Section -->
+    <div style="max-width: 1200px; margin: 0 auto 4rem; padding: 0 2rem;">
+     <div class="fade-in" style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 10px 40px rgba(46, 0, 92, 0.1);">
+      <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: #2E005C; margin-bottom: 2rem; font-weight: 700; text-align: center;">Partnership with PT Nusantara Turbin dan Propulsi (NTP)</h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem;">
+       <div>
+        <h4 style="font-family: 'Montserrat', sans-serif; color: #2E005C; font-size: 1.3rem; margin-bottom: 1rem; font-weight: 600;">NTP Highlights</h4>
+        <ul style="line-height: 1.8; color: #333; font-size: 1.05rem; padding-left: 1.5rem;">
+         <li style="margin-bottom: 0.5rem;">36+ years of aviation and industrial experience</li>
+         <li style="margin-bottom: 0.5rem;">Certifications: FAA (USA), DGCA (Indonesia), ISO 9001:2015, ISO/IEC 17025:2017</li>
+         <li style="margin-bottom: 0.5rem;">OEM Authorised for GE, Honeywell, Solar Turbine</li>
+         <li>45,000 m² facility in Bandung, Indonesia</li>
+        </ul>
+       </div>
+       <div>
+        <h4 style="font-family: 'Montserrat', sans-serif; color: #2E005C; font-size: 1.3rem; margin-bottom: 1rem; font-weight: 600;">Joint Capabilities</h4>
+        <ul style="line-height: 1.8; color: #333; font-size: 1.05rem; padding-left: 1.5rem;">
+         <li style="margin-bottom: 0.5rem;">Gas &amp; steam turbine overhaul (Solar, GE LM series)</li>
+         <li style="margin-bottom: 0.5rem;">Reverse engineering up to 4 MW</li>
+         <li style="margin-bottom: 0.5rem;">Centrifugal pump and compressor MRO</li>
+         <li style="margin-bottom: 0.5rem;">Industrial coatings (Sermetel, Sermalon)</li>
+         <li>Field services, vibration diagnostics, on-site machining</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </div><!-- Facilities Section -->
+    <div style="max-width: 1200px; margin: 0 auto 4rem; padding: 0 2rem;">
+     <div class="fade-in" style="background: #EAEAEA; padding: 3rem; border-radius: 16px;">
+      <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: #2E005C; margin-bottom: 2rem; font-weight: 700; text-align: center;">Our Facilities</h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+       <div style="background: white; padding: 2.5rem; border-radius: 12px;">
+        <h4 style="font-family: 'Montserrat', sans-serif; color: #2E005C; font-size: 1.3rem; margin-bottom: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>🇲🇾</span> Malaysia</h4>
+        <p style="line-height: 1.8; color: #333; font-size: 1.05rem; margin-bottom: 1rem;"><strong>Office:</strong> Cyberjaya, Selangor</p>
+        <p style="line-height: 1.8; color: #333; font-size: 1.05rem;"><strong>Scope:</strong> Client liaison, inspection coordination, project management</p>
+       </div>
+       <div style="background: white; padding: 2.5rem; border-radius: 12px;">
+        <h4 style="font-family: 'Montserrat', sans-serif; color: #2E005C; font-size: 1.3rem; margin-bottom: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>🇮🇩</span> Indonesia (via NTP)</h4>
+        <ul style="line-height: 1.8; color: #333; font-size: 1.05rem; padding-left: 1.5rem;">
+         <li style="margin-bottom: 0.5rem;">45,000 m² MRO facility</li>
+         <li style="margin-bottom: 0.5rem;">Test cells for Solar Turbine engines</li>
+         <li>Advanced machining, balancing, calibration, and coating workshops</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </div><!-- Certifications -->
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+     <div class="fade-in" style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 10px 40px rgba(46, 0, 92, 0.1); text-align: center;">
+      <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: #2E005C; margin-bottom: 2rem; font-weight: 700;">Certifications &amp; Compliance</h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; text-align: left;">
+       <div>
+        <h4 style="font-family: 'Montserrat', sans-serif; color: #2E005C; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600;">NTP Certifications</h4>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;"><span style="background: linear-gradient(135deg, #2E005C, #4B1D8C); color: white; padding: 0.4rem 1rem; border-radius: 15px; font-size: 0.85rem; font-weight: 600;">FAA</span> <span style="background: linear-gradient(135deg, #2E005C, #4B1D8C); color: white; padding: 0.4rem 1rem; border-radius: 15px; font-size: 0.85rem; font-weight: 600;">DGCA</span> <span style="background: linear-gradient(135deg, #2E005C, #4B1D8C); color: white; padding: 0.4rem 1rem; border-radius: 15px; font-size: 0.85rem; font-weight: 600;">ISO 9001:2015</span> <span style="background: linear-gradient(135deg, #2E005C, #4B1D8C); color: white; padding: 0.4rem 1rem; border-radius: 15px; font-size: 0.85rem; font-weight: 600;">ISO/IEC 17025:2017</span>
+        </div>
+       </div>
+       <div>
+        <h4 style="font-family: 'Montserrat', sans-serif; color: #2E005C; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600;">Flysquawk Registrations</h4>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;"><span style="background: #7FD3F4; color: #2E005C; padding: 0.4rem 1rem; border-radius: 15px; font-size: 0.85rem; font-weight: 600;">MOF B-02</span> <span style="background: #7FD3F4; color: #2E005C; padding: 0.4rem 1rem; border-radius: 15px; font-size: 0.85rem; font-weight: 600;">CIDB SL162280</span> <span style="background: #7FD3F4; color: #2E005C; padding: 0.4rem 1rem; border-radius: 15px; font-size: 0.85rem; font-weight: 600;">SSM 1484370-V</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </div><!-- END ABOUT PAGE --> <!-- SERVICES PAGE -->
+  <div id="page-services" class="page" style="display: none;">
+   <section class="services services-page" style="margin-top: 80px; padding: 5rem 5% 5rem;"><!-- Header Section -->
+    <div style="text-align: center; margin-bottom: 5rem;">
+     <h2 style="font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 800; color: white; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px;">Our Core Capabilities</h2>
+     <div style="background: linear-gradient(90deg, #C49A6C 0%, #F7931E 100%); height: 4px; width: 120px; margin: 1rem auto 2rem;"></div>
+     <p style="font-size: 1.6rem; font-style: italic; color: #F7931E; font-weight: 600; font-family: 'Montserrat', sans-serif; margin-bottom: 1.5rem;">"Old is Gold — if cared for by the right hands."</p>
+     <p style="font-size: 1.2rem; color: white; line-height: 1.7; max-width: 800px; margin: 0 auto;">While others rush to replace, we restore. We bring old turbines and compressors back to life with precision, patience, and passion — preserving the machines that once powered Malaysia's growth.</p>
+    </div>
+    <div style="max-width: 1400px; margin: 0 auto;"><!-- Capability 1: Steam Turbine Manufacturing & Reverse Engineering -->
+     <div class="capability-section fade-in">
+      <div style="margin-bottom: 3rem;">
+       <h3 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; color: #0A2342; margin-bottom: 0.5rem; font-weight: 700; display: flex; align-items: center; gap: 1rem;">
+        <svg width="40" height="40" viewbox="0 0 100 100" style="fill: #F7931E;"><circle cx="50" cy="50" r="45" fill="none" stroke="#F7931E" stroke-width="4" /> <path d="M50,10 L60,45 L50,50 L40,45 Z" fill="#F7931E" /> <path d="M90,50 L55,60 L50,50 L55,40 Z" fill="#F7931E" /> <path d="M50,90 L40,55 L50,50 L60,55 Z" fill="#F7931E" /> <path d="M10,50 L45,40 L50,50 L45,60 Z" fill="#F7931E" /> <circle cx="50" cy="50" r="8" fill="#0A2342" />
+        </svg> Steam Turbine Manufacturing &amp; Reverse Engineering</h3>
+       <p style="color: #C49A6C; font-size: 1.2rem; line-height: 1.6; font-weight: 600;">Precision restoration for steam turbines up to 4MW.</p>
+      </div>
+      <div class="capability-slider">
+       <div class="slider-container">
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            ⚙️
+           </div> Blade Reconditioning<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Blade Reconditioning</h4>
+         <p>Precision restoration of turbine blades with advanced coating and balancing techniques.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            ⚖️
+           </div> Dynamic Balancing<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Dynamic Balancing</h4>
+         <p>High-precision rotor balancing for optimal performance and vibration reduction.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            🔧
+           </div> Shaft Replacement<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Shaft Replacement</h4>
+         <p>Complete shaft manufacturing and replacement with enhanced material specifications.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            🏗️
+           </div> Casing Repair<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Casing Repair</h4>
+         <p>Structural restoration and reinforcement of turbine casings and housings.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            🔒
+           </div> Labyrinth Seal Repair<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Labyrinth Seal Repair</h4>
+         <p>Advanced sealing system restoration for improved efficiency and performance.</p>
+        </div>
+       </div><button class="slider-prev">‹</button> <button class="slider-next">›</button>
+      </div>
+     </div><!-- Divider -->
+     <div style="height: 2px; background: linear-gradient(90deg, transparent 0%, #C49A6C 50%, transparent 100%); margin: 3rem 0;"></div><!-- Capability 2: Centrifugal Pump Capabilities -->
+     <div class="capability-section fade-in">
+      <div style="margin-bottom: 3rem;">
+       <h3 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; color: #0A2342; margin-bottom: 0.5rem; font-weight: 700; display: flex; align-items: center; gap: 1rem;">
+        <svg width="40" height="40" viewbox="0 0 100 100" style="fill: #F7931E;"><circle cx="50" cy="50" r="40" fill="none" stroke="#F7931E" stroke-width="4" /> <path d="M30,50 Q50,30 70,50 Q50,70 30,50" fill="#F7931E" /> <circle cx="50" cy="50" r="12" fill="#0A2342" /> <rect x="45" y="10" width="10" height="15" fill="#C49A6C" />
+        </svg> Centrifugal Pump Capabilities</h3>
+       <p style="color: #C49A6C; font-size: 1.2rem; line-height: 1.6; font-weight: 600;">Restoring pump performance with long-term reliability.</p>
+      </div>
+      <div class="capability-slider">
+       <div class="slider-container">
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            🔧
+           </div> Maintenance &amp; Overhaul<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Maintenance &amp; Overhaul</h4>
+         <p>Comprehensive pump maintenance and complete overhaul services for optimal performance.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            🌀
+           </div> Impeller Reverse Engineering<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Impeller Reverse Engineering</h4>
+         <p>Advanced impeller replication and performance enhancement through reverse engineering.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            ⚙️
+           </div> Shaft &amp; Sleeve Bearing Repair<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Shaft &amp; Sleeve Bearing Repair</h4>
+         <p>Precision shaft and bearing restoration for extended operational life.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            🏆
+           </div> Chevron LTSA 7-Year Project<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Chevron LTSA 7-Year Project Highlight</h4>
+         <p>Long-term service agreement success story with major oil &amp; gas operator.</p>
+        </div>
+       </div><button class="slider-prev">‹</button> <button class="slider-next">›</button>
+      </div>
+     </div><!-- Divider -->
+     <div style="height: 2px; background: linear-gradient(90deg, transparent 0%, #C49A6C 50%, transparent 100%); margin: 3rem 0;"></div><!-- Capability 3: Centrifugal Compressor Capabilities -->
+     <div class="capability-section fade-in">
+      <div style="margin-bottom: 3rem;">
+       <h3 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; color: #0A2342; margin-bottom: 0.5rem; font-weight: 700; display: flex; align-items: center; gap: 1rem;">
+        <svg width="40" height="40" viewbox="0 0 100 100" style="fill: #F7931E;"><circle cx="50" cy="50" r="35" fill="none" stroke="#F7931E" stroke-width="4" /> <path d="M25,50 L35,40 L35,45 L65,45 L65,40 L75,50 L65,60 L65,55 L35,55 L35,60 Z" fill="#F7931E" /> <circle cx="50" cy="50" r="8" fill="#0A2342" />
+        </svg> Centrifugal Compressor Capabilities</h3>
+       <p style="color: #C49A6C; font-size: 1.2rem; line-height: 1.6; font-weight: 600;">15 years of reverse engineering excellence for global OEM models.</p>
+      </div>
+      <div class="capability-slider">
+       <div class="slider-container">
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            🏭
+           </div> ABB / Alstom<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>ABB / Alstom</h4>
+         <p>Specialized maintenance and reverse engineering for ABB and Alstom compressor systems.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            ⚡
+           </div> GE Frame Series<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>GE Frame Series (3, 5, 6, 7, 9)</h4>
+         <p>Complete overhaul capabilities for GE Frame series compressors across all major models.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            🔧
+           </div> Siemens V Series<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Siemens V Series</h4>
+         <p>Expert restoration services for Siemens V Series compressor technology.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            🏗️
+           </div> Mitsubishi Heavy Industries<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Mitsubishi Heavy Industries</h4>
+         <p>Precision maintenance for MHI compressor systems with OEM-standard quality.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            ☀️
+           </div> Solar Turbine / Elliott<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Solar Turbine / Elliott</h4>
+         <p>Authorized service capabilities for Solar Turbine and Elliott compressor equipment.</p>
+        </div>
+       </div><button class="slider-prev">‹</button> <button class="slider-next">›</button>
+      </div>
+     </div><!-- Divider -->
+     <div style="height: 2px; background: linear-gradient(90deg, transparent 0%, #C49A6C 50%, transparent 100%); margin: 3rem 0;"></div><!-- Capability 4: Field Services & On-Site Support -->
+     <div class="capability-section fade-in">
+      <div style="margin-bottom: 3rem;">
+       <h3 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; color: #0A2342; margin-bottom: 0.5rem; font-weight: 700; display: flex; align-items: center; gap: 1rem;">
+        <svg width="40" height="40" viewbox="0 0 100 100" style="fill: #F7931E;"><rect x="20" y="30" width="60" height="40" rx="5" fill="none" stroke="#F7931E" stroke-width="4" /> <path d="M30,40 L40,50 L60,30" fill="none" stroke="#0A2342" stroke-width="3" /> <circle cx="25" cy="25" r="3" fill="#C49A6C" /> <circle cx="75" cy="25" r="3" fill="#C49A6C" /> <rect x="45" y="15" width="10" height="10" fill="#F7931E" />
+        </svg> Field Services &amp; On-Site Support</h3>
+       <p style="color: #C49A6C; font-size: 1.2rem; line-height: 1.6; font-weight: 600;">Rapid, precise, and certified industrial field maintenance.</p>
+      </div>
+      <div class="capability-slider">
+       <div class="slider-container">
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            ⚖️
+           </div> Rotor Balancing &amp; Alignment<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Rotor Balancing &amp; Alignment</h4>
+         <p>Precision on-site rotor balancing and shaft alignment services for optimal performance.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            🔧
+           </div> Bearing Replacement<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Bearing Replacement</h4>
+         <p>Expert on-site bearing replacement and installation with minimal downtime.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            ❄️
+           </div> Cooling System Inspection<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Cooling System Inspection</h4>
+         <p>Comprehensive cooling system diagnostics and maintenance for thermal management.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            🏭
+           </div> In-situ Machining<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>In-situ Machining</h4>
+         <p>Advanced on-site machining capabilities for immediate repairs and modifications.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            🚀
+           </div> Start-up &amp; Commissioning<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Start-up &amp; Commissioning</h4>
+         <p>Professional equipment commissioning and start-up services with performance verification.</p>
+        </div>
+        <div class="slide-card">
+         <div class="slide-image">
+          <div>
+           <div style="font-size: 3rem; margin-bottom: 0.5rem;">
+            📊
+           </div> Vibration Diagnostics<br>
+           Image Placeholder
+          </div>
+         </div>
+         <h4>Vibration Diagnostics</h4>
+         <p>Advanced vibration analysis and diagnostics for predictive maintenance programs.</p>
+        </div>
+       </div><button class="slider-prev">‹</button> <button class="slider-next">›</button>
+      </div>
+     </div><!-- Divider -->
+     <div style="height: 2px; background: linear-gradient(90deg, transparent 0%, #C49A6C 50%, transparent 100%); margin: 3rem 0;"></div><!-- Capability 5: Gas Turbine Maintenance & Overhaul -->
+     <div class="capability-section fade-in">
+      <div style="margin-bottom: 3rem;">
+       <h3 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; color: #0A2342; margin-bottom: 0.5rem; font-weight: 700; display: flex; align-items: center; gap: 1rem;">
+        <svg width="40" height="40" viewbox="0 0 100 100" style="fill: #F7931E;"><ellipse cx="50" cy="50" rx="40" ry="25" fill="none" stroke="#F7931E" stroke-width="4" /> <path d="M20,50 L30,40 L30,45 L70,45 L70,40 L80,50 L70,60 L70,55 L30,55 L30,60 Z" fill="#F7931E" /> <circle cx="50" cy="50" r="6" fill="#0A2342" /> <path d="M35,35 L45,25 M55,25 L65,35 M35,65 L45,75 M55,75 L65,65" stroke="#C49A6C" stroke-width="2" />
+        </svg> Gas Turbine Maintenance &amp; Overhaul</h3>
+       <p style="color: #C49A6C; font-size: 1.2rem; line-height: 1.6; font-weight: 600;">OEM-standard restoration for Solar Turbine and GE series engines.</p>
+      </div>
+      <div class="gas-turbine-slider" style="position: relative; overflow: hidden; border-radius: 12px;">
+       <div class="gas-turbine-container" style="display: flex; transition: transform 0.4s ease;"><!-- Slide 1: Solar Turbine Saturn 10 -->
+        <div class="gas-turbine-slide" style="min-width: 100%; display: flex; background: #f8f9fa; border-radius: 12px; padding: 3rem; margin-right: 2rem; box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);">
+         <div style="flex: 1; padding-right: 3rem;">
+          <div style="background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; text-align: center; border: 3px solid #C49A6C;">
+           <div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">
+             ☀️
+            </div> Solar Turbine Saturn 10<br>
+            Engine Image Placeholder
+           </div>
+          </div>
+         </div>
+         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">Solar Turbine Saturn 10</h4>
+          <div style="margin-bottom: 1.5rem;">
+           <p style="color: #666; line-height: 1.6; font-size: 1rem; margin-bottom: 1rem;"><strong>Engine Type:</strong> Saturn One Shaft / Saturn Two Shaft</p>
+           <p style="color: #666; line-height: 1.6; font-size: 1rem; margin-bottom: 1rem;"><strong>Capability Level:</strong> Level 4</p>
+           <p style="color: #666; line-height: 1.6; font-size: 1rem; margin-bottom: 1rem;"><strong>Services:</strong> Overhaul, Repair, Engine Exchange</p>
+          </div>
+          <p style="color: #333; line-height: 1.7; font-size: 1.05rem; font-style: italic;">Proven reliability across diverse climates and industrial applications.</p>
+         </div>
+        </div><!-- Slide 2: Solar Turbine Centaur 40 -->
+        <div class="gas-turbine-slide" style="min-width: 100%; display: flex; background: #f8f9fa; border-radius: 12px; padding: 3rem; margin-right: 2rem; box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);">
+         <div style="flex: 1; padding-right: 3rem;">
+          <div style="background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; text-align: center; border: 3px solid #C49A6C;">
+           <div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">
+             🌀
+            </div> Solar Turbine Centaur 40<br>
+            Engine Image Placeholder
+           </div>
+          </div>
+         </div>
+         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">Solar Turbine Centaur 40</h4>
+          <div style="margin-bottom: 1.5rem;">
+           <p style="color: #666; line-height: 1.6; font-size: 1rem; margin-bottom: 1rem;"><strong>Engine Type:</strong> Centaur 40 Single Shaft / Centaur 40 Two Shaft</p>
+           <p style="color: #666; line-height: 1.6; font-size: 1rem; margin-bottom: 1rem;"><strong>Capability Level:</strong> Level 4</p>
+           <p style="color: #666; line-height: 1.6; font-size: 1rem; margin-bottom: 1rem;"><strong>Services:</strong> Overhaul, Repair, Spare Parts Maintenance</p>
+          </div>
+          <p style="color: #333; line-height: 1.7; font-size: 1.05rem; font-style: italic;">Operates in thousands of installations globally — from arctic to tropical zones.</p>
+         </div>
+        </div><!-- Slide 3: Solar Turbine Centaur 50 -->
+        <div class="gas-turbine-slide" style="min-width: 100%; display: flex; background: #f8f9fa; border-radius: 12px; padding: 3rem; margin-right: 2rem; box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);">
+         <div style="flex: 1; padding-right: 3rem;">
+          <div style="background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; text-align: center; border: 3px solid #C49A6C;">
+           <div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">
+             ⚡
+            </div> Solar Turbine Centaur 50<br>
+            Engine Image Placeholder
+           </div>
+          </div>
+         </div>
+         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">Solar Turbine Centaur 50</h4>
+          <div style="margin-bottom: 1.5rem;">
+           <p style="color: #666; line-height: 1.6; font-size: 1rem; margin-bottom: 1rem;"><strong>Engine Type:</strong> Centaur 50 Single Shaft</p>
+           <p style="color: #666; line-height: 1.6; font-size: 1rem; margin-bottom: 1rem;"><strong>Capability Level:</strong> Level 3</p>
+           <p style="color: #666; line-height: 1.6; font-size: 1rem; margin-bottom: 1rem;"><strong>Services:</strong> Overhaul, Repair, Engine Exchange</p>
+          </div>
+          <p style="color: #333; line-height: 1.7; font-size: 1.05rem; font-style: italic;">Designed for high efficiency, long life, and easy maintenance in industrial power systems.</p>
+         </div>
+        </div><!-- Slide 4: GE LM2500 Series -->
+        <div class="gas-turbine-slide" style="min-width: 100%; display: flex; background: #f8f9fa; border-radius: 12px; padding: 3rem; margin-right: 2rem; box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);">
+         <div style="flex: 1; padding-right: 3rem;">
+          <div style="background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; text-align: center; border: 3px solid #C49A6C;">
+           <div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">
+             🚁
+            </div> GE LM2500 Series<br>
+            Engine Image Placeholder
+           </div>
+          </div>
+         </div>
+         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">GE LM2500 Series</h4>
+          <div style="margin-bottom: 1.5rem;">
+           <p style="color: #666; line-height: 1.6; font-size: 1rem; margin-bottom: 1rem;"><strong>Engine Type:</strong> LM2500</p>
+           <p style="color: #666; line-height: 1.6; font-size: 1rem; margin-bottom: 1rem;"><strong>Capability:</strong> Overhaul, Repair, Field Service</p>
+          </div>
+          <p style="color: #333; line-height: 1.7; font-size: 1.05rem; font-style: italic;">Versatile aero-derivative gas turbine used for marine and industrial generation.</p>
+         </div>
+        </div><!-- Slide 5: GE TM2500 Series -->
+        <div class="gas-turbine-slide" style="min-width: 100%; display: flex; background: #f8f9fa; border-radius: 12px; padding: 3rem; margin-right: 2rem; box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);">
+         <div style="flex: 1; padding-right: 3rem;">
+          <div style="background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; text-align: center; border: 3px solid #C49A6C;">
+           <div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">
+             🚛
+            </div> GE TM2500 Series<br>
+            Engine Image Placeholder
+           </div>
+          </div>
+         </div>
+         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">GE TM2500 Series</h4>
+          <div style="margin-bottom: 1.5rem;">
+           <p style="color: #666; line-height: 1.6; font-size: 1rem; margin-bottom: 1rem;"><strong>Engine Type:</strong> TM2500</p>
+           <p style="color: #666; line-height: 1.6; font-size: 1rem; margin-bottom: 1rem;"><strong>Capability:</strong> Overhaul, Repair, Field Service</p>
+          </div>
+          <p style="color: #333; line-height: 1.7; font-size: 1.05rem; font-style: italic;">Mobile gas turbine delivering fast, flexible power solutions for industrial sites.</p>
+         </div>
+        </div><!-- Slide 6: GE LM6000 Series -->
+        <div class="gas-turbine-slide" style="min-width: 100%; display: flex; background: #f8f9fa; border-radius: 12px; padding: 3rem; margin-right: 2rem; box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);">
+         <div style="flex: 1; padding-right: 3rem;">
+          <div style="background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; text-align: center; border: 3px solid #C49A6C;">
+           <div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">
+             🏭
+            </div> GE LM6000 Series<br>
+            Engine Image Placeholder
+           </div>
+          </div>
+         </div>
+         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">GE LM6000 Series</h4>
+          <div style="margin-bottom: 1.5rem;">
+           <p style="color: #666; line-height: 1.6; font-size: 1rem; margin-bottom: 1rem;"><strong>Engine Type:</strong> LM6000</p>
+           <p style="color: #666; line-height: 1.6; font-size: 1rem; margin-bottom: 1rem;"><strong>Capability:</strong> Overhaul, Repair, Field Service</p>
+          </div>
+          <p style="color: #333; line-height: 1.7; font-size: 1.05rem; font-style: italic;">High-efficiency gas turbine ideal for large-scale generation and reliability-critical operations.</p>
+         </div>
+        </div>
+       </div><button class="gas-turbine-prev" style="position: absolute; top: 50%; left: 15px; transform: translateY(-50%); background: rgba(10, 35, 66, 0.9); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 1.5rem; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">‹</button> <button class="gas-turbine-next" style="position: absolute; top: 50%; right: 15px; transform: translateY(-50%); background: rgba(10, 35, 66, 0.9); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 1.5rem; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">›</button>
+      </div><!-- Closing Statement -->
+      <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #C49A6C, #F7931E); border-radius: 12px; color: white;">
+       <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; font-family: 'Montserrat', sans-serif;">Flysquawk Integrated — Restoring the performance and integrity of industrial gas turbines across Asia.</p><a href="#" onclick="event.preventDefault(); showPage('projects');" style="display: inline-block; background: white; color: #0A2342; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(0,0,0,0.2);"> View All Gas Turbine Projects → </a>
+      </div>
+     </div><!-- Closing Statement -->
+     <div style="text-align: center; margin-top: 5rem; padding: 3rem; background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 16px; color: white;">
+      <p style="font-size: 1.4rem; font-weight: 600; margin-bottom: 2rem; font-family: 'Montserrat', sans-serif;">Flysquawk Integrated — Delivering precision, reliability, and restoration across turbines, compressors, and pumps.</p><a href="#" onclick="event.preventDefault(); showPage('projects');" style="display: inline-block; background: linear-gradient(90deg, #C49A6C, #F7931E); color: #0A2342; padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(196, 154, 108, 0.3);"> Explore Our Projects → </a>
+     </div>
+    </div>
+   </section>
+  </div><!-- END SERVICES PAGE --> <!-- PROJECTS PAGE -->
+  <div id="page-projects" class="page" style="display: none;"><!-- 
+    PROJECTS PAGE COLOR PALETTE EXTRACTED:
+    
+    🎨 PRIMARY COLORS:
+    • Background: #0A2342 (Dark Navy Blue) - Main page background
+    • Secondary Background: #1a3a5c (Medium Navy Blue) - Gradient complement
+    
+    🎨 ACCENT COLORS:
+    • Primary Accent: #F7931E (Bright Orange) - Key highlights, taglines, CTAs
+    • Secondary Accent: #C49A6C (Warm Bronze/Gold) - Gradients, borders, labels
+    
+    🎨 TEXT COLORS:
+    • Primary Text: white (#FFFFFF) - Main headings, body text on dark backgrounds
+    • Secondary Text: #0A2342 (Dark Navy) - Text on light backgrounds, card content
+    • Muted Text: #666666 (#666) - Supporting text, descriptions
+    • Label Text: #333333 (#333) - Standard content text
+    
+    🎨 CARD & COMPONENT COLORS:
+    • Card Background: #f8f9fa (Light Gray) - Content cards, slides
+    • Card Borders: #C49A6C (Bronze) - 3px borders on image placeholders
+    • Button Background: rgba(10, 35, 66, 0.9) - Navigation buttons with transparency
+    • Success Highlight: Linear gradient #C49A6C to #F7931E - Result boxes, CTAs
+    
+    🎨 GRADIENTS USED:
+    • Header Divider: linear-gradient(90deg, #C49A6C 0%, #F7931E 100%)
+    • Page Background: linear-gradient(180deg, #0A2342 0%, #1a3a5c 100%)
+    • Image Placeholders: linear-gradient(135deg, #0A2342, #1a3a5c)
+    • CTA Buttons: linear-gradient(135deg, #C49A6C, #F7931E)
+    • Result Boxes: linear-gradient(135deg, #C49A6C, #F7931E)
+    • Closing Section: linear-gradient(135deg, #0A2342, #1a3a5c)
+    
+    🎨 TRANSPARENCY & EFFECTS:
+    • Navigation Buttons: rgba(10, 35, 66, 0.9) with 0.3 box-shadow
+    • Divider Lines: linear-gradient with transparent edges for fade effect
+    
+    This color scheme creates a professional, industrial aesthetic with:
+    - Navy blues for trust and reliability
+    - Orange/bronze accents for energy and warmth
+    - High contrast for readability
+    - Consistent gradient patterns throughout
+    -->
+   <section class="projects services-page" style="margin-top: 80px; padding: 5rem 5% 5rem;"><!-- Header Section -->
+    <div style="text-align: center; margin-bottom: 5rem;">
+     <h2 style="font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 800; color: white; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px;">Projects &amp; Highlights</h2>
+     <div style="background: linear-gradient(90deg, #C49A6C 0%, #F7931E 100%); height: 4px; width: 120px; margin: 1rem auto 2rem;"></div>
+     <p style="font-size: 1.6rem; font-style: italic; color: #F7931E; font-weight: 600; font-family: 'Montserrat', sans-serif; margin-bottom: 1.5rem;">"Old is Gold — if cared for by the right hands."</p>
+     <p style="font-size: 1.2rem; color: white; line-height: 1.7; max-width: 800px; margin: 0 auto 2rem;">While others rush to replace, we restore. Every project tells a story of restoration, precision, and partnership.</p>
+     <p style="font-size: 1.1rem; color: white; line-height: 1.7; max-width: 900px; margin: 0 auto;">Flysquawk Integrated Sdn Bhd, together with PT Nusantara Turbin dan Propulsi (NTP), continues to deliver cross-industry engineering solutions that merge aviation discipline with industrial reliability.</p>
+    </div>
+    <div style="max-width: 1400px; margin: 0 auto;"><!-- Project 1: Strategic Aviation Asset Procurement -->
+     <div class="capability-section fade-in">
+      <div style="margin-bottom: 3rem;">
+       <h3 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; color: #0A2342; margin-bottom: 0.5rem; font-weight: 700; display: flex; align-items: center; gap: 1rem;"><span style="font-size: 2rem;">1️⃣</span> Strategic Aviation Asset Procurement – Boeing 747 (9M-MPD)</h3>
+       <div style="display: flex; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <p style="color: #C49A6C; font-size: 1rem; font-weight: 600;"><strong>Client:</strong> Ministry of Defence Malaysia (MINDEF)</p>
+        <p style="color: #C49A6C; font-size: 1rem; font-weight: 600;"><strong>Project Type:</strong> Strategic Asset Recovery &amp; Management</p>
+        <p style="color: #C49A6C; font-size: 1rem; font-weight: 600;"><strong>Partner:</strong> Malaysia Insolvency Department</p>
+       </div>
+      </div>
+      <div class="project-slider" style="position: relative; overflow: hidden; border-radius: 12px;">
+       <div class="project-slider-container" style="display: flex; transition: transform 0.4s ease;"><!-- Slide 1: Project Overview -->
+        <div class="project-slide-card" style="min-width: 100%; display: flex; background: #f8f9fa; border-radius: 12px; padding: 3rem; margin-right: 2rem; box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);">
+         <div style="flex: 1; padding-right: 3rem;">
+          <div style="background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; text-align: center; border: 3px solid #C49A6C;">
+           <div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">
+             ✈️
+            </div> Boeing 747 (9M-MPD)<br>
+            Asset Recovery<br>
+            Image Placeholder
+           </div>
+          </div>
+         </div>
+         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700;">Project Overview</h4>
+          <p style="color: #333; line-height: 1.7; font-size: 1.05rem; margin-bottom: 1.5rem;">Flysquawk Integrated played a pivotal role in a strategic aviation asset procurement initiative involving a Boeing 747 (registration 9M-MPD).</p>
+          <p style="color: #333; line-height: 1.7; font-size: 1.05rem; margin-bottom: 1.5rem;">The aircraft, previously owned by a chartered airline, was declared bankrupt and placed under the custody of the Malaysia Insolvency Department.</p>
+          <p style="color: #333; line-height: 1.7; font-size: 1.05rem;">Our task involved navigating complex financial, operational, and regulatory frameworks to secure the asset for national use.</p>
+         </div>
+        </div><!-- Slide 2: Key Achievements -->
+        <div class="project-slide-card" style="min-width: 100%; display: flex; background: #f8f9fa; border-radius: 12px; padding: 3rem; margin-right: 2rem; box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);">
+         <div style="flex: 1; padding-right: 3rem;">
+          <div style="background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; text-align: center; border: 3px solid #C49A6C;">
+           <div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">
+             🏆
+            </div> Strategic Success<br>
+            Asset Transfer<br>
+            Image Placeholder
+           </div>
+          </div>
+         </div>
+         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700;">🔹 Key Achievements</h4>
+          <ul style="color: #333; line-height: 1.8; font-size: 1.05rem; padding-left: 1.5rem;">
+           <li style="margin-bottom: 1rem;">Full ownership transfer and asset handover to MINDEF</li>
+           <li style="margin-bottom: 1rem;">Resolution of financial and liability documentation</li>
+           <li style="margin-bottom: 1rem;">Complete coordination of logistics, relocation, and custody procedures</li>
+           <li>Aircraft repurposed into a Close Quarter Battle (CQB) Training Platform for defence operations</li>
+          </ul>
+         </div>
+        </div><!-- Slide 3: Results & Impact -->
+        <div class="project-slide-card" style="min-width: 100%; display: flex; background: #f8f9fa; border-radius: 12px; padding: 3rem; margin-right: 2rem; box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);">
+         <div style="flex: 1; padding-right: 3rem;">
+          <div style="background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; text-align: center; border: 3px solid #C49A6C;">
+           <div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">
+             🎯
+            </div> Defence Training<br>
+            Platform Success<br>
+            Image Placeholder
+           </div>
+          </div>
+         </div>
+         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700;">Results &amp; Impact</h4>
+          <p style="color: #333; line-height: 1.7; font-size: 1.05rem; margin-bottom: 2rem;">This project demonstrated Flysquawk's ability to manage distressed aviation assets, combining technical expertise with strategic negotiation and government collaboration.</p>
+          <div style="background: linear-gradient(135deg, #C49A6C, #F7931E); padding: 1.5rem; border-radius: 8px; color: white; text-align: center;">
+           <p style="font-size: 1.1rem; font-weight: 600; font-style: italic;">"Strategic asset recovery that strengthened Malaysia's defence capabilities while demonstrating our versatility in complex procurement projects."</p>
+          </div>
+         </div>
+        </div>
+       </div><button class="project-slider-prev" style="position: absolute; top: 50%; left: 15px; transform: translateY(-50%); background: rgba(10, 35, 66, 0.9); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 1.5rem; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">‹</button> <button class="project-slider-next" style="position: absolute; top: 50%; right: 15px; transform: translateY(-50%); background: rgba(10, 35, 66, 0.9); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 1.5rem; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">›</button>
+      </div>
+     </div><!-- Divider -->
+     <div style="height: 2px; background: linear-gradient(90deg, transparent 0%, #C49A6C 50%, transparent 100%); margin: 3rem 0;"></div><!-- Project 2: Close Quarter Battle (CQB) Project -->
+     <div class="capability-section fade-in">
+      <div style="margin-bottom: 3rem;">
+       <h3 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; color: #0A2342; margin-bottom: 0.5rem; font-weight: 700; display: flex; align-items: center; gap: 1rem;"><span style="font-size: 2rem;">2️⃣</span> Close Quarter Battle (CQB) Project</h3>
+       <div style="display: flex; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <p style="color: #C49A6C; font-size: 1rem; font-weight: 600;"><strong>Client:</strong> Ministry of Defence Malaysia (MINDEF)</p>
+        <p style="color: #C49A6C; font-size: 1rem; font-weight: 600;"><strong>Scope:</strong> Procurement &amp; Asset Management</p>
+       </div>
+      </div>
+      <div class="project-slider" style="position: relative; overflow: hidden; border-radius: 12px;">
+       <div class="project-slider-container" style="display: flex; transition: transform 0.4s ease;"><!-- Slide 1: Project Overview -->
+        <div class="project-slide-card" style="min-width: 100%; display: flex; background: #f8f9fa; border-radius: 12px; padding: 3rem; margin-right: 2rem; box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);">
+         <div style="flex: 1; padding-right: 3rem;">
+          <div style="background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; text-align: center; border: 3px solid #C49A6C;">
+           <div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">
+             🎯
+            </div> CQB Training<br>
+            Platform Development<br>
+            Image Placeholder
+           </div>
+          </div>
+         </div>
+         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700;">Project Overview</h4>
+          <p style="color: #333; line-height: 1.7; font-size: 1.05rem; margin-bottom: 1.5rem;">This project involved the procurement, inspection, and conversion of decommissioned aviation and defence assets into training systems for CQB (Close Quarter Battle) exercises.</p>
+          <p style="color: #333; line-height: 1.7; font-size: 1.05rem;">Our team managed all aspects of asset selection, verification, and conversion coordination, ensuring strict compliance with defence and safety standards.</p>
+         </div>
+        </div><!-- Slide 2: Key Achievements -->
+        <div class="project-slide-card" style="min-width: 100%; display: flex; background: #f8f9fa; border-radius: 12px; padding: 3rem; margin-right: 2rem; box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);">
+         <div style="flex: 1; padding-right: 3rem;">
+          <div style="background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; text-align: center; border: 3px solid #C49A6C;">
+           <div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">
+             🔧
+            </div> Asset Conversion<br>
+            &amp; Management<br>
+            Image Placeholder
+           </div>
+          </div>
+         </div>
+         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700;">Key Capabilities Demonstrated</h4>
+          <ul style="color: #333; line-height: 1.8; font-size: 1.05rem; padding-left: 1.5rem;">
+           <li style="margin-bottom: 1rem;">Asset selection and technical verification</li>
+           <li style="margin-bottom: 1rem;">Conversion coordination and project management</li>
+           <li style="margin-bottom: 1rem;">Defence and safety standards compliance</li>
+           <li>Multi-domain expertise across aviation and industrial sectors</li>
+          </ul>
+         </div>
+        </div><!-- Slide 3: Results & Impact -->
+        <div class="project-slide-card" style="min-width: 100%; display: flex; background: #f8f9fa; border-radius: 12px; padding: 3rem; margin-right: 2rem; box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);">
+         <div style="flex: 1; padding-right: 3rem;">
+          <div style="background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; text-align: center; border: 3px solid #C49A6C;">
+           <div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">
+             🛡️
+            </div> Defence Readiness<br>
+            Enhancement<br>
+            Image Placeholder
+           </div>
+          </div>
+         </div>
+         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700;">Results &amp; Impact</h4>
+          <p style="color: #333; line-height: 1.7; font-size: 1.05rem; margin-bottom: 2rem;">This initiative strengthened Malaysia's defence readiness while demonstrating Flysquawk's project versatility across aviation and industrial domains.</p>
+          <div style="background: linear-gradient(135deg, #C49A6C, #F7931E); padding: 1.5rem; border-radius: 8px; color: white; text-align: center;">
+           <p style="font-size: 1.1rem; font-weight: 600; font-style: italic;">"Successful conversion of decommissioned assets into critical training infrastructure, showcasing our multi-domain engineering capabilities."</p>
+          </div>
+         </div>
+        </div>
+       </div><button class="project-slider-prev" style="position: absolute; top: 50%; left: 15px; transform: translateY(-50%); background: rgba(10, 35, 66, 0.9); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 1.5rem; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">‹</button> <button class="project-slider-next" style="position: absolute; top: 50%; right: 15px; transform: translateY(-50%); background: rgba(10, 35, 66, 0.9); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 1.5rem; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">›</button>
+      </div>
+     </div><!-- Divider -->
+     <div style="height: 2px; background: linear-gradient(90deg, transparent 0%, #C49A6C 50%, transparent 100%); margin: 3rem 0;"></div><!-- Project 3: Performance Recovery – Elliot Steam Turbine -->
+     <div class="capability-section fade-in">
+      <div style="margin-bottom: 3rem;">
+       <h3 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; color: #0A2342; margin-bottom: 0.5rem; font-weight: 700; display: flex; align-items: center; gap: 1rem;"><span style="font-size: 2rem;">3️⃣</span> Performance Recovery – Elliot Steam Turbine (1.6 MW)</h3>
+       <div style="display: flex; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <p style="color: #C49A6C; font-size: 1rem; font-weight: 600;"><strong>Client:</strong> Proposed for FGV Palm Oil Mill, Sungai Tengi, Selangor</p>
+        <p style="color: #C49A6C; font-size: 1rem; font-weight: 600;"><strong>Partner:</strong> PT Nusantara Turbin dan Propulsi (NTP), Indonesia</p>
+        <p style="color: #C49A6C; font-size: 1rem; font-weight: 600;"><strong>Turbine Type:</strong> Elliot Steam Turbine (1.6 MW)</p>
+       </div>
+      </div>
+      <div class="project-slider" style="position: relative; overflow: hidden; border-radius: 12px;">
+       <div class="project-slider-container" style="display: flex; transition: transform 0.4s ease;"><!-- Slide 1: Project Overview -->
+        <div class="project-slide-card" style="min-width: 100%; display: flex; background: #f8f9fa; border-radius: 12px; padding: 3rem; margin-right: 2rem; box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);">
+         <div style="flex: 1; padding-right: 3rem;">
+          <div style="background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; text-align: center; border: 3px solid #C49A6C;">
+           <div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">
+             ⚙️
+            </div> Elliot Steam Turbine<br>
+            1.6 MW Recovery<br>
+            Image Placeholder
+           </div>
+          </div>
+         </div>
+         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700;">Project Overview</h4>
+          <p style="color: #333; line-height: 1.7; font-size: 1.05rem; margin-bottom: 1.5rem;">This project addressed performance inefficiencies in a 1.6 MW steam turbine operating at only 550 kW (~34% of design capacity).</p>
+          <p style="color: #333; line-height: 1.7; font-size: 1.05rem;">Flysquawk and NTP conducted a full diagnostic assessment, thermodynamic analysis, and rectification proposal to recover turbine performance and reduce energy losses.</p>
+         </div>
+        </div><!-- Slide 2: Scope & Findings -->
+        <div class="project-slide-card" style="min-width: 100%; display: flex; background: #f8f9fa; border-radius: 12px; padding: 3rem; margin-right: 2rem; box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);">
+         <div style="flex: 1; padding-right: 3rem;">
+          <div style="background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; text-align: center; border: 3px solid #C49A6C;">
+           <div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">
+             🔬
+            </div> Diagnostic Analysis<br>
+            &amp; Assessment<br>
+            Image Placeholder
+           </div>
+          </div>
+         </div>
+         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.6rem; margin-bottom: 1rem; font-weight: 700;">🔹 Scope of Work</h4>
+          <ul style="color: #333; line-height: 1.6; font-size: 1rem; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+           <li style="margin-bottom: 0.5rem;">Diagnostic inspection and operating data assessment</li>
+           <li style="margin-bottom: 0.5rem;">Nozzle and expansion flow analysis</li>
+           <li style="margin-bottom: 0.5rem;">Reverse engineering study for component reconditioning</li>
+           <li>Recovery and rectification plan proposal</li>
+          </ul>
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.6rem; margin-bottom: 1rem; font-weight: 700;">🔹 Key Findings</h4>
+          <ul style="color: #333; line-height: 1.6; font-size: 1rem; padding-left: 1.5rem;">
+           <li style="margin-bottom: 0.5rem;">Steam flow rate: 10.4 t/h (≈170% above design)</li>
+           <li style="margin-bottom: 0.5rem;">Pressure drop profile: 20 → 11.7 → 2.5 kg/cm² (incomplete expansion)</li>
+           <li>High specific steam consumption: 18.9 kg/kWh</li>
+          </ul>
+         </div>
+        </div><!-- Slide 3: Expected Outcome -->
+        <div class="project-slide-card" style="min-width: 100%; display: flex; background: #f8f9fa; border-radius: 12px; padding: 3rem; margin-right: 2rem; box-shadow: 0 8px 25px rgba(10, 35, 66, 0.1);">
+         <div style="flex: 1; padding-right: 3rem;">
+          <div style="background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; text-align: center; border: 3px solid #C49A6C;">
+           <div>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">
+             📈
+            </div> Performance Recovery<br>
+            &amp; Savings<br>
+            Image Placeholder
+           </div>
+          </div>
+         </div>
+         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: 'Montserrat', sans-serif; color: #0A2342; font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700;">🔹 Expected Outcome</h4>
+          <ul style="color: #333; line-height: 1.7; font-size: 1.05rem; padding-left: 1.5rem; margin-bottom: 2rem;">
+           <li style="margin-bottom: 1rem;">Restoration to ≥95% of rated capacity through nozzle and flow path refurbishment</li>
+           <li style="margin-bottom: 1rem;">Estimated annual savings up to RM 1 million from reduced grid and steam consumption</li>
+           <li>Strengthened plant energy efficiency and cost sustainability</li>
+          </ul>
+          <div style="background: linear-gradient(135deg, #C49A6C, #F7931E); padding: 1.5rem; border-radius: 8px; color: white; text-align: center;">
+           <p style="font-size: 1.1rem; font-weight: 600; font-style: italic;">"This project exemplifies Flysquawk's mission: restoring legacy equipment to peak performance — saving cost, reducing waste, and protecting capital."</p>
+          </div>
+         </div>
+        </div>
+       </div><button class="project-slider-prev" style="position: absolute; top: 50%; left: 15px; transform: translateY(-50%); background: rgba(10, 35, 66, 0.9); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 1.5rem; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">‹</button> <button class="project-slider-next" style="position: absolute; top: 50%; right: 15px; transform: translateY(-50%); background: rgba(10, 35, 66, 0.9); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 1.5rem; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">›</button>
+      </div>
+     </div><!-- Closing Statement -->
+     <div style="text-align: center; margin-top: 5rem; padding: 3rem; background: linear-gradient(135deg, #0A2342, #1a3a5c); border-radius: 16px; color: white;">
+      <p style="font-size: 1.4rem; font-weight: 600; margin-bottom: 2rem; font-family: 'Montserrat', sans-serif;">Flysquawk Integrated — Delivering precision engineering solutions across aviation, defence, and industrial sectors.</p><a href="#" onclick="event.preventDefault(); showPage('contact');" style="display: inline-block; background: linear-gradient(90deg, #C49A6C, #F7931E); color: #0A2342; padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(196, 154, 108, 0.3);"> Start Your Project → </a>
+     </div>
+    </div>
+   </section>
+  </div><!-- END PROJECTS PAGE --> <!-- CONTACT PAGE -->
+  <div id="page-contact" class="page" style="display: none;">
+   <section class="contact" style="margin-top: 80px; padding: 5rem 5%; background: linear-gradient(135deg, #2E005C 0%, #1B1B1B 100%); color: white; position: relative; overflow: hidden;"><!-- Background Turbine Watermark -->
+    <svg style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; opacity: 0.05; z-index: 1;" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="80" fill="none" stroke="white" stroke-width="2" /> <circle cx="100" cy="100" r="60" fill="none" stroke="white" stroke-width="1.5" /> <circle cx="100" cy="100" r="40" fill="none" stroke="white" stroke-width="1" /> <path d="M100,20 L110,90 L100,100 L90,90 Z" fill="white" opacity="0.6" /> <path d="M180,100 L110,110 L100,100 L110,90 Z" fill="white" opacity="0.6" /> <path d="M100,180 L90,110 L100,100 L110,110 Z" fill="white" opacity="0.6" /> <path d="M20,100 L90,90 L100,100 L90,110 Z" fill="white" opacity="0.6" /> <path d="M145,55 L110,95 L100,100 L105,90 Z" fill="white" opacity="0.4" /> <path d="M145,145 L105,110 L100,100 L110,105 Z" fill="white" opacity="0.4" /> <path d="M55,145 L90,105 L100,100 L95,110 Z" fill="white" opacity="0.4" /> <path d="M55,55 L95,90 L100,100 L90,95 Z" fill="white" opacity="0.4" /> <circle cx="100" cy="100" r="15" fill="white" />
+    </svg>
+    <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 2;"><!-- Header Section -->
+     <div style="text-align: center; margin-bottom: 5rem;" class="fade-in">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">
+       📞
+      </div>
+      <h2 style="font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 800; color: white; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px;">CONTACT US</h2>
+      <div style="background: linear-gradient(90deg, #C49A6C 0%, #F7931E 100%); height: 4px; width: 120px; margin: 1rem auto 2rem;"></div>
+      <h3 style="font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #F7931E; margin-bottom: 2rem; font-weight: 700;">Let's Keep Your Power Alive</h3>
+      <p style="font-size: 1.4rem; font-style: italic; color: #7FD3F4; font-weight: 600; font-family: 'Montserrat', sans-serif; margin-bottom: 1.5rem;">"Old is Gold — if cared for by the right hands."</p>
+      <p style="font-size: 1.2rem; line-height: 1.7; max-width: 800px; margin: 0 auto 1.5rem; opacity: 0.9;">While others rush to replace, we restore. Whether your turbine needs revival or your plant seeks cost-efficient performance — Flysquawk Integrated is ready to help you restore reliability and protect capital.</p>
+      <p style="font-size: 1.1rem; line-height: 1.7; max-width: 800px; margin: 0 auto; opacity: 0.9;">We bring old turbines and compressors back to life with precision, patience, and passion — preserving the machines that once powered Malaysia's growth.</p>
+     </div><!-- Company Information Section -->
+     <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 16px; padding: 3rem; margin-bottom: 3rem; border: 1px solid rgba(255, 255, 255, 0.2);" class="fade-in">
+      <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: #F7931E; margin-bottom: 1rem; font-weight: 700; display: flex; align-items: center; gap: 1rem;"><span>🏢</span> Flysquawk Integrated Sdn Bhd</h3>
+      <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; font-style: italic;">(In Partnership with PT Nusantara Turbin dan Propulsi – NTP)</p><!-- Contact Details Grid -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem;"><!-- Left Column -->
+       <div>
+        <div style="margin-bottom: 2.5rem;">
+         <h4 style="font-family: 'Montserrat', sans-serif; color: #C49A6C; font-size: 1.3rem; margin-bottom: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>📍</span> Address:</h4>
+         <p style="line-height: 1.7; font-size: 1.05rem; opacity: 0.95;">Level 15, DPulze, Lingkaran Cyberpoint Timur,<br>
+           Cyber 12, 63000 Cyberjaya, Malaysia</p>
+        </div>
+        <div>
+         <h4 style="font-family: 'Montserrat', sans-serif; color: #C49A6C; font-size: 1.3rem; margin-bottom: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>🕓</span> Office Hours</h4>
+         <p style="line-height: 1.7; font-size: 1.05rem; opacity: 0.95; margin-bottom: 0.5rem;"><strong>Monday – Friday:</strong> 9:00 AM – 6:00 PM (MYT)</p>
+         <p style="line-height: 1.7; font-size: 1.05rem; opacity: 0.95;"><strong>Saturday &amp; Sunday:</strong> Closed</p>
+        </div>
+       </div><!-- Right Column -->
+       <div>
+        <div style="margin-bottom: 1.5rem;">
+         <h4 style="font-family: 'Montserrat', sans-serif; color: #C49A6C; font-size: 1.3rem; margin-bottom: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>📞</span> Phone:</h4>
+         <p style="line-height: 1.7; font-size: 1.2rem; opacity: 0.95; font-weight: 600;" class="phone-number">+60 19 986 9487</p>
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+         <h4 style="font-family: 'Montserrat', sans-serif; color: #C49A6C; font-size: 1.3rem; margin-bottom: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>📧</span> Email:</h4>
+         <p style="line-height: 1.7; font-size: 1.2rem; opacity: 0.95; font-weight: 600;" class="email-address">enquiry@flysquawk.com.my</p>
+        </div>
+        <div>
+         <h4 style="font-family: 'Montserrat', sans-serif; color: #C49A6C; font-size: 1.3rem; margin-bottom: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>🌐</span> Website:</h4>
+         <p style="line-height: 1.7; font-size: 1.2rem; opacity: 0.95; font-weight: 600;">www.flysquawk.com.my</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Contact Form Section -->
+     <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 16px; padding: 3rem; margin-bottom: 3rem; border: 1px solid rgba(255, 255, 255, 0.2);" class="fade-in">
+      <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: #F7931E; margin-bottom: 2rem; font-weight: 700; text-align: center;">Get In Touch</h3>
+      <form id="enquiry-form" style="max-width: 600px; margin: 0 auto;">
+       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+        <div class="form-group"><label for="name" style="display: block; font-weight: 600; color: #C49A6C; margin-bottom: 0.5rem; font-family: 'Montserrat', sans-serif;">Name</label> <input type="text" id="name" name="name" required style="width: 100%; padding: 1rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 8px; font-family: 'Open Sans', sans-serif; font-size: 1rem; background: rgba(255, 255, 255, 0.1); color: white; transition: border-color 0.3s ease;">
+        </div>
+        <div class="form-group"><label for="email" style="display: block; font-weight: 600; color: #C49A6C; margin-bottom: 0.5rem; font-family: 'Montserrat', sans-serif;">Email</label> <input type="email" id="email" name="email" required style="width: 100%; padding: 1rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 8px; font-family: 'Open Sans', sans-serif; font-size: 1rem; background: rgba(255, 255, 255, 0.1); color: white; transition: border-color 0.3s ease;">
+        </div>
+       </div>
+       <div class="form-group" style="margin-bottom: 1.5rem;"><label for="company" style="display: block; font-weight: 600; color: #C49A6C; margin-bottom: 0.5rem; font-family: 'Montserrat', sans-serif;">Company</label> <input type="text" id="company" name="company" style="width: 100%; padding: 1rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 8px; font-family: 'Open Sans', sans-serif; font-size: 1rem; background: rgba(255, 255, 255, 0.1); color: white; transition: border-color 0.3s ease;">
+       </div>
+       <div class="form-group" style="margin-bottom: 2rem;"><label for="message" style="display: block; font-weight: 600; color: #C49A6C; margin-bottom: 0.5rem; font-family: 'Montserrat', sans-serif;">Message</label> <textarea id="message" name="message" required style="width: 100%; padding: 1rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 8px; font-family: 'Open Sans', sans-serif; font-size: 1rem; background: rgba(255, 255, 255, 0.1); color: white; transition: border-color 0.3s ease; resize: vertical; min-height: 150px;"></textarea>
+       </div><button type="submit" style="width: 100%; padding: 1.2rem; background: linear-gradient(135deg, #C49A6C, #F7931E); color: #2E005C; border: none; border-radius: 8px; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(196, 154, 108, 0.3);">Send Enquiry</button>
+      </form>
+     </div><!-- Social Media Section -->
+     <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 16px; padding: 3rem; margin-bottom: 3rem; border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;" class="fade-in">
+      <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: #F7931E; margin-bottom: 1rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 1rem;"><span>🌍</span> Connect With Us</h3>
+      <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem; opacity: 0.9;">Stay updated with our latest engineering insights, restoration projects, and sustainability stories.</p>
+      <h4 style="font-family: 'Montserrat', sans-serif; color: #C49A6C; font-size: 1.3rem; margin-bottom: 1.5rem; font-weight: 600;">🔗 Follow Us:</h4>
+      <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;"><a href="#" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; color: white; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2);" onmouseover="this.style.background='rgba(196, 154, 108, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'; this.style.transform='translateY(0)'"> <span style="font-size: 1.2rem;">💼</span> <span style="font-weight: 600;">LinkedIn</span> </a> <a href="#" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; color: white; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2);" onmouseover="this.style.background='rgba(196, 154, 108, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'; this.style.transform='translateY(0)'"> <span style="font-size: 1.2rem;">📺</span> <span style="font-weight: 600;">YouTube</span> </a> <a href="#" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; color: white; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2);" onmouseover="this.style.background='rgba(196, 154, 108, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'; this.style.transform='translateY(0)'"> <span style="font-size: 1.2rem;">❌</span> <span style="font-weight: 600;">Twitter (X)</span> </a> <a href="#" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; color: white; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2);" onmouseover="this.style.background='rgba(196, 154, 108, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'; this.style.transform='translateY(0)'"> <span style="font-size: 1.2rem;">📷</span> <span style="font-weight: 600;">Instagram</span> </a> <a href="#" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; color: white; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2);" onmouseover="this.style.background='rgba(196, 154, 108, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'; this.style.transform='translateY(0)'"> <span style="font-size: 1.2rem;">🧵</span> <span style="font-weight: 600;">Threads</span> </a> <a href="#" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; color: white; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2);" onmouseover="this.style.background='rgba(196, 154, 108, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'; this.style.transform='translateY(0)'"> <span style="font-size: 1.2rem;">👥</span> <span style="font-weight: 600;">Facebook</span> </a>
+      </div>
+     </div><!-- Closing Statement -->
+     <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #C49A6C, #F7931E); border-radius: 16px; color: #2E005C;" class="fade-in">
+      <p style="font-size: 1.4rem; font-weight: 700; font-family: 'Montserrat', sans-serif;">Flysquawk Integrated — Preserving Power. Protecting Capital.</p>
+     </div>
+    </div>
+   </section>
+  </div><!-- END CONTACT PAGE --> <!-- Footer -->
+  <footer>
+   <div class="footer-content">
+    <div class="footer-logos">
+     <div class="footer-logo">
+      FLYSQUAWK INTEGRATED SDN BHD
+     </div>
+    </div>
+    <div class="footer-partnership"><span style="opacity: 0.8; font-size: 0.95rem;">In Partnership with</span>
+     <div class="footer-logo">
+      PT NUSANTARA TURBIN DAN PROPULSI (NTP)
+     </div>
+    </div>
+    <div class="certifications">
+     <div class="cert-badge">
+      FAA Certified
+     </div>
+     <div class="cert-badge">
+      ISO 9001
+     </div>
+     <div class="cert-badge">
+      CIDB Registered
+     </div>
+     <div class="cert-badge">
+      MOF Approved
+     </div>
+    </div>
+    <div class="copyright">
+     © 2025 Flysquawk Integrated Sdn Bhd. All rights reserved.<br>
+      "Old is Gold — if cared for by the right hands." | Preserving Power. Protecting Capital.
+    </div>
+   </div>
+  </footer><!-- Floating Contact Button --> <a href="#" class="floating-contact" onclick="event.preventDefault(); showPage('contact');"> <span>💬</span> <span>Contact Us</span> </a>
+  <script>
+        const defaultConfig = {
+            hero_headline: "Rejuvenate Your Industrial Power",
+            hero_subtext: "Malaysia's trusted MRO partner restoring turbines, compressors, and pumps.",
+            cta_button_text: "Discover Our Capabilities",
+            tagline: "Preserving Power. Protecting Capital.",
+            phone_number: "+60 19 986 9487",
+            email_address: "enquiry@flysquawk.com.my"
+        };
+
+        // Multi-page navigation system
+        let currentPage = 'home';
+
+        function showPage(pageName) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // Show selected page
+            const selectedPage = document.getElementById(`page-${pageName}`);
+            if (selectedPage) {
+                selectedPage.style.display = 'block';
+                currentPage = pageName;
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                const activeLink = document.querySelector(`.nav-links a[data-page="${pageName}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Trigger animations for visible elements
+                setTimeout(() => {
+                    const visibleElements = selectedPage.querySelectorAll('.fade-in');
+                    visibleElements.forEach(el => {
+                        el.classList.add('visible');
+                    });
+                }, 100);
+            }
+        }
+
+        async function onConfigChange(config) {
+            document.getElementById('hero-headline').textContent = config.hero_headline || defaultConfig.hero_headline;
+            document.getElementById('hero-subtext').textContent = config.hero_subtext || defaultConfig.hero_subtext;
+            document.getElementById('cta-button').textContent = config.cta_button_text || defaultConfig.cta_button_text;
+            document.getElementById('tagline').textContent = config.tagline || defaultConfig.tagline;
+            const phoneElements = document.querySelectorAll('.phone-number');
+            phoneElements.forEach(el => el.textContent = config.phone_number || defaultConfig.phone_number);
+            const emailElements = document.querySelectorAll('.email-address');
+            emailElements.forEach(el => el.textContent = config.email_address || defaultConfig.email_address);
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["hero_headline", config.hero_headline || defaultConfig.hero_headline],
+                ["hero_subtext", config.hero_subtext || defaultConfig.hero_subtext],
+                ["cta_button_text", config.cta_button_text || defaultConfig.cta_button_text],
+                ["tagline", config.tagline || defaultConfig.tagline],
+                ["phone_number", config.phone_number || defaultConfig.phone_number],
+                ["email_address", config.email_address || defaultConfig.email_address]
+            ]);
+        }
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+
+        // Navigation click handlers
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageName = this.getAttribute('data-page');
+                showPage(pageName);
+            });
+        });
+
+        // CTA button handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctaButton1 = document.getElementById('cta-button-1');
+            const ctaButton2 = document.getElementById('cta-button-2');
+            const ctaButton3 = document.getElementById('cta-button-3');
+            
+            if (ctaButton1) {
+                ctaButton1.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showPage('services');
+                });
+            }
+            
+            if (ctaButton2) {
+                ctaButton2.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showPage('projects');
+                });
+            }
+            
+            if (ctaButton3) {
+                ctaButton3.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showPage('contact');
+                });
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission handler
+        document.getElementById('enquiry-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                message: document.getElementById('message').value
+            };
+
+            // Create success message
+            const successMessage = document.createElement('div');
+            successMessage.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, #2E005C, #4B1D8C);
+                color: white;
+                padding: 2rem 3rem;
+                border-radius: 12px;
+                box-shadow: 0 20px 60px rgba(46, 0, 92, 0.4);
+                z-index: 10000;
+                text-align: center;
+                font-family: 'Montserrat', sans-serif;
+            `;
+            successMessage.innerHTML = `
+                <div style="font-size: 3rem; margin-bottom: 1rem;">✓</div>
+                <h3 style="margin-bottom: 0.5rem; font-size: 1.5rem;">Thank You!</h3>
+                <p style="opacity: 0.9;">Your enquiry has been received. We'll contact you shortly.</p>
+            `;
+            document.body.appendChild(successMessage);
+
+            // Reset form
+            this.reset();
+
+            // Remove message after 3 seconds
+            setTimeout(() => {
+                successMessage.style.opacity = '0';
+                successMessage.style.transition = 'opacity 0.3s ease';
+                setTimeout(() => successMessage.remove(), 300);
+            }, 3000);
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.boxShadow = '0 2px 30px rgba(46, 0, 92, 0.15)';
+            } else {
+                nav.style.boxShadow = '0 2px 20px rgba(46, 0, 92, 0.08)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Capability Slider Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliders = document.querySelectorAll('.capability-slider');
+            
+            sliders.forEach(slider => {
+                const container = slider.querySelector('.slider-container');
+                const slides = slider.querySelectorAll('.slide-card');
+                const prevBtn = slider.querySelector('.slider-prev');
+                const nextBtn = slider.querySelector('.slider-next');
+                
+                let currentSlide = 0;
+                const slideWidth = 320; // 300px + 20px margin
+                const visibleSlides = Math.floor(slider.offsetWidth / slideWidth);
+                const maxSlide = Math.max(0, slides.length - visibleSlides);
+                
+                function updateSlider() {
+                    const translateX = -currentSlide * slideWidth;
+                    container.style.transform = `translateX(${translateX}px)`;
+                }
+                
+                function nextSlide() {
+                    currentSlide = Math.min(currentSlide + 1, maxSlide);
+                    updateSlider();
+                }
+                
+                function prevSlide() {
+                    currentSlide = Math.max(currentSlide - 1, 0);
+                    updateSlider();
+                }
+                
+                nextBtn.addEventListener('click', nextSlide);
+                prevBtn.addEventListener('click', prevSlide);
+                
+                // Auto-advance slides every 8 seconds
+                setInterval(() => {
+                    if (currentSlide >= maxSlide) {
+                        currentSlide = 0;
+                    } else {
+                        currentSlide++;
+                    }
+                    updateSlider();
+                }, 8000);
+                
+                // Touch/swipe support for mobile
+                let startX = 0;
+                let endX = 0;
+                
+                slider.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+                
+                slider.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+                    
+                    if (Math.abs(diff) > 50) { // Minimum swipe distance
+                        if (diff > 0) {
+                            nextSlide();
+                        } else {
+                            prevSlide();
+                        }
+                    }
+                });
+            });
+
+            // Gas Turbine Slider Functionality
+            const gasTurbineSlider = document.querySelector('.gas-turbine-slider');
+            if (gasTurbineSlider) {
+                const container = gasTurbineSlider.querySelector('.gas-turbine-container');
+                const slides = gasTurbineSlider.querySelectorAll('.gas-turbine-slide');
+                const prevBtn = gasTurbineSlider.querySelector('.gas-turbine-prev');
+                const nextBtn = gasTurbineSlider.querySelector('.gas-turbine-next');
+                
+                let currentSlide = 0;
+                const maxSlide = slides.length - 1;
+                
+                function updateGasTurbineSlider() {
+                    const translateX = -currentSlide * 100;
+                    container.style.transform = `translateX(${translateX}%)`;
+                }
+                
+                function nextGasTurbineSlide() {
+                    currentSlide = currentSlide >= maxSlide ? 0 : currentSlide + 1;
+                    updateGasTurbineSlider();
+                }
+                
+                function prevGasTurbineSlide() {
+                    currentSlide = currentSlide <= 0 ? maxSlide : currentSlide - 1;
+                    updateGasTurbineSlider();
+                }
+                
+                nextBtn.addEventListener('click', nextGasTurbineSlide);
+                prevBtn.addEventListener('click', prevGasTurbineSlide);
+                
+                // Auto-advance slides every 10 seconds
+                setInterval(() => {
+                    nextGasTurbineSlide();
+                }, 10000);
+                
+                // Touch/swipe support for mobile
+                let startX = 0;
+                let endX = 0;
+                
+                gasTurbineSlider.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+                
+                gasTurbineSlider.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+                    
+                    if (Math.abs(diff) > 50) { // Minimum swipe distance
+                        if (diff > 0) {
+                            nextGasTurbineSlide();
+                        } else {
+                            prevGasTurbineSlide();
+                        }
+                    }
+                });
+            }
+
+            // Project Slider Functionality
+            const projectSliders = document.querySelectorAll('.project-slider');
+            
+            projectSliders.forEach(slider => {
+                const container = slider.querySelector('.project-slider-container');
+                const slides = slider.querySelectorAll('.project-slide-card');
+                const prevBtn = slider.querySelector('.project-slider-prev');
+                const nextBtn = slider.querySelector('.project-slider-next');
+                
+                let currentSlide = 0;
+                const maxSlide = slides.length - 1;
+                
+                function updateProjectSlider() {
+                    const translateX = -currentSlide * 100;
+                    container.style.transform = `translateX(${translateX}%)`;
+                }
+                
+                function nextProjectSlide() {
+                    currentSlide = currentSlide >= maxSlide ? 0 : currentSlide + 1;
+                    updateProjectSlider();
+                }
+                
+                function prevProjectSlide() {
+                    currentSlide = currentSlide <= 0 ? maxSlide : currentSlide - 1;
+                    updateProjectSlider();
+                }
+                
+                nextBtn.addEventListener('click', nextProjectSlide);
+                prevBtn.addEventListener('click', prevProjectSlide);
+                
+                // Auto-advance slides every 12 seconds
+                setInterval(() => {
+                    nextProjectSlide();
+                }, 12000);
+                
+                // Touch/swipe support for mobile
+                let startX = 0;
+                let endX = 0;
+                
+                slider.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+                
+                slider.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+                    
+                    if (Math.abs(diff) > 50) { // Minimum swipe distance
+                        if (diff > 0) {
+                            nextProjectSlide();
+                        } else {
+                            prevProjectSlide();
+                        }
+                    }
+                });
+            });
+
+            // Industries Slider Functionality
+            const industriesSlider = document.querySelector('.industries-slider');
+            if (industriesSlider) {
+                const container = industriesSlider.querySelector('.industries-slider-container');
+                const slides = industriesSlider.querySelectorAll('.industry-slide-card');
+                const prevBtn = industriesSlider.querySelector('.industries-slider-prev');
+                const nextBtn = industriesSlider.querySelector('.industries-slider-next');
+                
+                let currentSlide = 0;
+                const slideWidth = 370; // 350px + 20px margin
+                const visibleSlides = Math.floor(industriesSlider.offsetWidth / slideWidth);
+                const maxSlide = Math.max(0, slides.length - visibleSlides);
+                
+                function updateIndustriesSlider() {
+                    const translateX = -currentSlide * slideWidth;
+                    container.style.transform = `translateX(${translateX}px)`;
+                }
+                
+                function nextIndustriesSlide() {
+                    currentSlide = Math.min(currentSlide + 1, maxSlide);
+                    updateIndustriesSlider();
+                }
+                
+                function prevIndustriesSlide() {
+                    currentSlide = Math.max(currentSlide - 1, 0);
+                    updateIndustriesSlider();
+                }
+                
+                nextBtn.addEventListener('click', nextIndustriesSlide);
+                prevBtn.addEventListener('click', prevIndustriesSlide);
+                
+                // Auto-advance slides every 6 seconds
+                setInterval(() => {
+                    if (currentSlide >= maxSlide) {
+                        currentSlide = 0;
+                    } else {
+                        currentSlide++;
+                    }
+                    updateIndustriesSlider();
+                }, 6000);
+                
+                // Touch/swipe support for mobile
+                let startX = 0;
+                let endX = 0;
+                
+                industriesSlider.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+                
+                industriesSlider.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+                    
+                    if (Math.abs(diff) > 50) { // Minimum swipe distance
+                        if (diff > 0) {
+                            nextIndustriesSlide();
+                        } else {
+                            prevIndustriesSlide();
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99df8a2b943d38f8',t:'MTc2MzA1MDIzMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

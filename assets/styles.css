@@ -190,7 +190,7 @@ nav {
 }
 
 .logo-img {
-    height: 50px;
+    height: 80px;
     width: auto;
     object-fit: contain;
     transition: var(--transition-base);
@@ -1526,7 +1526,7 @@ footer {
     }
 
     .logo-img {
-        height: 35px;
+        height: 55px;
     }
 
     .logo-text {

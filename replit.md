@@ -64,9 +64,9 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
   - Auto-closes when clicking a link or clicking outside
   - Purple gradient hover effect on menu items
 - ✅ **Logo Replacement**: Updated navigation bar with company's purple spiral logo
-  - Optimized sizing: 50px height (desktop), 35px (mobile)
-  - Added blend mode for smooth integration with white nav bar
-  - Logo includes "FlySquawk INTEGRATED" branding
+  - Optimized sizing: 80px height (desktop), 55px (mobile)
+  - Clearly visible "FlySquawk INTEGRATED" branding with spiral icon
+  - Hover effect with smooth scale animation
 - ✅ **Code Refactoring**: Separated messy 2,367-line HTML into clean, organized files
   - Extracted ALL CSS into `assets/styles.css` (70+ variables, semantic organization)
   - Extracted ALL JavaScript into `assets/script.js` (modular functions, proper scope)

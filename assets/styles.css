@@ -642,16 +642,19 @@ nav {
 .project-category {
     margin-bottom: var(--spacing-4xl);
     background: var(--color-white);
-    padding: var(--spacing-3xl) var(--spacing-2xl);
+    padding: var(--spacing-2xl) var(--spacing-xl);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .project-category-title {
     font-family: var(--font-heading);
-    font-size: var(--font-size-5xl);
+    font-size: var(--font-size-3xl);
     color: var(--color-navy);
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: var(--spacing-xl);
     font-weight: 700;
     border-left: 5px solid var(--color-accent-orange);
     padding-left: var(--spacing-lg);
@@ -697,9 +700,9 @@ nav {
 
 .project-slide-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-2xl);
-    align-items: center;
+    grid-template-columns: 45% 55%;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
 }
 
 .project-image-box {
@@ -710,6 +713,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    max-height: 300px;
 }
 
 .project-image {
@@ -734,7 +738,7 @@ nav {
 }
 
 .project-text-box {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-sm);
 }
 
 .project-tag {
@@ -752,16 +756,17 @@ nav {
 
 .project-text-box h4 {
     font-family: var(--font-heading);
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-2xl);
     color: var(--color-navy);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
     font-weight: 700;
 }
 
 .project-text-box p {
     color: var(--color-text);
-    line-height: 1.8;
+    line-height: 1.6;
     margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
 }
 
 .project-text-box ul {

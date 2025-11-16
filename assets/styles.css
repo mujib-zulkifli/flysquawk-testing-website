@@ -194,7 +194,6 @@ nav {
     width: auto;
     object-fit: contain;
     transition: var(--transition-base);
-    mix-blend-mode: lighten;
 }
 
 .logo:hover .logo-img {

@@ -615,11 +615,10 @@
       <p class="section-subtitle fade-in" style="margin-top: -1.5rem;">Flysquawk Integrated Sdn Bhd, together with PT Nusantara Turbin dan Propulsi (NTP), continues to deliver cross-industry engineering solutions that merge aviation discipline with industrial reliability.</p>
       
       <div class="projects-container">
-        <!-- Unified Project Slider - All 9 Slides -->
+        <!-- Unified Project Slider -->
         <div class="project-category fade-in">
           <div class="project-slider-wrapper">
             <div class="project-slider">
-              
               <!-- Boeing 747 - Slide 1 -->
               <div class="project-slide">
                 <h3 class="project-slide-title">Strategic Aviation Asset Procurement – Boeing 747 (9M-MPD)</h3>
@@ -636,10 +635,8 @@
                   </div>
                 </div>
               </div>
-              
-              <!-- Boeing 747 - Slide 2 -->
+              <!-- Slide 2 -->
               <div class="project-slide">
-                <h3 class="project-slide-title">Strategic Aviation Asset Procurement – Boeing 747 (9M-MPD)</h3>
                 <div class="project-slide-content">
                   <div class="project-image-box">
                     <img src="assets/img/boeing-747-tail-9m-mpd.jpg" alt="Boeing 747 tail section showing registration 9M-MPD" class="project-image">
@@ -654,10 +651,8 @@
                   </div>
                 </div>
               </div>
-              
-              <!-- Boeing 747 - Slide 3 -->
+              <!-- Slide 3 -->
               <div class="project-slide">
-                <h3 class="project-slide-title">Strategic Aviation Asset Procurement – Boeing 747 (9M-MPD)</h3>
                 <div class="project-slide-content">
                   <div class="project-image-box">
                     <img src="assets/img/boeing-747-cockpit-interior.jpg" alt="Boeing 747 cockpit interior during conversion" class="project-image">
@@ -672,10 +667,19 @@
                   </div>
                 </div>
               </div>
-              
-              <!-- CQB - Slide 4 -->
+            </div>
+            <button class="project-slider-prev">‹</button>
+            <button class="project-slider-next">›</button>
+          </div>
+        </div>
+
+        <!-- Project 2: CQB -->
+        <div class="project-category fade-in">
+          <h3 class="project-category-title">Close Quarter Battle (CQB) Project</h3>
+          <div class="project-slider-wrapper">
+            <div class="project-slider">
+              <!-- Slide 1 -->
               <div class="project-slide">
-                <h3 class="project-slide-title">Close Quarter Battle (CQB) Project</h3>
                 <div class="project-slide-content">
                   <div class="project-image-box">
                     <img src="assets/img/cbq-training-boeing-747.jpg" alt="Boeing 747 CQB training platform with military vehicles" class="project-image">
@@ -687,10 +691,8 @@
                   </div>
                 </div>
               </div>
-              
-              <!-- CQB - Slide 5 -->
+              <!-- Slide 2 -->
               <div class="project-slide">
-                <h3 class="project-slide-title">Close Quarter Battle (CQB) Project</h3>
                 <div class="project-slide-content">
                   <div class="project-image-box">
                     <img src="assets/img/cbq-aircraft-conversion-side.jpg" alt="Boeing 747 undergoing conversion for CQB training" class="project-image">
@@ -702,10 +704,8 @@
                   </div>
                 </div>
               </div>
-              
-              <!-- CQB - Slide 6 -->
+              <!-- Slide 3 -->
               <div class="project-slide">
-                <h3 class="project-slide-title">Close Quarter Battle (CQB) Project</h3>
                 <div class="project-slide-content">
                   <div class="project-image-box">
                     <img src="assets/img/cbq-aircraft-aerial.jpg" alt="Aerial view of Boeing 747 CQB training platform conversion" class="project-image">
@@ -717,10 +717,19 @@
                   </div>
                 </div>
               </div>
-              
-              <!-- Elliot Turbine - Slide 7 -->
+            </div>
+            <button class="project-slider-prev">‹</button>
+            <button class="project-slider-next">›</button>
+          </div>
+        </div>
+
+        <!-- Project 3: Elliot Steam Turbine -->
+        <div class="project-category fade-in">
+          <h3 class="project-category-title">Performance Recovery – Elliot Steam Turbine (1.6 MW)</h3>
+          <div class="project-slider-wrapper">
+            <div class="project-slider">
+              <!-- Slide 1 -->
               <div class="project-slide">
-                <h3 class="project-slide-title">Performance Recovery – Elliot Steam Turbine (1.6 MW)</h3>
                 <div class="project-slide-content">
                   <div class="project-image-box">
                     <div class="project-image-placeholder">
@@ -736,10 +745,8 @@
                   </div>
                 </div>
               </div>
-              
-              <!-- Elliot Turbine - Slide 8 -->
+              <!-- Slide 2 -->
               <div class="project-slide">
-                <h3 class="project-slide-title">Performance Recovery – Elliot Steam Turbine (1.6 MW)</h3>
                 <div class="project-slide-content">
                   <div class="project-image-box">
                     <div class="project-image-placeholder">
@@ -764,10 +771,8 @@
                   </div>
                 </div>
               </div>
-              
-              <!-- Elliot Turbine - Slide 9 -->
+              <!-- Slide 3 -->
               <div class="project-slide">
-                <h3 class="project-slide-title">Performance Recovery – Elliot Steam Turbine (1.6 MW)</h3>
                 <div class="project-slide-content">
                   <div class="project-image-box">
                     <div class="project-image-placeholder">
@@ -786,7 +791,6 @@
                   </div>
                 </div>
               </div>
-              
             </div>
             <button class="project-slider-prev">‹</button>
             <button class="project-slider-next">›</button>

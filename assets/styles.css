@@ -699,6 +699,17 @@ nav {
     overflow: hidden;
 }
 
+.project-slide-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    color: var(--color-navy);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 3px solid var(--color-accent-orange);
+    font-weight: 700;
+    text-align: left;
+}
+
 .project-slide-content {
     display: grid;
     grid-template-columns: 40% 60%;

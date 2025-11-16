@@ -52,6 +52,16 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 16, 2025**
+- ✅ **Projects Page Redesign**: Complete overhaul with new content and industrial theme
+  - Updated to "Projects & Highlights" with three major project categories
+  - Vertical arrangement with horizontal slider for each project (2-3 slides per category)
+  - Project 1: Strategic Aviation Asset Procurement – Boeing 747 (9M-MPD)
+  - Project 2: Close Quarter Battle (CQB) Project
+  - Project 3: Performance Recovery – Elliot Steam Turbine (1.6 MW)
+  - Industrial theme with navy, bronze gold, and orange accents
+  - Inspirational quote: "Every project tells a story of restoration, precision, and partnership."
+  - Closing tagline: "Flysquawk Integrated — Reviving legacy assets. Restoring performance. Protecting capital."
+  - Fully responsive with touch/swipe support on mobile
 - ✅ **Navigation Menu Centered**: Repositioned navigation links to center for desktop view
   - Logo remains on the left
   - Navigation menu (Home, About, Services, Projects, Contact) centered in navbar

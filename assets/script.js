@@ -348,23 +348,27 @@
             }
         }
 
-        // --- Project Slider ---
-        const projectSliders = document.querySelectorAll('.project-slider');
+        // --- Project Slider (New Horizontal Scroll) ---
+        const projectSliderWrappers = document.querySelectorAll('.project-slider-wrapper');
         
-        projectSliders.forEach(slider => {
-            const container = slider.querySelector('.project-slider-container');
-            const slides = slider.querySelectorAll('.project-slide-card');
-            const prevBtn = slider.querySelector('.project-slider-prev');
-            const nextBtn = slider.querySelector('.project-slider-next');
+        projectSliderWrappers.forEach(wrapper => {
+            const slider = wrapper.querySelector('.project-slider');
+            const slides = wrapper.querySelectorAll('.project-slide');
+            const prevBtn = wrapper.querySelector('.project-slider-prev');
+            const nextBtn = wrapper.querySelector('.project-slider-next');
             
-            if (!container || !slides.length || !prevBtn || !nextBtn) return;
+            if (!slider || !slides.length || !prevBtn || !nextBtn) return;
             
             let currentSlide = 0;
             const maxSlide = slides.length - 1;
             
             const updateProjectSlider = () => {
-                const translateX = -currentSlide * 100;
-                container.style.transform = `translateX(${translateX}%)`;
+                const slideWidth = slider.offsetWidth;
+                const scrollAmount = currentSlide * slideWidth;
+                slider.scrollTo({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
             };
             
             const nextProjectSlide = () => {
@@ -379,11 +383,6 @@
             
             nextBtn.addEventListener('click', nextProjectSlide);
             prevBtn.addEventListener('click', prevProjectSlide);
-            
-            // Auto-advance slides every 12 seconds
-            setInterval(() => {
-                nextProjectSlide();
-            }, 12000);
             
             // Touch/swipe support for mobile
             let startX = 0;

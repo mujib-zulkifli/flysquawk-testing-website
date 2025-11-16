@@ -52,6 +52,11 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 16, 2025**
+- ✅ **Navigation Menu Centered**: Repositioned navigation links to center for desktop view
+  - Logo remains on the left
+  - Navigation menu (Home, About, Services, Projects, Contact) centered in navbar
+  - Mobile view unchanged - hamburger menu still works perfectly
+  - Professional, balanced desktop layout
 - ✅ **Authentic Brand Color Implementation**: Extracted and applied exact colors from Flysquawk logo
   - Primary Deep Purple: #1E1253 (RGB 30, 18, 83) - Main brand color
   - Vibrant Purple: #4B007F (RGB 75, 0, 127) - Accent brand color

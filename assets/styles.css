@@ -171,15 +171,18 @@ nav {
     max-width: var(--container-lg);
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: var(--spacing-3xl);
+    position: relative;
 }
 
 .logo-section {
     display: flex;
     align-items: center;
     gap: var(--spacing-lg);
+    position: absolute;
+    left: 0;
 }
 
 .logo {
@@ -1523,6 +1526,14 @@ footer {
    RESPONSIVE / MEDIA QUERIES
    ======================================== */
 @media (max-width: 768px) {
+    .nav-container {
+        justify-content: space-between;
+    }
+
+    .logo-section {
+        position: static;
+    }
+
     .nav-links {
         display: none;
     }

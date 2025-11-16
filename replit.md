@@ -52,15 +52,23 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 16, 2025**
+- ✅ **Boeing 747 Section: 3-Slide Structure with Compact Layout**: Restructured content and optimized text sizing
+  - **Slide 1**: Client info, project type, partner, and initial description (exterior photo)
+  - **Slide 2**: Task description + first 2 key achievements (tail section photo)
+  - **Slide 3**: Final 2 key achievements + closing statement (cockpit interior photo)
+  - Reduced font sizes: h4 from 2xl to lg, paragraph text from sm to xs
+  - Reduced padding: text-box from sm to xs, reduced margins throughout
+  - Reduced image height: max 250px (down from 300px)
+  - Reduced grid gap: from xl to md spacing
+  - Text now fits perfectly within slide boundaries without overflow
+  - Slider cycles through all 3 slides: Slide 1 → 2 → 3 → 1 (loops back)
 - ✅ **Navigation Bar Logo Adjustment**: Reduced logo size from 120px to 90px to prevent overlap with menu items
   - Added padding to nav-container for better spacing
   - Logo now displays cleanly without overlapping "Home" menu item
   - Maintains professional appearance on all screen sizes
 - ✅ **Boeing 747 Project Photos Added**: Real event photos integrated into Strategic Aviation Asset Procurement section
-  - Slide 1: Full Boeing 747 exterior on tarmac (boeing-747-exterior-full.jpg)
-  - Slide 2: Tail section with 9M-MPD registration (boeing-747-tail-9m-mpd.jpg)
-  - Slide 3: Cockpit interior during conversion (boeing-747-cockpit-interior.jpg)
-  - All images properly styled with 4:3 aspect ratio and full responsive support
+  - All 3 images properly styled with 4:3 aspect ratio and full responsive support
+  - boeing-747-exterior-full.jpg, boeing-747-tail-9m-mpd.jpg, boeing-747-cockpit-interior.jpg
 - ✅ **Projects Page Redesign**: Complete overhaul with new content and industrial theme
   - Updated to "Projects & Highlights" with three major project categories
   - Vertical arrangement with horizontal slider for each project (2-3 slides per category)

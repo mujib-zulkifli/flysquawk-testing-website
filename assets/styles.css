@@ -701,7 +701,7 @@ nav {
 .project-slide-content {
     display: grid;
     grid-template-columns: 45% 55%;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-md);
     align-items: flex-start;
 }
 
@@ -713,7 +713,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-height: 300px;
+    max-height: 250px;
 }
 
 .project-image {
@@ -738,7 +738,7 @@ nav {
 }
 
 .project-text-box {
-    padding: var(--spacing-sm);
+    padding: var(--spacing-xs);
 }
 
 .project-tag {
@@ -756,30 +756,32 @@ nav {
 
 .project-text-box h4 {
     font-family: var(--font-heading);
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-lg);
     color: var(--color-navy);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
     font-weight: 700;
 }
 
 .project-text-box p {
     color: var(--color-text);
-    line-height: 1.6;
-    margin-bottom: var(--spacing-sm);
-    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-xs);
 }
 
 .project-text-box ul {
     list-style: none;
     padding-left: 0;
+    margin-bottom: var(--spacing-xs);
 }
 
 .project-text-box ul li {
     padding-left: var(--spacing-lg);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
     position: relative;
     color: var(--color-text);
-    line-height: 1.7;
+    line-height: 1.5;
+    font-size: var(--font-size-xs);
 }
 
 .project-text-box ul li::before {
@@ -792,12 +794,14 @@ nav {
 
 .project-highlight {
     background: linear-gradient(135deg, rgba(247, 147, 30, 0.1), rgba(196, 154, 108, 0.1));
-    border-left: 4px solid var(--color-accent-orange);
-    padding: var(--spacing-md);
-    margin-top: var(--spacing-md);
+    border-left: 3px solid var(--color-accent-orange);
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
     border-radius: var(--radius-sm);
     font-weight: 600;
     color: var(--color-navy);
+    font-size: var(--font-size-xs);
+    line-height: 1.5;
 }
 
 .project-slider-prev,

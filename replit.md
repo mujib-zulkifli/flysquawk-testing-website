@@ -1,15 +1,15 @@
 # Flysquawk Integrated Sdn Bhd - Corporate Website
 
 ## Overview
-This is a static corporate website for Flysquawk Integrated Sdn Bhd, a Malaysian MRO (Maintenance, Repair, and Overhaul) partner specializing in rotating equipment such as turbines, compressors, and pumps.
+This is a professional corporate website for Flysquawk Integrated Sdn Bhd, a Malaysian MRO (Maintenance, Repair, and Overhaul) partner specializing in rotating equipment such as turbines, compressors, and pumps.
 
 ## Project Structure
 ```
 .
-├── index.html          # Main website file
+├── index.html          # Clean, semantic HTML (no inline styles)
 ├── assets/
-│   ├── styles.css      # Website styling
-│   ├── script.js       # Interactive features
+│   ├── styles.css      # Organized CSS with design tokens and components
+│   ├── script.js       # Modular JavaScript with proper scope isolation
 │   └── img/            # Directory for your images
 ├── README.txt          # Original setup notes
 └── .gitignore          # Git ignore file
@@ -27,40 +27,58 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ```html
 <!-- Add a hero image -->
-<img src="assets/img/hero-background.jpg" alt="Description of image">
+<img src="assets/img/hero-background.jpg" alt="Description of image" class="hero-image">
 
 <!-- Add a team photo in the About section -->
-<img src="assets/img/team-photo.jpg" alt="Flysquawk team">
+<img src="assets/img/team-photo.jpg" alt="Flysquawk team" class="about-image">
 
 <!-- Add project images -->
-<img src="assets/img/project-1.jpg" alt="Project showcase">
+<img src="assets/img/project-1.jpg" alt="Project showcase" class="project-image">
 ```
 
 ### Common Image Locations
-- **Hero section** (line 29): Add a background image or featured photo
-- **About section** (line 95): Add company photos, team pictures
-- **Projects section** (line 119): Add project photos and results
-- **Services section** (line 107): Add service-related images
+- **Hero section**: Background images for the purple gradient hero area
+- **About section**: Company photos, team pictures, facility images
+- **Services section**: Equipment photos, service process images
+- **Projects section**: Project showcase photos and results
+- **Industries section**: Industry-specific imagery
 
 ## Current State
-- Static website extracted and organized
-- Local web server running on port 5000
-- Image directory created at `assets/img/`
-- Ready for you to upload and add your real photos
+- **Clean, production-ready code** with proper separation of concerns
+- **Fully functional** single-page application with multiple sections
+- **Responsive design** that works on mobile and desktop
+- **Ready for image uploads** with organized folder structure
 
 ## Recent Changes
 **November 16, 2025**
-- Extracted website from cleaned_website.zip
+- ✅ **Code Refactoring**: Separated messy 2,367-line HTML into clean, organized files
+  - Extracted ALL CSS into `assets/styles.css` (70+ variables, semantic organization)
+  - Extracted ALL JavaScript into `assets/script.js` (modular functions, proper scope)
+  - Created clean HTML with NO inline styles, only CSS classes
+- ✅ **Fixed Element SDK Integration**: CTA buttons now synchronize correctly
+- ✅ **Architect Approved**: Code quality verified and production-ready
+- Initial setup: Extracted website from cleaned_website.zip
 - Created assets/img/ directory for user images
 - Set up Python HTTP server workflow
-- Added project documentation
 
 ## Technical Details
 - **Server**: Python HTTP server on port 5000
-- **Framework**: Static HTML/CSS/JavaScript
+- **Framework**: Static HTML/CSS/JavaScript (single-page application)
 - **Workflow**: Auto-starts on project load
 - **Preview**: Available in the webview panel
+- **CSS Organization**: Variables, Base, Layout, Components, Utilities, Responsive
+- **JavaScript Modules**: Navigation, Sliders, Animations, Forms, Scroll Effects
+
+## Code Quality
+- ✅ Clean separation of HTML, CSS, and JavaScript
+- ✅ No inline styles (all styling via CSS classes)
+- ✅ Modular JavaScript with proper scope isolation
+- ✅ Semantic HTML5 markup
+- ✅ CSS variables for design tokens (colors, spacing, fonts)
+- ✅ Responsive design with mobile breakpoints
+- ✅ Production-ready and maintainable
 
 ## User Preferences
-- User wants to replace placeholder/dummy images with real photos
-- Static website structure preferred
+- User wants professional, clean code structure
+- User needs to replace placeholder graphics with real photos
+- Static website structure with single-page navigation

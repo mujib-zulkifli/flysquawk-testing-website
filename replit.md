@@ -52,19 +52,26 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 16, 2025**
-- ✅ **Boeing 747 Section: 4-Slide Alternating Photo/Text Layout**: Reorganized for cleaner presentation
-  - **Slide 1**: Aircraft photo only (boeing-747-exterior-full.jpg) - full-width display
-  - **Slide 2**: Text explanation - Client, Project Type, Partner, and project description
-  - **Slide 3**: Aircraft photo only (boeing-747-tail-9m-mpd.jpg) - full-width display
-  - **Slide 4**: Text explanation - Key achievements and closing statement with 🔹 icon
-  - New CSS classes for photo-only and text-only slides with centered, spacious layouts
-  - Text content properly formatted with comfortable line-height and no overflow
-  - Browser console confirms: "Project Slider 1: Found 4 slides" ✓
-- ✅ **3 Separate Project Sections Maintained**: Each project has its own dedicated section with independent slider
-  - Project 1: Strategic Aviation Asset Procurement – Boeing 747 (9M-MPD) - 4 slides with own navigation
-  - Project 2: Close Quarter Battle (CQB) Project - 3 slides with own navigation
-  - Project 3: Performance Recovery – Elliot Steam Turbine (1.6 MW) - 3 slides with own navigation
-  - Each section has its own project-category-title header
+- ✅ **All Projects: Unified 4-Slide Alternating Layout**: All 3 project sections now use the same clean presentation format
+  - **Project 1 - Boeing 747 (9M-MPD):**
+    - Slide 1: Aircraft photo only (boeing-747-exterior-full.jpg) - full-width display
+    - Slide 2: Text - Client, Project Type, Partner, project description
+    - Slide 3: Aircraft photo only (boeing-747-tail-9m-mpd.jpg) - full-width display
+    - Slide 4: Text - 🔹 Key achievements and closing statement
+  - **Project 2 - CQB Project:**
+    - Slide 1: Training platform photo (cbq-training-boeing-747.jpg) - full-width display
+    - Slide 2: Text - Client, Scope, project description
+    - Slide 3: Conversion photo (cbq-aircraft-conversion-side.jpg) - full-width display
+    - Slide 4: Text - 🔹 Conversion process, delivery, closing statement
+  - **Project 3 - Elliot Steam Turbine (1.6 MW):**
+    - Slide 1: Placeholder (⚡ Elliot Turbine) - full-width display
+    - Slide 2: Text - Client, Partner, Turbine Type, project description
+    - Slide 3: Placeholder (🔧 Diagnostic Analysis) - full-width display
+    - Slide 4: Text - 🔹 Scope, findings, expected outcome, closing statement
+  - New CSS classes: project-slide-photo-only, project-slide-text-only, project-text-full, project-image-full
+  - Centered, spacious layouts with comfortable line-height (1.7) and no overflow
+  - Browser console confirms: All 3 sliders with 4 slides each ✓
+- ✅ **3 Separate Project Sections Maintained**: Each project has its own dedicated section with independent slider and navigation
 - ✅ **CQB Project Photos Added**: Real photos integrated into Close Quarter Battle (CQB) Project section (3 slides)
   - Slide 1: Boeing 747 CQB training platform with military vehicles (cbq-training-boeing-747.jpg)
   - Slide 2: Aircraft undergoing conversion with heavy equipment (cbq-aircraft-conversion-side.jpg)

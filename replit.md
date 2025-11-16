@@ -52,29 +52,25 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 16, 2025**
-- ✅ **3 Separate Project Sections Restored**: Each project now has its own dedicated section with independent slider
-  - Project 1: Strategic Aviation Asset Procurement – Boeing 747 (9M-MPD) - 3 slides with own navigation
+- ✅ **Boeing 747 Section: 4-Slide Alternating Photo/Text Layout**: Reorganized for cleaner presentation
+  - **Slide 1**: Aircraft photo only (boeing-747-exterior-full.jpg) - full-width display
+  - **Slide 2**: Text explanation - Client, Project Type, Partner, and project description
+  - **Slide 3**: Aircraft photo only (boeing-747-tail-9m-mpd.jpg) - full-width display
+  - **Slide 4**: Text explanation - Key achievements and closing statement with 🔹 icon
+  - New CSS classes for photo-only and text-only slides with centered, spacious layouts
+  - Text content properly formatted with comfortable line-height and no overflow
+  - Browser console confirms: "Project Slider 1: Found 4 slides" ✓
+- ✅ **3 Separate Project Sections Maintained**: Each project has its own dedicated section with independent slider
+  - Project 1: Strategic Aviation Asset Procurement – Boeing 747 (9M-MPD) - 4 slides with own navigation
   - Project 2: Close Quarter Battle (CQB) Project - 3 slides with own navigation
   - Project 3: Performance Recovery – Elliot Steam Turbine (1.6 MW) - 3 slides with own navigation
   - Each section has its own project-category-title header
-  - Grid layout optimized: 40% image / 60% text with word-wrap enabled
-  - Browser console confirms: 3 independent sliders detected (3 slides each) ✓
 - ✅ **CQB Project Photos Added**: Real photos integrated into Close Quarter Battle (CQB) Project section (3 slides)
   - Slide 1: Boeing 747 CQB training platform with military vehicles (cbq-training-boeing-747.jpg)
   - Slide 2: Aircraft undergoing conversion with heavy equipment (cbq-aircraft-conversion-side.jpg)
   - Slide 3: Aerial view of complete conversion setup (cbq-aircraft-aerial.jpg)
   - All photos show authentic project documentation of the actual CQB training platform conversion
   - Replaced all placeholders with real event photography
-- ✅ **Boeing 747 Section: 3-Slide Structure with Compact Layout**: Restructured content and optimized text sizing
-  - **Slide 1**: Client info, project type, partner, and initial description (exterior photo)
-  - **Slide 2**: Task description + first 2 key achievements (tail section photo)
-  - **Slide 3**: Final 2 key achievements + closing statement (cockpit interior photo)
-  - Reduced font sizes: h4 from 2xl to lg, paragraph text from sm to xs
-  - Reduced padding: text-box from sm to xs, reduced margins throughout
-  - Reduced image height: max 250px (down from 300px)
-  - Reduced grid gap: from xl to md spacing
-  - Text now fits perfectly within slide boundaries without overflow
-  - Slider cycles through all 3 slides: Slide 1 → 2 → 3 → 1 (loops back)
 - ✅ **Navigation Bar Logo Adjustment**: Reduced logo size from 120px to 90px to prevent overlap with menu items
   - Added padding to nav-container for better spacing
   - Logo now displays cleanly without overlapping "Home" menu item

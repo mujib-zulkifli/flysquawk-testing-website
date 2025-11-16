@@ -52,6 +52,10 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 16, 2025**
+- ✅ **CQB Project Photo Added**: Real photo integrated into Close Quarter Battle (CQB) Project section
+  - Slide 1: Boeing 747 CQB training platform with military vehicles (cbq-training-boeing-747.jpg)
+  - Photo shows the actual aircraft conversion in action with defence assets
+  - Replaced placeholder with authentic project documentation
 - ✅ **Boeing 747 Section: 3-Slide Structure with Compact Layout**: Restructured content and optimized text sizing
   - **Slide 1**: Client info, project type, partner, and initial description (exterior photo)
   - **Slide 2**: Task description + first 2 key achievements (tail section photo)

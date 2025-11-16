@@ -134,6 +134,19 @@
             });
         });
 
+        // Mobile menu link click handlers
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageName = this.getAttribute('data-page');
+                if (pageName) {
+                    window.showPage(pageName);
+                    closeMobileMenu();
+                }
+            });
+        });
+
         // CTA button handlers
         const ctaButton1 = document.getElementById('cta-button-1');
         const ctaButton2 = document.getElementById('cta-button-2');
@@ -159,6 +172,47 @@
                 window.showPage('contact');
             });
         }
+    }
+
+    // =================================================================
+    // MOBILE MENU TOGGLE
+    // =================================================================
+    
+    /**
+     * Initialize mobile menu functionality
+     */
+    function initMobileMenu() {
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        if (!mobileMenuToggle || !mobileMenu) return;
+        
+        // Toggle menu open/close
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideMenu = mobileMenu.contains(event.target);
+            const isClickOnToggle = mobileMenuToggle.contains(event.target);
+            
+            if (!isClickInsideMenu && !isClickOnToggle && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+    }
+    
+    /**
+     * Close mobile menu
+     */
+    function closeMobileMenu() {
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
+        if (mobileMenu) mobileMenu.classList.remove('active');
     }
 
     // =================================================================
@@ -538,6 +592,7 @@
      */
     function init() {
         initNavigation();
+        initMobileMenu();
         initSliders();
         initAnimations();
         initFormHandling();

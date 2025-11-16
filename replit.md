@@ -53,11 +53,11 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 ## Recent Changes
 **November 16, 2025**
 - ✅ **Footer Branding Update**: Replaced text logo with actual Flysquawk logo image
-  - Footer now displays the full purple spiral logo (same as navigation)
-  - Desktop size: 80px height for prominent visibility
-  - Mobile/tablet size: 60px height for clear recognition
+  - Footer now displays the full spiral logo with white color for maximum contrast
+  - Desktop size: 140px height for highly prominent visibility
+  - Mobile/tablet size: 100px height for excellent recognition
   - Removed "Partner: NTP" text - clean Flysquawk branding only
-  - Natural purple color with subtle hover effect
+  - White inverted color with scale and glow hover effect
 - ✅ **Hero Video Background**: Replaced SVG turbine animation with custom video
   - Autoplay, looping video background on hero section
   - Semi-transparent purple overlay for text readability

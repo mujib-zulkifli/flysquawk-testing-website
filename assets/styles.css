@@ -834,15 +834,17 @@ footer {
 }
 
 .footer-logo-img {
-    height: 80px;
+    height: 140px;
     width: auto;
     object-fit: contain;
-    opacity: 0.95;
-    transition: opacity 0.3s ease;
+    filter: brightness(0) invert(1);
+    opacity: 1;
+    transition: all 0.3s ease;
 }
 
 .footer-logo-img:hover {
-    opacity: 1;
+    transform: scale(1.05);
+    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
 }
 
 .footer-partnership {
@@ -1538,7 +1540,7 @@ footer {
     }
 
     .footer-logo-img {
-        height: 60px;
+        height: 100px;
     }
 
     .hero-content h1 {

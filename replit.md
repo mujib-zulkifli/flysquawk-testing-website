@@ -52,6 +52,12 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 16, 2025**
+- ✅ **Authentic Brand Color Implementation**: Extracted and applied exact colors from Flysquawk logo
+  - Primary Deep Purple: #1E1253 (RGB 30, 18, 83) - Main brand color
+  - Vibrant Purple: #4B007F (RGB 75, 0, 127) - Accent brand color
+  - Updated all CSS variables, gradients, and shadows throughout entire website
+  - Hero video overlay now uses authentic brand color
+  - Consistent brand identity across all pages and elements
 - ✅ **Footer Branding Update**: Replaced text logo with actual Flysquawk logo image
   - Footer now displays the full spiral logo with white color for maximum contrast
   - Desktop size: 140px height for highly prominent visibility

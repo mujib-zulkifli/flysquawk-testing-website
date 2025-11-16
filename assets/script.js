@@ -351,13 +351,15 @@
         // --- Project Slider (New Horizontal Scroll) ---
         const projectSliderWrappers = document.querySelectorAll('.project-slider-wrapper');
         
-        projectSliderWrappers.forEach(wrapper => {
+        projectSliderWrappers.forEach((wrapper, index) => {
             const slider = wrapper.querySelector('.project-slider');
             const slides = wrapper.querySelectorAll('.project-slide');
             const prevBtn = wrapper.querySelector('.project-slider-prev');
             const nextBtn = wrapper.querySelector('.project-slider-next');
             
             if (!slider || !slides.length || !prevBtn || !nextBtn) return;
+            
+            console.log(`Project Slider ${index + 1}: Found ${slides.length} slides`);
             
             let currentSlide = 0;
             const maxSlide = slides.length - 1;
@@ -606,3 +608,4 @@
     }
 
 })();
+// Cache buster: 1763294442

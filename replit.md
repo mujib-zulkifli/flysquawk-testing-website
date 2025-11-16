@@ -52,6 +52,15 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 16, 2025**
+- ✅ **Navigation Bar Logo Adjustment**: Reduced logo size from 120px to 90px to prevent overlap with menu items
+  - Added padding to nav-container for better spacing
+  - Logo now displays cleanly without overlapping "Home" menu item
+  - Maintains professional appearance on all screen sizes
+- ✅ **Boeing 747 Project Photos Added**: Real event photos integrated into Strategic Aviation Asset Procurement section
+  - Slide 1: Full Boeing 747 exterior on tarmac (boeing-747-exterior-full.jpg)
+  - Slide 2: Tail section with 9M-MPD registration (boeing-747-tail-9m-mpd.jpg)
+  - Slide 3: Cockpit interior during conversion (boeing-747-cockpit-interior.jpg)
+  - All images properly styled with 4:3 aspect ratio and full responsive support
 - ✅ **Projects Page Redesign**: Complete overhaul with new content and industrial theme
   - Updated to "Projects & Highlights" with three major project categories
   - Vertical arrangement with horizontal slider for each project (2-3 slides per category)

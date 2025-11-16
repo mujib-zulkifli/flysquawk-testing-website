@@ -719,6 +719,87 @@ nav {
     overflow: hidden;
 }
 
+.project-slide-photo-only {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-md);
+    background: var(--color-navy);
+    border-radius: var(--radius-md);
+}
+
+.project-slide-text-only {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    background: linear-gradient(135deg, rgba(30, 18, 83, 0.03), rgba(75, 0, 127, 0.03));
+    border-radius: var(--radius-md);
+    min-height: 350px;
+}
+
+.project-image-full {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.project-text-full {
+    max-width: 800px;
+    width: 100%;
+    color: var(--color-text);
+}
+
+.project-text-full p {
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+}
+
+.project-text-full h4 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    color: var(--color-navy);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
+
+.project-text-full ul {
+    list-style: none;
+    padding-left: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.project-text-full ul li {
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    padding-left: var(--spacing-md);
+    color: var(--color-text);
+}
+
+.project-text-full ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-orange);
+    font-weight: bold;
+}
+
+.project-text-full .project-highlight {
+    background: linear-gradient(135deg, rgba(30, 18, 83, 0.08), rgba(75, 0, 127, 0.08));
+    padding: var(--spacing-md);
+    border-left: 4px solid var(--color-accent-orange);
+    border-radius: var(--radius-sm);
+    font-style: italic;
+    color: var(--color-navy);
+}
+
 .project-image-box {
     background: var(--color-navy);
     border-radius: var(--radius-md);

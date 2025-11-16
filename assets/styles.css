@@ -640,24 +640,24 @@ nav {
 }
 
 .project-category {
-    margin-bottom: var(--spacing-4xl);
+    margin-bottom: var(--spacing-3xl);
     background: var(--color-white);
-    padding: var(--spacing-2xl) var(--spacing-xl);
+    padding: var(--spacing-lg) var(--spacing-md);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card);
-    max-width: 1100px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .project-category-title {
     font-family: var(--font-heading);
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
     color: var(--color-navy);
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
     font-weight: 700;
-    border-left: 5px solid var(--color-accent-orange);
-    padding-left: var(--spacing-lg);
+    border-left: 4px solid var(--color-accent-orange);
+    padding-left: var(--spacing-md);
 }
 
 .project-slider-wrapper {
@@ -723,7 +723,7 @@ nav {
     display: flex !important;
     justify-content: center;
     align-items: center;
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
     background: var(--color-navy);
     border-radius: var(--radius-md);
 }
@@ -732,15 +732,15 @@ nav {
     display: flex !important;
     justify-content: center;
     align-items: center;
-    padding: var(--spacing-2xl) var(--spacing-xl);
+    padding: var(--spacing-lg) var(--spacing-md);
     background: linear-gradient(135deg, rgba(30, 18, 83, 0.03), rgba(75, 0, 127, 0.03));
     border-radius: var(--radius-md);
-    min-height: 350px;
+    min-height: 280px;
 }
 
 .project-image-full {
     width: 100%;
-    max-width: 900px;
+    max-width: 700px;
     height: auto;
     object-fit: contain;
     border-radius: var(--radius-md);
@@ -748,36 +748,36 @@ nav {
 }
 
 .project-text-full {
-    max-width: 800px;
+    max-width: 650px;
     width: 100%;
     color: var(--color-text);
 }
 
 .project-text-full p {
-    font-size: var(--font-size-base);
-    line-height: 1.7;
-    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
     color: var(--color-text);
 }
 
 .project-text-full h4 {
     font-family: var(--font-heading);
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
     color: var(--color-navy);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
     font-weight: 700;
 }
 
 .project-text-full ul {
     list-style: none;
-    padding-left: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
 }
 
 .project-text-full ul li {
-    font-size: var(--font-size-base);
-    line-height: 1.7;
-    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xs);
     position: relative;
     padding-left: var(--spacing-md);
     color: var(--color-text);
@@ -793,11 +793,12 @@ nav {
 
 .project-text-full .project-highlight {
     background: linear-gradient(135deg, rgba(30, 18, 83, 0.08), rgba(75, 0, 127, 0.08));
-    padding: var(--spacing-md);
-    border-left: 4px solid var(--color-accent-orange);
+    padding: var(--spacing-sm);
+    border-left: 3px solid var(--color-accent-orange);
     border-radius: var(--radius-sm);
     font-style: italic;
     color: var(--color-navy);
+    font-size: var(--font-size-sm);
 }
 
 .project-image-box {

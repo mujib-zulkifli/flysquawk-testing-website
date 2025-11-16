@@ -51,6 +51,12 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 16, 2025**
+- ✅ **Mobile Responsive Menu**: Added hamburger menu for phones and tablets
+  - Appears on screens ≤768px (tablets and phones) in top right corner
+  - Animated 3-bar icon transforms to X when active
+  - Smooth dropdown menu with all navigation links
+  - Auto-closes when clicking a link or clicking outside
+  - Purple gradient hover effect on menu items
 - ✅ **Logo Replacement**: Updated navigation bar with company's purple spiral logo
   - Optimized sizing: 50px height (desktop), 35px (mobile)
   - Added blend mode for smooth integration with white nav bar

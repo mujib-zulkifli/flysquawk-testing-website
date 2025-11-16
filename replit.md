@@ -10,7 +10,8 @@ This is a professional corporate website for Flysquawk Integrated Sdn Bhd, a Mal
 ├── assets/
 │   ├── styles.css      # Organized CSS with design tokens and components
 │   ├── script.js       # Modular JavaScript with proper scope isolation
-│   └── img/            # Directory for your images
+│   ├── img/            # Directory for your images
+│   └── video/          # Directory for video assets
 ├── README.txt          # Original setup notes
 └── .gitignore          # Git ignore file
 ```
@@ -51,6 +52,11 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 16, 2025**
+- ✅ **Hero Video Background**: Replaced SVG turbine animation with custom video
+  - Autoplay, looping video background on hero section
+  - Semi-transparent purple overlay for text readability
+  - Fully responsive and mobile-optimized
+  - Video file: `assets/video/hero-background.mp4`
 - ✅ **Mobile Responsive Menu**: Added hamburger menu for phones and tablets
   - Appears on screens ≤768px (tablets and phones) in top right corner
   - Animated 3-bar icon transforms to X when active

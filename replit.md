@@ -52,15 +52,13 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 16, 2025**
-- ✅ **Unified Project Slider (9 Slides Total)**: Merged all 3 separate project sliders into ONE continuous slider
-  - Single slider now contains all 9 slides across all projects
-  - Slides 1-3: Boeing 747 Strategic Aviation Asset Procurement
-  - Slides 4-6: Close Quarter Battle (CQB) Project
-  - Slides 7-9: Performance Recovery - Elliot Steam Turbine
-  - Each slide includes project-slide-title header for clear navigation
-  - Left/Right arrow buttons navigate through all 9 slides continuously
+- ✅ **3 Separate Project Sections Restored**: Each project now has its own dedicated section with independent slider
+  - Project 1: Strategic Aviation Asset Procurement – Boeing 747 (9M-MPD) - 3 slides with own navigation
+  - Project 2: Close Quarter Battle (CQB) Project - 3 slides with own navigation
+  - Project 3: Performance Recovery – Elliot Steam Turbine (1.6 MW) - 3 slides with own navigation
+  - Each section has its own project-category-title header
   - Grid layout optimized: 40% image / 60% text with word-wrap enabled
-  - Browser console confirms: "Project Slider 1: Found 9 slides" ✓
+  - Browser console confirms: 3 independent sliders detected (3 slides each) ✓
 - ✅ **CQB Project Photos Added**: Real photos integrated into Close Quarter Battle (CQB) Project section (3 slides)
   - Slide 1: Boeing 747 CQB training platform with military vehicles (cbq-training-boeing-747.jpg)
   - Slide 2: Aircraft undergoing conversion with heavy equipment (cbq-aircraft-conversion-side.jpg)

@@ -52,6 +52,11 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 17, 2025**
+- ✅ **Vision & Mission Updated**: Revised About section with new restoration-focused messaging
+  - **New Vision**: "To be ASEAN's leading restoration-based MRO partner — preserving legacy industrial assets, protecting capital, and enabling a financially and environmentally sustainable future."
+  - **New Mission**: 6-point mission emphasizing restoration, capital protection, sustainability, and heritage preservation
+  - Stronger focus on restoration-first philosophy and honoring industry craftsmanship
+  - Enhanced messaging around environmental stewardship through repair and refurbishment
 - ✅ **Projects Section Size Optimization**: Made all project sections more compact and space-efficient
   - Container width reduced from 1100px to 900px (18% smaller)
   - Image max-width reduced from 900px to 700px (22% smaller)

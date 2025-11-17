@@ -59,8 +59,8 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
   - Shield emoji (🛡️) represents protective coating technology
   - Grid automatically adjusts to display all 6 capability cards responsively
 - ✅ **Steam Turbine Image Integration**: Replaced placeholder emoji with professional cutaway diagram across both pages
-  - **Home Page - Core Capabilities**: Steam Turbine Manufacturing card displays compact technical cutaway image (60px × 60px, perfectly fits within card without overflow)
-  - Image constraints: max-width/max-height 60px, object-fit contain, centered with auto margins
+  - **Home Page - Core Capabilities**: Steam Turbine Manufacturing card displays technical cutaway image (90px × 90px, enlarged for better visibility)
+  - Image constraints: max-width/max-height 90px, object-fit contain, centered with auto margins
   - **Services Page - First Slide**: Steam Turbine Engineering section features full technical cutaway diagram
   - New CSS classes: .highlight-icon-image (home page) and .slide-real-image (services page)
   - Professional technical diagram showing internal components, blade systems, rotor dynamics, and sealing technology

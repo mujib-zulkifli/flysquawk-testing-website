@@ -52,12 +52,18 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 17, 2025**
+- ✅ **Industrial Coating Capability Added**: New "Industrial Coating – Sermetel Protection" card added to Core Capabilities
+  - 6th capability card featuring high-performance coating services
+  - Emphasizes corrosion/erosion resistance, tight tolerances, and precision surface finish
+  - Ultra-thin protection and high durability for critical rotating equipment parts
+  - Shield emoji (🛡️) represents protective coating technology
+  - Grid automatically adjusts to display all 6 capability cards responsively
 - ✅ **Steam Turbine Image Integration**: Replaced placeholder emoji with professional cutaway diagram across both pages
   - **Home Page - Core Capabilities**: Steam Turbine Manufacturing card displays compact technical cutaway image (80px × 80px, perfectly fits within grid layout)
   - **Services Page - First Slide**: Steam Turbine Engineering section features full technical cutaway diagram
   - New CSS classes: .highlight-icon-image (home page) and .slide-real-image (services page)
   - Professional technical diagram showing internal components, blade systems, rotor dynamics, and sealing technology
-  - Grid layout maintained for clean, organized presentation across all 5 capability cards
+  - Grid layout maintained for clean, organized presentation across all capability cards
 - ✅ **Core Capabilities Update**: Revised "Steam Turbine Overhaul" to "Steam Turbine Manufacturing"
   - Updated description to emphasize reverse engineering and manufacturing capabilities up to 4 MW
   - Highlights partnership with NTP's manufacturing expertise

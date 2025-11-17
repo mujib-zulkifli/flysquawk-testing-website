@@ -52,6 +52,11 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 17, 2025**
+- ✅ **Services Page Steam Turbine Image Added**: Replaced placeholder with professional cutaway diagram
+  - First slide in Steam Turbine section now shows real technical cutaway image (steam-turbine-cutaway.jpg)
+  - Updated slide title to "Steam Turbine Engineering" with enhanced description
+  - New CSS class .slide-real-image for proper image display in service slides
+  - Professional technical diagram showing internal components, blade systems, rotor dynamics, and sealing technology
 - ✅ **Core Capabilities Update**: Revised "Steam Turbine Overhaul" to "Steam Turbine Manufacturing"
   - Updated description to emphasize reverse engineering and manufacturing capabilities up to 4 MW
   - Highlights partnership with NTP's manufacturing expertise

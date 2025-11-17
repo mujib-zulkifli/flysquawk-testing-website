@@ -2369,6 +2369,13 @@ footer {
     margin-bottom: 0.5rem;
 }
 
+.slide-real-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
 /* Projects Page Styles */
 .projects-container {
     max-width: var(--container-md);

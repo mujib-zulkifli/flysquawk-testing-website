@@ -52,20 +52,12 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 17, 2025**
-- ✅ **Core Capabilities Converted to Horizontal Slider**: Transformed grid layout into responsive horizontal slider
-  - Prevents image overflow and provides better mobile experience
-  - Navigation buttons (‹ ›) for easy browsing through 5 capability cards
-  - Touch/swipe support for mobile devices
-  - Auto-scrolling horizontal layout with smooth transitions
-  - Cards now min-width 320px (desktop) / 280px (mobile) with flex display
-  - New JavaScript slider controls with proper transform animations
-  - Gold accent scrollbar with hover effects
 - ✅ **Steam Turbine Image Integration**: Replaced placeholder emoji with professional cutaway diagram across both pages
-  - **Home Page - Core Capabilities**: Steam Turbine Manufacturing card now displays technical cutaway image (120px × 120px with rounded corners and shadow)
+  - **Home Page - Core Capabilities**: Steam Turbine Manufacturing card displays compact technical cutaway image (80px × 80px, perfectly fits within grid layout)
   - **Services Page - First Slide**: Steam Turbine Engineering section features full technical cutaway diagram
   - New CSS classes: .highlight-icon-image (home page) and .slide-real-image (services page)
   - Professional technical diagram showing internal components, blade systems, rotor dynamics, and sealing technology
-  - Consistent visual branding across both Home and Services pages
+  - Grid layout maintained for clean, organized presentation across all 5 capability cards
 - ✅ **Core Capabilities Update**: Revised "Steam Turbine Overhaul" to "Steam Turbine Manufacturing"
   - Updated description to emphasize reverse engineering and manufacturing capabilities up to 4 MW
   - Highlights partnership with NTP's manufacturing expertise

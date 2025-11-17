@@ -52,6 +52,10 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 17, 2025**
+- ✅ **Core Capabilities Update**: Revised "Steam Turbine Overhaul" to "Steam Turbine Manufacturing"
+  - Updated description to emphasize reverse engineering and manufacturing capabilities up to 4 MW
+  - Highlights partnership with NTP's manufacturing expertise
+  - Showcases end-to-end engineering and production capabilities
 - ✅ **About Section Comprehensive Redesign**: Complete rewrite integrating brand philosophy, CSR elements, and restoration-first identity
   - **01. Company Overview**: Enhanced with "restoration-first MRO excellence" positioning and "restore before replace" philosophy
   - **02. Vision & Mission**: 

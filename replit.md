@@ -51,6 +51,21 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 - **Ready for image uploads** with organized folder structure
 
 ## Recent Changes
+**November 17, 2025**
+- ✅ **Projects Section Size Optimization**: Made all project sections more compact and space-efficient
+  - Container width reduced from 1100px to 900px (18% smaller)
+  - Image max-width reduced from 900px to 700px (22% smaller)
+  - Text max-width reduced from 800px to 650px (19% smaller)
+  - Font sizes reduced from base to small throughout all slides
+  - Section padding and margins tightened for compact presentation
+  - Slide min-height reduced from 350px to 280px (20% smaller)
+  - Section titles reduced from 3xl to 2xl font size
+- ✅ **Elliot Steam Turbine Photo Added**: Real turbine photo integrated into Project 3
+  - Slide 1: Elliot Steam Turbine in workshop (elliot-steam-turbine.jpg) - full-width display
+  - Slide 3: Same turbine photo showing diagnostic setup - full-width display
+  - Replaced all placeholders with authentic industrial equipment photography
+  - All 3 projects now use 100% real photos - NO placeholders remaining
+
 **November 16, 2025**
 - ✅ **All Projects: Unified 4-Slide Alternating Layout**: All 3 project sections now use the same clean presentation format
   - **Project 1 - Boeing 747 (9M-MPD):**
@@ -64,12 +79,12 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
     - Slide 3: Conversion photo (cbq-aircraft-conversion-side.jpg) - full-width display
     - Slide 4: Text - 🔹 Conversion process, delivery, closing statement
   - **Project 3 - Elliot Steam Turbine (1.6 MW):**
-    - Slide 1: Placeholder (⚡ Elliot Turbine) - full-width display
+    - Slide 1: Turbine photo (elliot-steam-turbine.jpg) - full-width display
     - Slide 2: Text - Client, Partner, Turbine Type, project description
-    - Slide 3: Placeholder (🔧 Diagnostic Analysis) - full-width display
+    - Slide 3: Turbine photo (elliot-steam-turbine.jpg) - full-width display
     - Slide 4: Text - 🔹 Scope, findings, expected outcome, closing statement
   - New CSS classes: project-slide-photo-only, project-slide-text-only, project-text-full, project-image-full
-  - Centered, spacious layouts with comfortable line-height (1.7) and no overflow
+  - Compact, professional layouts with reduced spacing and font sizes
   - Browser console confirms: All 3 sliders with 4 slides each ✓
 - ✅ **3 Separate Project Sections Maintained**: Each project has its own dedicated section with independent slider and navigation
 - ✅ **CQB Project Photos Added**: Real photos integrated into Close Quarter Battle (CQB) Project section (3 slides)

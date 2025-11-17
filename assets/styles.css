@@ -2123,6 +2123,35 @@ footer {
     font-size: var(--font-size-lg);
 }
 
+/* CSR Section */
+.csr-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.csr-item {
+    background: linear-gradient(135deg, rgba(30, 18, 83, 0.03), rgba(75, 0, 127, 0.03));
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--color-accent-orange);
+}
+
+.csr-item h4 {
+    font-family: var(--font-heading);
+    color: var(--color-purple-alt);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.csr-item p {
+    line-height: 1.7;
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+}
+
 /* Partnership Section */
 .partnership-section {
     background: var(--color-white);
@@ -2403,6 +2432,7 @@ footer {
 @media (max-width: 768px) {
     .philosophy-grid,
     .philosophy-grid-about,
+    .csr-grid,
     .partnership-grid,
     .facilities-grid,
     .certifications-grid {

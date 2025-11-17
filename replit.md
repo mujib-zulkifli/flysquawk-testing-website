@@ -52,11 +52,21 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 17, 2025**
-- ✅ **Vision & Mission Updated**: Revised About section with new restoration-focused messaging
-  - **New Vision**: "To be ASEAN's leading restoration-based MRO partner — preserving legacy industrial assets, protecting capital, and enabling a financially and environmentally sustainable future."
-  - **New Mission**: 6-point mission emphasizing restoration, capital protection, sustainability, and heritage preservation
-  - Stronger focus on restoration-first philosophy and honoring industry craftsmanship
-  - Enhanced messaging around environmental stewardship through repair and refurbishment
+- ✅ **About Section Comprehensive Redesign**: Complete rewrite integrating brand philosophy, CSR elements, and restoration-first identity
+  - **01. Company Overview**: Enhanced with "restoration-first MRO excellence" positioning and "restore before replace" philosophy
+  - **02. Vision & Mission**: 
+    - **Vision**: "To be ASEAN's leading restoration-based MRO partner — preserving legacy industrial assets, protecting capital, and enabling a financially and environmentally sustainable future."
+    - **Mission**: 6-point mission emphasizing restoration, capital protection, sustainability, and heritage preservation
+  - **03. Brand Philosophy - "Old is Gold"**: Expanded messaging honoring industry pioneers, engineering heritage, and industrial stewardship
+  - **04. Corporate Social Responsibility**: NEW section with 4 CSR pillars
+    - 🔧 Honouring Industry Pioneers (respect for elderly engineers and their knowledge)
+    - 🌱 Environmental Stewardship (restoration as natural sustainability)
+    - 🤝 Uplifting Communities (local talent development and workforce strengthening)
+    - ⚙️ Hands-On Excellence (celebrating craftsmanship and manual precision)
+  - **05. Corporate Milestones**: Renumbered (previously 03)
+  - **06. Partnership with NTP**: Renumbered (previously unnumbered), highlighting international expertise + local wisdom
+  - New CSS grid styling for CSR section with responsive mobile layout
+  - Stronger emphasis on restoration-first philosophy, capital protection, and environmental stewardship throughout
 - ✅ **Projects Section Size Optimization**: Made all project sections more compact and space-efficient
   - Container width reduced from 1100px to 900px (18% smaller)
   - Image max-width reduced from 900px to 700px (22% smaller)

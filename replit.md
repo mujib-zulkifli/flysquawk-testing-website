@@ -60,11 +60,11 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
   - Section padding and margins tightened for compact presentation
   - Slide min-height reduced from 350px to 280px (20% smaller)
   - Section titles reduced from 3xl to 2xl font size
-- ✅ **Elliot Steam Turbine Photo Added**: Real turbine photo integrated into Project 3
+- ✅ **Elliot Steam Turbine Photos & Technical Diagrams Added**: Real equipment photos and technical diagrams integrated into Project 3
   - Slide 1: Elliot Steam Turbine in workshop (elliot-steam-turbine.jpg) - full-width display
-  - Slide 3: Same turbine photo showing diagnostic setup - full-width display
-  - Replaced all placeholders with authentic industrial equipment photography
-  - All 3 projects now use 100% real photos - NO placeholders remaining
+  - Slide 3: Nozzle Plate Technical Diagram (elliot-nozzle-plate.png) - showing steam pressure specifications and flow analysis
+  - Replaced all placeholders with authentic industrial equipment photography and engineering diagrams
+  - All 3 projects now use 100% real photos and technical documentation - NO placeholders remaining
 
 **November 16, 2025**
 - ✅ **All Projects: Unified 4-Slide Alternating Layout**: All 3 project sections now use the same clean presentation format

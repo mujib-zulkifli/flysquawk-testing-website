@@ -471,6 +471,14 @@ nav {
     margin-bottom: var(--spacing-md);
 }
 
+.highlight-icon-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 .highlight-card h3 {
     font-family: var(--font-heading);
     font-size: var(--font-size-2xl);

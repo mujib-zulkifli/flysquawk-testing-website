@@ -472,6 +472,61 @@
                 });
             }
         }
+
+        // --- Highlights/Core Capabilities Slider ---
+        const highlightsSlider = document.querySelector('.highlights-slider');
+        if (highlightsSlider) {
+            const container = highlightsSlider.querySelector('.highlights-slider-container');
+            const slides = highlightsSlider.querySelectorAll('.highlight-card');
+            const prevBtn = highlightsSlider.querySelector('.highlights-slider-prev');
+            const nextBtn = highlightsSlider.querySelector('.highlights-slider-next');
+            
+            if (container && slides.length && prevBtn && nextBtn) {
+                let currentSlide = 0;
+                const slideWidth = 360;
+                const visibleSlides = Math.floor(highlightsSlider.offsetWidth / slideWidth);
+                const maxSlide = Math.max(0, slides.length - visibleSlides);
+                
+                const updateHighlightsSlider = () => {
+                    const translateX = -currentSlide * slideWidth;
+                    container.style.transform = `translateX(${translateX}px)`;
+                };
+                
+                const nextHighlightsSlide = () => {
+                    currentSlide = Math.min(currentSlide + 1, maxSlide);
+                    updateHighlightsSlider();
+                };
+                
+                const prevHighlightsSlide = () => {
+                    currentSlide = Math.max(currentSlide - 1, 0);
+                    updateHighlightsSlider();
+                };
+                
+                nextBtn.addEventListener('click', nextHighlightsSlide);
+                prevBtn.addEventListener('click', prevHighlightsSlide);
+                
+                // Touch/swipe support for mobile
+                let startX = 0;
+                let endX = 0;
+                
+                highlightsSlider.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+                
+                highlightsSlider.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+                    
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) {
+                            nextHighlightsSlide();
+                        } else {
+                            prevHighlightsSlide();
+                        }
+                    }
+                });
+            }
+        }
     }
 
     // =================================================================

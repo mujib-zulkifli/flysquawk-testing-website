@@ -52,6 +52,14 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 17, 2025**
+- ✅ **Core Capabilities Converted to Horizontal Slider**: Transformed grid layout into responsive horizontal slider
+  - Prevents image overflow and provides better mobile experience
+  - Navigation buttons (‹ ›) for easy browsing through 5 capability cards
+  - Touch/swipe support for mobile devices
+  - Auto-scrolling horizontal layout with smooth transitions
+  - Cards now min-width 320px (desktop) / 280px (mobile) with flex display
+  - New JavaScript slider controls with proper transform animations
+  - Gold accent scrollbar with hover effects
 - ✅ **Steam Turbine Image Integration**: Replaced placeholder emoji with professional cutaway diagram across both pages
   - **Home Page - Core Capabilities**: Steam Turbine Manufacturing card now displays technical cutaway image (120px × 120px with rounded corners and shadow)
   - **Services Page - First Slide**: Steam Turbine Engineering section features full technical cutaway diagram

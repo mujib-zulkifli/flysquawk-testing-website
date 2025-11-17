@@ -52,9 +52,14 @@ Edit the `index.html` file and add `<img>` tags where you want images to appear.
 
 ## Recent Changes
 **November 17, 2025**
+- ✅ **Core Capabilities Descriptions Condensed**: All capability card descriptions shortened to under 15 words for cleaner presentation
+  - Steam Turbine Manufacturing: 13 words (previously 48 words)
+  - Industrial Coating: 11 words (previously 40 words)
+  - All other cards maintained at 11-12 words each
+  - More concise, scannable content without losing key information
 - ✅ **Industrial Coating Capability Added**: New "Industrial Coating – Sermetel Protection" card added to Core Capabilities
   - 6th capability card featuring high-performance coating services
-  - Emphasizes corrosion/erosion resistance, tight tolerances, and precision surface finish
+  - Emphasizes corrosion/erosion resistance and precision surface finish
   - Ultra-thin protection and high durability for critical rotating equipment parts
   - Shield emoji (🛡️) represents protective coating technology
   - Grid automatically adjusts to display all 6 capability cards responsively

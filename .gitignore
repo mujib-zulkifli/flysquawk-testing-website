@@ -21,3 +21,13 @@ Thumbs.db
 # Temporary files
 *.log
 *.tmp
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (if you add any build tools later)
+node_modules/
+package-lock.json

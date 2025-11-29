@@ -585,6 +585,859 @@
     }
 
     // =================================================================
+    // CARD HOVER PARALLAX EFFECTS
+    // =================================================================
+
+    /**
+     * Apply PETRONAS-style hover lift + parallax tilt to card selectors
+     */
+    function initCardParallax(selector, options = {}) {
+        const cards = document.querySelectorAll(selector);
+        if (!cards.length) return;
+
+        const lift = options.lift ?? 12;
+        const maxTilt = options.maxTilt ?? 6;
+        const prefersReducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const prefersReducedMotion = prefersReducedMotionQuery.matches;
+
+        const resetCard = (card) => {
+            card.style.transform = '';
+            card.classList.remove('is-hovered');
+        };
+
+        if (prefersReducedMotion) {
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.classList.add('is-hovered');
+                    card.style.transform = `translateY(-${lift}px)`;
+                });
+                card.addEventListener('mouseleave', () => resetCard(card));
+            });
+            return;
+        }
+
+        cards.forEach(card => {
+            let rafId = null;
+
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('is-hovered');
+            });
+
+            card.addEventListener('mousemove', (event) => {
+                const rect = card.getBoundingClientRect();
+                const relX = (event.clientX - rect.left) / rect.width;
+                const relY = (event.clientY - rect.top) / rect.height;
+                const rotateY = (relX - 0.5) * (maxTilt * 2);
+                const rotateX = (0.5 - relY) * (maxTilt * 2);
+
+                if (rafId) cancelAnimationFrame(rafId);
+                rafId = requestAnimationFrame(() => {
+                    card.style.transform = `perspective(1200px) translateY(-${lift}px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                if (rafId) {
+                    cancelAnimationFrame(rafId);
+                    rafId = null;
+                }
+                resetCard(card);
+            });
+        });
+    }
+
+    // =================================================================
+    // INDUSTRIES SCROLL STRIP
+    // =================================================================
+
+    function initIndustryScroll() {
+        const scrollContainer = document.getElementById('industries-scroll');
+        if (!scrollContainer) return;
+
+        let autoDirection = 1;
+        let autoRafId = null;
+        let resumeTimeout = null;
+        let autoActive = true;
+
+        const autoStep = () => {
+            if (!autoActive) return;
+
+            scrollContainer.scrollLeft += 0.6 * autoDirection;
+            const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+            if (scrollContainer.scrollLeft >= maxScroll - 1) {
+                autoDirection = -1;
+            } else if (scrollContainer.scrollLeft <= 1) {
+                autoDirection = 1;
+            }
+
+            autoRafId = requestAnimationFrame(autoStep);
+        };
+
+        function startAutoScroll() {
+            if (autoRafId) cancelAnimationFrame(autoRafId);
+            autoActive = true;
+            autoRafId = requestAnimationFrame(autoStep);
+        }
+
+        function pauseAutoScroll() {
+            autoActive = false;
+            if (autoRafId) cancelAnimationFrame(autoRafId);
+            autoRafId = null;
+            if (resumeTimeout) {
+                clearTimeout(resumeTimeout);
+                resumeTimeout = null;
+            }
+        }
+
+        function scheduleResume() {
+            if (resumeTimeout) clearTimeout(resumeTimeout);
+            resumeTimeout = setTimeout(() => {
+                startAutoScroll();
+            }, 2000);
+        }
+
+        const buttons = document.querySelectorAll('.industries-scroll-btn');
+        const scrollByAmount = () => Math.min(scrollContainer.offsetWidth * 0.85, 420);
+
+        const scrollByDirection = (direction) => {
+            scrollContainer.scrollBy({
+                left: scrollByAmount() * direction,
+                behavior: 'smooth'
+            });
+        };
+
+        buttons.forEach((button) => {
+            const dir = button.dataset.scrollDirection === 'prev' ? -1 : 1;
+            button.addEventListener('click', () => {
+                pauseAutoScroll();
+                scrollByDirection(dir);
+                scheduleResume();
+            });
+        });
+
+        ['mouseenter', 'touchstart', 'wheel'].forEach(evt => {
+            scrollContainer.addEventListener(evt, pauseAutoScroll, { passive: true });
+        });
+
+        ['mouseleave', 'touchend'].forEach(evt => {
+            scrollContainer.addEventListener(evt, scheduleResume, { passive: true });
+        });
+
+        startAutoScroll();
+    }
+
+    // =================================================================
+    // STEAM TURBINE ACCORDION
+    // =================================================================
+    
+    /**
+     * Initialize steam turbine accordion dropdowns
+     * Handles smooth expand/collapse animations with + / - icon toggle
+     * PETRONAS-style accordion with clean transitions
+     */
+    function initSteamTurbineAccordion() {
+        const accordionHeaders = document.querySelectorAll('.steam-turbine-accordion-header');
+        
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const accordionItem = this.closest('.steam-turbine-accordion-item');
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                
+                // Close all other accordions (optional - remove if you want multiple open)
+                accordionHeaders.forEach(otherHeader => {
+                    if (otherHeader !== this) {
+                        const otherItem = otherHeader.closest('.steam-turbine-accordion-item');
+                        otherHeader.setAttribute('aria-expanded', 'false');
+                        otherItem.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                
+                // Toggle current accordion
+                const newState = !isExpanded;
+                this.setAttribute('aria-expanded', newState);
+                accordionItem.setAttribute('aria-expanded', newState);
+            });
+        });
+    }
+
+    // =================================================================
+    // CENTRIFUGAL PUMP ACCORDION & SLIDER
+    // =================================================================
+    
+    /**
+     * Initialize centrifugal pump accordion dropdown
+     */
+    function initCentrifugalPumpAccordion() {
+        const accordionHeaders = document.querySelectorAll('.centrifugal-pump-accordion-header');
+        
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const accordionItem = this.closest('.centrifugal-pump-accordion-item');
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                
+                // Toggle current accordion
+                const newState = !isExpanded;
+                this.setAttribute('aria-expanded', newState);
+                accordionItem.setAttribute('aria-expanded', newState);
+            });
+        });
+    }
+
+    /**
+     * Initialize centrifugal pump horizontal slider
+     * Supports mouse drag, touch swipe, and arrow buttons
+     */
+    function initCentrifugalPumpSlider() {
+        const slider = document.getElementById('centrifugal-pump-slider');
+        if (!slider) return;
+
+        const track = slider.querySelector('.centrifugal-pump-slider-track');
+        const slides = track.querySelectorAll('.centrifugal-pump-slide-card');
+        const wrapper = slider.closest('.centrifugal-pump-slider-wrapper');
+        const prevBtn = wrapper ? wrapper.querySelector('.centrifugal-pump-slider-prev') : null;
+        const nextBtn = wrapper ? wrapper.querySelector('.centrifugal-pump-slider-next') : null;
+
+        if (!track || !slides.length) return;
+
+        let currentIndex = 0;
+        let isDragging = false;
+        let startX = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+
+        const getSlideWidth = () => {
+            const slide = slides[0];
+            const gap = parseInt(getComputedStyle(track).gap) || 24;
+            return slide.offsetWidth + gap;
+        };
+
+        const updateSlider = () => {
+            const slideWidth = getSlideWidth();
+            const translateX = -currentIndex * slideWidth;
+            track.style.transform = `translateX(${translateX}px)`;
+            currentTranslate = translateX;
+            prevTranslate = translateX;
+        };
+
+        const nextSlide = () => {
+            if (currentIndex >= slides.length - 1) {
+                currentIndex = 0;
+            } else {
+                currentIndex++;
+            }
+            updateSlider();
+        };
+
+        const prevSlide = () => {
+            if (currentIndex <= 0) {
+                currentIndex = slides.length - 1;
+            } else {
+                currentIndex--;
+            }
+            updateSlider();
+        };
+
+        // Arrow button controls
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nextSlide();
+            });
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                prevSlide();
+            });
+        }
+
+        // Mouse drag support
+        track.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            prevTranslate = currentTranslate;
+            track.style.cursor = 'grabbing';
+            track.style.transition = 'none';
+        });
+
+        track.addEventListener('mouseleave', () => {
+            if (isDragging) {
+                isDragging = false;
+                track.style.cursor = 'grab';
+                track.style.transition = 'transform 0.4s ease';
+                updateSlider();
+            }
+        });
+
+        track.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                track.style.cursor = 'grab';
+                track.style.transition = 'transform 0.4s ease';
+                
+                // Snap to nearest slide
+                const slideWidth = getSlideWidth();
+                const movedBy = currentTranslate - prevTranslate;
+                
+                if (Math.abs(movedBy) > slideWidth / 3) {
+                    if (movedBy < 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                } else {
+                    updateSlider();
+                }
+            }
+        });
+
+        track.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const currentPosition = e.clientX;
+            const moved = currentPosition - startX;
+            currentTranslate = prevTranslate + moved;
+            track.style.transform = `translateX(${currentTranslate}px)`;
+        });
+
+        // Touch swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            prevTranslate = currentTranslate;
+            track.style.transition = 'none';
+        }, { passive: true });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!touchStartX) return;
+            const currentTouch = e.touches[0].clientX;
+            const diff = touchStartX - currentTouch;
+            currentTranslate = prevTranslate - diff;
+            track.style.transform = `translateX(${currentTranslate}px)`;
+        }, { passive: true });
+
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].clientX;
+            const diff = touchStartX - touchEndX;
+            track.style.transition = 'transform 0.4s ease';
+            
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            } else {
+                updateSlider();
+            }
+            
+            touchStartX = 0;
+        }, { passive: true });
+
+        // Initialize cursor style
+        track.style.cursor = 'grab';
+
+        // Initialize
+        updateSlider();
+    }
+
+    // =================================================================
+    // NDT ACCORDION & SLIDER
+    // =================================================================
+    
+    /**
+     * Initialize NDT accordion dropdowns
+     */
+    function initNDTAccordion() {
+        const accordionHeaders = document.querySelectorAll('.ndt-accordion-header');
+        
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const accordionItem = this.closest('.ndt-accordion-item');
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                
+                // Toggle current accordion
+                const newState = !isExpanded;
+                this.setAttribute('aria-expanded', newState);
+                accordionItem.setAttribute('aria-expanded', newState);
+            });
+        });
+    }
+
+    /**
+     * Initialize NDT horizontal slider
+     * Supports mouse drag, touch swipe, and arrow buttons
+     * Stops at the last card (no infinite loop)
+     */
+    function initNDTSlider() {
+        const slider = document.getElementById('ndt-slider');
+        if (!slider) return;
+
+        const track = slider.querySelector('.ndt-slider-track');
+        const slides = track.querySelectorAll('.ndt-slide-card');
+        const wrapper = slider.closest('.ndt-slider-wrapper');
+        const prevBtn = wrapper ? wrapper.querySelector('.ndt-slider-prev') : null;
+        const nextBtn = wrapper ? wrapper.querySelector('.ndt-slider-next') : null;
+
+        if (!track || !slides.length) return;
+
+        let currentIndex = 0;
+        let isDragging = false;
+        let startX = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+
+        const getSlideWidth = () => {
+            const slide = slides[0];
+            const gap = parseInt(getComputedStyle(track).gap) || 20;
+            return slide.offsetWidth + gap;
+        };
+
+        const getMaxIndex = () => {
+            const sliderWidth = slider.offsetWidth;
+            const slideWidth = getSlideWidth();
+            
+            // Calculate total width of all slides
+            let totalWidth = 0;
+            slides.forEach((slide, index) => {
+                totalWidth += slide.offsetWidth;
+                if (index < slides.length - 1) {
+                    totalWidth += parseInt(getComputedStyle(track).gap) || 20;
+                }
+            });
+            
+            // If all slides fit, don't scroll
+            if (totalWidth <= sliderWidth) {
+                return 0;
+            }
+            
+            // Calculate how many slides can be visible
+            const visibleCount = Math.floor(sliderWidth / slideWidth);
+            // Max index ensures the last slide is visible
+            const maxIndex = Math.max(0, slides.length - visibleCount);
+            return maxIndex;
+        };
+
+        const updateSlider = () => {
+            const slideWidth = getSlideWidth();
+            const maxIndex = getMaxIndex();
+            
+            // Ensure currentIndex doesn't exceed maxIndex
+            if (currentIndex > maxIndex) {
+                currentIndex = maxIndex;
+            }
+            
+            const translateX = -currentIndex * slideWidth;
+            track.style.transform = `translateX(${translateX}px)`;
+            currentTranslate = translateX;
+            prevTranslate = translateX;
+        };
+
+        const nextSlide = () => {
+            const maxIndex = getMaxIndex();
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+            }
+            // Stop at the last card - no looping
+            updateSlider();
+        };
+
+        const prevSlide = () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            }
+            // Stop at the first card - no looping
+            updateSlider();
+        };
+
+        // Arrow button controls
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nextSlide();
+            });
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                prevSlide();
+            });
+        }
+
+        // Mouse drag support
+        track.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            prevTranslate = currentTranslate;
+            track.style.cursor = 'grabbing';
+            track.style.transition = 'none';
+        });
+
+        track.addEventListener('mouseleave', () => {
+            if (isDragging) {
+                isDragging = false;
+                track.style.cursor = 'grab';
+                track.style.transition = 'transform 0.4s ease';
+                updateSlider();
+            }
+        });
+
+        track.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                track.style.cursor = 'grab';
+                track.style.transition = 'transform 0.4s ease';
+                
+                const slideWidth = getSlideWidth();
+                const movedBy = currentTranslate - prevTranslate;
+                const maxIndex = getMaxIndex();
+                
+                if (Math.abs(movedBy) > slideWidth / 3) {
+                    if (movedBy < 0) {
+                        // Moving right - go to next slide
+                        if (currentIndex < maxIndex) {
+                            nextSlide();
+                        } else {
+                            // Already at max, snap back
+                            updateSlider();
+                        }
+                    } else {
+                        // Moving left - go to previous slide
+                        if (currentIndex > 0) {
+                            prevSlide();
+                        } else {
+                            // Already at start, snap back
+                            updateSlider();
+                        }
+                    }
+                } else {
+                    // Snap back to current position
+                    updateSlider();
+                }
+            }
+        });
+
+        track.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const currentPosition = e.clientX;
+            const moved = currentPosition - startX;
+            const slideWidth = getSlideWidth();
+            const maxIndex = getMaxIndex();
+            
+            // Calculate potential new translate
+            let newTranslate = prevTranslate + moved;
+            
+            // Constrain to bounds
+            const minTranslate = 0;
+            const maxTranslate = -maxIndex * slideWidth;
+            
+            if (newTranslate > minTranslate) {
+                newTranslate = minTranslate;
+            } else if (newTranslate < maxTranslate) {
+                newTranslate = maxTranslate;
+            }
+            
+            currentTranslate = newTranslate;
+            track.style.transform = `translateX(${currentTranslate}px)`;
+        });
+
+        // Touch swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            prevTranslate = currentTranslate;
+            track.style.transition = 'none';
+        }, { passive: true });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!touchStartX) return;
+            const currentTouch = e.touches[0].clientX;
+            const diff = touchStartX - currentTouch;
+            const slideWidth = getSlideWidth();
+            const maxIndex = getMaxIndex();
+            
+            let newTranslate = prevTranslate - diff;
+            const minTranslate = 0;
+            const maxTranslate = -maxIndex * slideWidth;
+            
+            if (newTranslate > minTranslate) {
+                newTranslate = minTranslate;
+            } else if (newTranslate < maxTranslate) {
+                newTranslate = maxTranslate;
+            }
+            
+            currentTranslate = newTranslate;
+            track.style.transform = `translateX(${currentTranslate}px)`;
+        }, { passive: true });
+
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].clientX;
+            const diff = touchStartX - touchEndX;
+            track.style.transition = 'transform 0.4s ease';
+            const maxIndex = getMaxIndex();
+            
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    // Swipe right - next slide
+                    if (currentIndex < maxIndex) {
+                        nextSlide();
+                    } else {
+                        updateSlider();
+                    }
+                } else {
+                    // Swipe left - previous slide
+                    if (currentIndex > 0) {
+                        prevSlide();
+                    } else {
+                        updateSlider();
+                    }
+                }
+            } else {
+                updateSlider();
+            }
+            
+            touchStartX = 0;
+        }, { passive: true });
+
+        track.style.cursor = 'grab';
+        updateSlider();
+    }
+
+    // =================================================================
+    // SOLAR TURBINE SLIDER
+    // =================================================================
+    
+    /**
+     * Initialize Solar Turbine horizontal slider
+     * Supports mouse drag, touch swipe, and arrow buttons
+     * Stops at the last card (no infinite loop)
+     */
+    function initSolarTurbineSlider() {
+        const slider = document.getElementById('solar-turbine-slider');
+        if (!slider) return;
+
+        const track = slider.querySelector('.solar-turbine-slider-track');
+        const slides = track.querySelectorAll('.solar-turbine-slide-card');
+        const wrapper = slider.closest('.solar-turbine-slider-wrapper');
+        const prevBtn = wrapper ? wrapper.querySelector('.solar-turbine-slider-prev') : null;
+        const nextBtn = wrapper ? wrapper.querySelector('.solar-turbine-slider-next') : null;
+
+        if (!track || !slides.length) return;
+
+        let currentIndex = 0;
+        let isDragging = false;
+        let startX = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+
+        const getSlideWidth = () => {
+            const slide = slides[0];
+            const gap = parseInt(getComputedStyle(track).gap) || 20;
+            return slide.offsetWidth + gap;
+        };
+
+        const getMaxIndex = () => {
+            const sliderWidth = slider.offsetWidth;
+            const slideWidth = getSlideWidth();
+            
+            // Calculate total width of all slides
+            let totalWidth = 0;
+            slides.forEach((slide, index) => {
+                totalWidth += slide.offsetWidth;
+                if (index < slides.length - 1) {
+                    totalWidth += parseInt(getComputedStyle(track).gap) || 20;
+                }
+            });
+            
+            // If all slides fit, don't scroll
+            if (totalWidth <= sliderWidth) {
+                return 0;
+            }
+            
+            // Calculate how many slides can be visible
+            const visibleCount = Math.floor(sliderWidth / slideWidth);
+            // Max index ensures the last slide is visible
+            const maxIndex = Math.max(0, slides.length - visibleCount);
+            return maxIndex;
+        };
+
+        const updateSlider = () => {
+            const slideWidth = getSlideWidth();
+            const maxIndex = getMaxIndex();
+            
+            // Ensure currentIndex doesn't exceed maxIndex
+            if (currentIndex > maxIndex) {
+                currentIndex = maxIndex;
+            }
+            
+            const translateX = -currentIndex * slideWidth;
+            track.style.transform = `translateX(${translateX}px)`;
+            currentTranslate = translateX;
+            prevTranslate = translateX;
+        };
+
+        const nextSlide = () => {
+            const maxIndex = getMaxIndex();
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+            } else {
+                // Loop back to first slide
+                currentIndex = 0;
+            }
+            updateSlider();
+        };
+
+        const prevSlide = () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                // Loop to last slide
+                const maxIndex = getMaxIndex();
+                currentIndex = maxIndex;
+            }
+            updateSlider();
+        };
+
+        // Arrow button controls
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nextSlide();
+            });
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                prevSlide();
+            });
+        }
+
+        // Mouse drag and touch support (simplified for space)
+        track.style.cursor = 'grab';
+        updateSlider();
+    }
+
+    // =================================================================
+    // GE TURBINE SLIDER
+    // =================================================================
+    
+    /**
+     * Initialize GE Turbine horizontal slider
+     * Supports mouse drag, touch swipe, and arrow buttons
+     * Loops back to first slide after last slide
+     */
+    function initGETurbineSlider() {
+        const slider = document.getElementById('ge-turbine-slider');
+        if (!slider) return;
+
+        const track = slider.querySelector('.ge-turbine-slider-track');
+        const slides = track.querySelectorAll('.ge-turbine-slide-card');
+        const wrapper = slider.closest('.ge-turbine-slider-wrapper');
+        const prevBtn = wrapper ? wrapper.querySelector('.ge-turbine-slider-prev') : null;
+        const nextBtn = wrapper ? wrapper.querySelector('.ge-turbine-slider-next') : null;
+
+        if (!track || !slides.length) return;
+
+        let currentIndex = 0;
+        let isDragging = false;
+        let startX = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+
+        const getSlideWidth = () => {
+            const slide = slides[0];
+            const gap = parseInt(getComputedStyle(track).gap) || 20;
+            return slide.offsetWidth + gap;
+        };
+
+        const getMaxIndex = () => {
+            const sliderWidth = slider.offsetWidth;
+            const slideWidth = getSlideWidth();
+            
+            // Calculate total width of all slides
+            let totalWidth = 0;
+            slides.forEach((slide, index) => {
+                totalWidth += slide.offsetWidth;
+                if (index < slides.length - 1) {
+                    totalWidth += parseInt(getComputedStyle(track).gap) || 20;
+                }
+            });
+            
+            // If all slides fit, don't scroll
+            if (totalWidth <= sliderWidth) {
+                return 0;
+            }
+            
+            // Calculate how many slides can be visible
+            const visibleCount = Math.floor(sliderWidth / slideWidth);
+            // Max index ensures the last slide is visible
+            const maxIndex = Math.max(0, slides.length - visibleCount);
+            return maxIndex;
+        };
+
+        const updateSlider = () => {
+            const slideWidth = getSlideWidth();
+            const maxIndex = getMaxIndex();
+            
+            // Ensure currentIndex doesn't exceed maxIndex
+            if (currentIndex > maxIndex) {
+                currentIndex = maxIndex;
+            }
+            
+            const translateX = -currentIndex * slideWidth;
+            track.style.transform = `translateX(${translateX}px)`;
+            currentTranslate = translateX;
+            prevTranslate = translateX;
+        };
+
+        const nextSlide = () => {
+            const maxIndex = getMaxIndex();
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+            } else {
+                // Loop back to first slide
+                currentIndex = 0;
+            }
+            updateSlider();
+        };
+
+        const prevSlide = () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                // Loop to last slide
+                const maxIndex = getMaxIndex();
+                currentIndex = maxIndex;
+            }
+            updateSlider();
+        };
+
+        // Arrow button controls
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nextSlide();
+            });
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                prevSlide();
+            });
+        }
+
+        // Mouse drag and touch support (simplified for space)
+        track.style.cursor = 'grab';
+        updateSlider();
+    }
+
+    // =================================================================
     // INITIALIZATION
     // =================================================================
     
@@ -595,9 +1448,19 @@
         initNavigation();
         initMobileMenu();
         initSliders();
+        initSteamTurbineAccordion();
+        initCentrifugalPumpAccordion();
+        initCentrifugalPumpSlider();
+        initNDTAccordion();
+        initNDTSlider();
+        initSolarTurbineSlider();
+        initGETurbineSlider();
         initAnimations();
         initFormHandling();
         initScrollEffects();
+        initCardParallax('.highlight-card', { lift: 12, maxTilt: 6 });
+        initCardParallax('.industry-card', { lift: 10, maxTilt: 4 });
+        initIndustryScroll();
     }
 
     // Run initialization when DOM is fully loaded
